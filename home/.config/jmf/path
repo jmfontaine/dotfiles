@@ -1,0 +1,6 @@
+## Homebrew
+PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+
+## NodeJS
+# TODO: Check that path
+export PATH="/usr/local/share/npm/bin:$PATH"
