@@ -4,6 +4,14 @@
 
 Install using [homesick](https://github.com/technicalpickles/homesick).
 
+### Sensible OS X defaults
+
+When setting up a new Mac, you may want to set some sensible OS X defaults:
+
+```bash
+~/.config/jmf/.config/osx
+```
+
 ## Feedback
 
 Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles).
