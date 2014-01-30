@@ -20,6 +20,14 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 brew bundle ~/.config/jmf/homebrew
 ```
 
+### Install native apps with `brew cask`
+
+You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
+
+```bash
+~/.config/jmf/.config/cask
+```
+
 ## Feedback
 
 Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles).
