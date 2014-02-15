@@ -9,7 +9,7 @@ Install using [homesick](https://github.com/technicalpickles/homesick).
 When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ```bash
-~/.config/jmf/.config/osx
+sh ~/.config/jmf/.config/osx
 ```
 
 ### Install Homebrew formulae
@@ -25,7 +25,7 @@ brew bundle ~/.config/jmf/homebrew
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
 
 ```bash
-~/.config/jmf/.config/cask
+sh ~/.config/jmf/cask
 ```
 
 ## Feedback
