@@ -1,0 +1,50 @@
+[core]
+	excludesfile = ~/.git_exclude
+	editor = nano
+	pager = cat
+[user]
+	name = Jean-Marc Fontaine
+	email = 
+[color]
+	ui = true
+[alias]
+    # If you use shortened hashes, sometimes you may encounter a collision. The following alias prints out all commits whose hash start with given string. 
+    abbr      = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H %ci %an %s%n\" $commit; done' -"
+	changes   = diff --name-status -r
+	ci        = commit
+	co        = checkout
+	cp        = cherry-pick
+	fp        = format-patch
+	lg        = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative
+	lgg       = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative --graph
+	new       = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	oops      = reset --soft HEAD^
+	prune-all = !git remote | xargs -n 1 git remote prune
+	st        = status
+    whatis    = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+    who       = shortlog -s --
+	whois     = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | head -1' -
+	branchlog = !sh -c \"git lg `git oldest-ancestor`..\"
+	branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
+	dump      = cat-file -p 
+[push]
+	default = upstream
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[merge]
+	tool = Kaleidoscope
+[mergetool]
+	keepBackup = true
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[branch]
+	autosetuprebase = always
+[rerere]
+	enabled = true
