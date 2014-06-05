@@ -24,6 +24,7 @@ install tree
 
 # Install sitespeed.io
 tap sitespeedio/sitespeedio
+tap tobli/browsertime
 install sitespeed.io
 
 # Install various formulae
@@ -33,13 +34,8 @@ install graphviz
 install ngrep
 install node
 install mtr
-install phantomjs
-install pigz
 install qcachegrind
-install skipfish
-install slowhttptest
 install tcpdump
-install zopfli
 
 # Remove outdated versions from the cellar
 cleanup
