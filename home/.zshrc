@@ -18,6 +18,31 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
+# Aliases
+alias ..="cd .."
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+alias ......="cd ../../../../../"
+
+alias d="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias g="git"
+alias gh="history | grep"
+alias h="history"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ll="ls -hl"
+alias la="ls -ahl"
+alias tree="tree -Csu"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update --no-rdoc'
+
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
