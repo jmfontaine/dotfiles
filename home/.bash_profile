@@ -12,3 +12,9 @@ unset file
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 [ -f `brew --prefix`/etc/bash_completion ] && source `brew --prefix`/etc/bash_completion
+
+# Use Powerline Shell as prompt
+function _update_ps1() {
+    export PS1="$(~/.homesick/repos/dotfiles/home/.config/jmf/powerline-shell.py $? 2> /dev/null)"
+}
+export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
