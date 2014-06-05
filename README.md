@@ -17,7 +17,7 @@ sh ~/.config/jmf/.config/osx
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
-brew bundle ~/.config/jmf/homebrew
+brew bundle ~/.config/jmf/Brewfile
 ```
 
 ### Install native apps with `brew cask`
@@ -25,7 +25,7 @@ brew bundle ~/.config/jmf/homebrew
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
 
 ```bash
-sh ~/.config/jmf/cask
+sh ~/.config/jmf/Caskfile
 ```
 
 ## Feedback
