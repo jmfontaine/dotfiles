@@ -1,43 +1,7 @@
-# Install native apps
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
-function installcask() {
-        brew cask install "${@}" 2> /dev/null
-}
-
-installcask java
-
-installcask adium
-installcask airfoil
-installcask alfred
-installcask asepsis
-installcask bartender
-installcask ccmenu
-installcask charles
-installcask clamxav
-installcask cleanmymac
-installcask colloquy
-installcask dropbox
-installcask evernote
-installcask firefox
-installcask functionflip
-installcask google-chrome
-installcask google-drive
-installcask iterm2
-installcask kaleidoscope
-installcask macupdate-desktop
-installcask mplayer-osx-extended
-installcask mysql-workbench
-installcask path-finder
-installcask phpstorm
-installcask sequel-pro
-installcask sidekick
-installcask spotify
-installcask tower
-installcask truecrypt
-installcask vagrant
-installcask virtualbox
-installcask viscosity
-installcask vlc
-installcask xmind
+# Install fonts
+brew tap caskroom/fonts 
+brew cask install font-inconsolata
+brew cask install font-inconsolata-dz-for-powerline
