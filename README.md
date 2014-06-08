@@ -32,7 +32,7 @@ sh ~/.config/jmf/Caskfile
 
 ## Feedback
 
-Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles).
+Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles.
 
 ## Author
 
