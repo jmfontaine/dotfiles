@@ -3,8 +3,18 @@
 ## Installation
 
 * Install [homesick](https://github.com/technicalpickles/homesick)
-* Clone "dotfiles" castle: ``homesick clone jmfontaine/dotfiles``
-* Install "dotfiles" castle: ``homesick symlink dotfiles`` 
+* Clone "dotfiles" castle:
+```bash
+homesick clone jmfontaine/dotfiles
+```
+* Install "dotfiles" castle:
+```bash
+homesick symlink dotfiles
+```
+* Reload ZSH configuration:
+```bash
+source .zshrc 
+```
 
 ### ZSH setup
 
