@@ -6,6 +6,33 @@
 * Clone "dotfiles" castle: ``homesick clone jmfontaine/dotfiles``
 * Install "dotfiles" castle: ``homesick symlink dotfiles`` 
 
+### ZSH setup
+
+Those dotfiles are meant to be used with ZSH. They may work with Bash but there no garantee.
+
+* Install ZSH:
+```bash
+brew install zsh
+```
+* Install Oh My ZSH:
+```bash
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/Tools/oh-my-zsh sh
+```
+
+### ZSH Syntax Highlighting 
+
+[ZSH Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) highlights shell commands to help reading.
+
+* Clone repository: ``git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/Tools``
+* Source the script at the end of ``~/.zshrc``:
+```bash
+source ~/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+* Source ``~/.zshrc`` to take changes into account:
+```bash
+source ~/.zshrc
+```
+
 ### Sensible OS X defaults
 
 When setting up a new Mac, you may want to set some sensible OS X defaults:

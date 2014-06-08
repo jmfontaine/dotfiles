@@ -1,0 +1,26 @@
+# Determine size of a file or total size of a directory
+# Source: https://github.com/mathiasbynens/dotfiles/blob/master/.functions
+function fs() {
+    if du -b /dev/null > /dev/null 2>&1; then
+        local arg=-sbh
+    else
+        local arg=-sh
+    fi
+    if [[ -n "$@" ]]; then
+        du $arg -- "$@"
+    else
+        du $arg .[^.]* *
+    fi
+}
+
+# Create a new directory and enter it
+# Source: https://github.com/mathiasbynens/dotfiles/blob/master/.functions
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
+
+# Lint a PHP file or every PHP files in a directory and display only errors
+# Usage: phplint dummy.php
+function phplint() {
+    find $@ -name "*.php" -exec php -l {} \; | grep "Parse error"
+}
