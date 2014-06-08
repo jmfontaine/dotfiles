@@ -29,6 +29,14 @@ unset file
 autoload -U promptinit && promptinit
 prompt pure
 
+# SSH host autocompletion
+if [ -f ~/.ssh/config ]; then
+	HOSTS=`grep -E '^Host\s+=?\s+([^*]*?)$' ~/.ssh/config | sed 's/=//g' | awk '{print $2}'`
+fi
+if [ "$hosts" ]; then
+	zstyle ':completion:*:hosts' hosts $HOSTS
+fi
+
 # ZSH Syntax Highlighting
 # WARNING: This must be at the end of this file
 source $HOME/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
