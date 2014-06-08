@@ -68,6 +68,15 @@ You could also install native apps with [`brew cask`](https://github.com/phinze/
 sh ~/.caskfile
 ```
 
+### Customize dotdiles
+
+You can easily customize these dotfiles by copying the ``.zsh-extra.template`` to ``~/.zsh-extra`` and adding what you need in it.
+
+Once done reload ZSH configuration:
+```bash
+source ~/.zshrc
+```
+
 ## Feedback
 
 Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles.
