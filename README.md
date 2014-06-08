@@ -78,7 +78,7 @@ You could also install native apps with [Homebrew Cask](https://github.com/phinz
 sh ~/.caskfile
 ```
 
-### Customize dotdiles
+### Customize dotfiles
 
 You can easily customize these dotfiles by copying the ``.zsh-extra.template`` to ``~/.zsh-extra`` and adding what you need in it.
 
