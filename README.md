@@ -8,7 +8,7 @@
 
 ### ZSH setup
 
-Those dotfiles are meant to be used with ZSH. They may work with Bash but there no garantee.
+These dotfiles are meant to be used with ZSH. They may work with Bash but there no garantee.
 
 * Install ZSH:
 ```bash
@@ -63,8 +63,9 @@ Please report suggestions and improvements to https://github.com/jmfontaine/dotf
 
 ## Author
 
-Theses dotfiles have be put together and polished by Jean-Marc Fontaine with the help of the following people:
+These dotfiles have be put together and polished by Jean-Marc Fontaine with the help of the following people:
 
-* [Mathias Bynens](http://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
+* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+* [Matt Stauffer](https://github.com/mattstauffer/ohmyzsh-dotfiles)
 
 
