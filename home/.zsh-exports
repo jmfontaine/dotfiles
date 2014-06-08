@@ -22,3 +22,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/etc/Caskroom"
 # Source: http://it.toolbox.com/blogs/lim/how-to-fix-colors-on-mac-osx-terminal-37214
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Install Homebrew Cask applications in /Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
