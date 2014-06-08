@@ -18,9 +18,9 @@ plugins=(brew composer git npm osx symfony2 vagrant)
 source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles
-# * ~/.jmf-path can be used to extend `$PATH`.
-# * ~/.jmf-extra can be used for other settings you don’t want to commit to your repo.
-for file in ~/.jmf-{path,exports,aliases,functions,extra}; do
+# * ~/.zsh-path can be used to extend `$PATH`.
+# * ~/.zsh-extra can be used for other settings you don’t want to commit to your repo.
+for file in ~/.zsh-{path,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
