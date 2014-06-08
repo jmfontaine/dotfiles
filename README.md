@@ -33,6 +33,17 @@ source ~/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zshrc
 ```
 
+### Install Pure prompt
+
+* Install using ``npm``:
+```bash
+npm install --global pure-prompt
+```
+* Create symlink:
+```bash
+ln -s "/usr/local/lib/node_modules/pure-prompt/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
+```
+
 ### Sensible OS X defaults
 
 When setting up a new Mac, you may want to set some sensible OS X defaults:
