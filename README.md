@@ -2,7 +2,9 @@
 
 ## Installation
 
-Install using [homesick](https://github.com/technicalpickles/homesick).
+* Install [homesick](https://github.com/technicalpickles/homesick)
+* Clone "dotfiles" castle: ``homesick clone jmfontaine/dotfiles``
+* Install "dotfiles" castle: ``homesick symlink dotfiles`` 
 
 ### Sensible OS X defaults
 
