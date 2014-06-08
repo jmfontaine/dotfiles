@@ -9,7 +9,7 @@ Install using [homesick](https://github.com/technicalpickles/homesick).
 When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ```bash
-sh ~/.config/jmf/.config/osx
+sh ~/.config/jmf/osx
 ```
 
 ### Install Homebrew formulae
