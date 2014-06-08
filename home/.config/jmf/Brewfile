@@ -28,14 +28,20 @@ tap tobli/browsertime
 install sitespeed.io
 
 # Install various formulae
+install ack
 install composer
 install git
 install graphviz
+install md5sha1sum
+install mergelog
 install ngrep
 install node
 install mtr
+install multitail
 install qcachegrind
 install tcpdump
+install tmux
+install zsh
 
 # Remove outdated versions from the cellar
 cleanup
