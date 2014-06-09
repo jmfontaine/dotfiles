@@ -92,5 +92,7 @@ These dotfiles have be put together and polished by Jean-Marc Fontaine with insp
 
 * [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
 * [Matt Stauffer](https://github.com/mattstauffer/ohmyzsh-dotfiles)
+* [Isaac Wolkerstorfer](https://gist.github.com/agnoster/3712874)
+* [Wade Simmons](https://github.com/wadey/dotfiles)
 
 
