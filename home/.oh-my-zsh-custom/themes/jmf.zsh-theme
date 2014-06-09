@@ -65,7 +65,7 @@ draw_prompt_git() {
 
 # Displays path current to current directory
 draw_prompt_dir() {
-    draw_prompt_segment white black '%2~'
+    draw_prompt_segment blue black '%2~'
 }
  
 # Displays exit status if different from 0
