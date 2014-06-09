@@ -13,6 +13,7 @@ alias h="history"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ll="ls -hl"
 alias la="ls -ahl"
+alias reload="source ~/.zshrc"
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
 alias tree="tree -Csu"
 
@@ -24,11 +25,13 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 # Vagrant
 alias v="vagrant"
-alias vup="vagrant up"
-alias vprov="vagrant provision"
-alias vsus="vagrant suspend"
-alias vhalt="vagrant halt"
 alias vdes="vagrant destroy"
+alias vhalt="vagrant halt"
+alias vprov="vagrant provision"
+alias vrel="vagrant reload"
+alias vssh="vagrant ssh"
+alias vsus="vagrant suspend"
+alias vup="vagrant up"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
