@@ -43,6 +43,12 @@ source ~/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zshrc
 ```
 
+### Powerline Compatible Font
+
+You will need to install a [Powerline-patched font](https://github.com/Lokaltog/powerline-fonts) for the ZSH theme to render correctly.
+
+## Usage
+
 ### Sensible OS X defaults
 
 When setting up a new Mac, you may want to set some sensible OS X defaults:
@@ -78,11 +84,11 @@ source ~/.zshrc
 
 ## Feedback
 
-Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles.
+Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles/issues.
 
 ## Author
 
-These dotfiles have be put together and polished by Jean-Marc Fontaine with the help of the following people:
+These dotfiles have be put together and polished by Jean-Marc Fontaine with inspiration from the following people:
 
 * [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
 * [Matt Stauffer](https://github.com/mattstauffer/ohmyzsh-dotfiles)
