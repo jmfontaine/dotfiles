@@ -33,7 +33,7 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 [ZSH Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) highlights shell commands to help reading.
 
-* Clone repository: ``git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/Tools``
+* Clone repository: ``git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/Tools/zsh-syntax-highlighting``
 * Source the script at the end of ``~/.zshrc``:
 ```bash
 source ~/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
