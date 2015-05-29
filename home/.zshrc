@@ -29,6 +29,13 @@ if [ "$hosts" ]; then
 	zstyle ':completion:*:hosts' hosts $HOSTS
 fi
 
+# AWS CLI Completion
+source /usr/local/share/zsh/site-functions/_aws
+
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # ZSH Syntax Highlighting
 # WARNING: This must be at the end of this file
 source $HOME/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
