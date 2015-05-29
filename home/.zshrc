@@ -9,7 +9,7 @@ ZSH_THEME="jmf"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in $HOME/Tools/oh-my-zsh/plugins/*)
-plugins=(brew composer git iterm2-tab-color npm osx symfony2 vagrant)
+plugins=(brew composer docker git iterm2-tab-color npm osx symfony2 vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
