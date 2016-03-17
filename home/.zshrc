@@ -9,7 +9,8 @@ ZSH_THEME="jmf"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in $HOME/Tools/oh-my-zsh/plugins/*)
-plugins=(brew composer docker git iterm2-tab-color npm osx symfony2 vagrant)
+#plugins=(brew composer docker git iterm2-tab-color npm osx symfony2 vagrant)
+plugins=(composer docker git iterm2-tab-color osx symfony2 vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,12 +31,16 @@ if [ "$hosts" ]; then
 fi
 
 # AWS CLI Completion
-source /usr/local/share/zsh/site-functions/_aws
+#source /usr/local/share/zsh/site-functions/_aws
 
-# NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# direnv
+#eval "$(direnv hook zsh)"
+
+# rbenv
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # ZSH Syntax Highlighting
 # WARNING: This must be at the end of this file
 source $HOME/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

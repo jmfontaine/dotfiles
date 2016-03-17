@@ -20,9 +20,7 @@ brew cask install iterm2
 brew cask install kaleidoscope
 brew cask install lastfm
 brew cask install macupdate-desktop
-brew cask install mou
 brew cask install mplayer-osx-extended
-brew cask install mysqlworkbench
 brew cask install optimal-layout
 brew cask install path-finder
 brew cask install phpstorm
@@ -30,7 +28,6 @@ brew cask install reeder
 brew cask install sequel-pro
 brew cask install skitch
 brew cask install skype
-brew cask install spotify
 brew cask install tower
 brew cask install transmit
 brew cask install virtualbox
@@ -40,7 +37,7 @@ brew cask install xmind
 brew cask install vagrant
 
 # Install fonts
-brew tap caskroom/fonts 
+brew tap caskroom/fonts
 brew cask install font-inconsolata
 brew cask install font-inconsolata-dz-for-powerline
 

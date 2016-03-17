@@ -1,5 +1,5 @@
-# Make nano the default editor
-export EDITOR="nano"
+# Make vi the default editor
+export EDITOR="vi"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -21,4 +21,15 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Install Homebrew Cask applications in /Applications
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+#export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# NVM
+#export NVM_DIR=~/.nvm
+#source $(brew --prefix nvm)/nvm.sh
+
+# Go
+#export GOPATH=~/Sites/gopath
+#export PATH=$PATH:$(brew --prefix go)/bin:$GOPATH/bin
+
+# PHP
+#export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"

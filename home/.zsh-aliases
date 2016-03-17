@@ -49,3 +49,7 @@ alias s3cmd-prod="s3cmd -c ~/.s3cfg-prod"
 alias eb-jmf="eb --profile=jmf"
 alias eb-dev="eb --profile=dev"
 alias eb-prod="eb --profile=prod"
+
+# AWS CLI
+alias aws-dev="aws --profile=dev"
+alias aws-prod="aws --profile=prod"
