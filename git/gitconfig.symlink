@@ -1,0 +1,53 @@
+[core]
+	editor = vi
+	excludesfile = ~/.gitignore
+	pager = cat
+
+[user]
+	name = Jean-Marc Fontaine
+	email =
+
+[color]
+	ui = true
+
+[alias]
+	ci   = commit
+	co   = checkout
+	cp   = cherry-pick
+	lg   = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative
+	oops = reset HEAD^ --soft
+	st   = status
+	wip  = !git add -A && git commit -m 'WIP'
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[push]
+	default = current
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+	prompt = false
+
+[diff]
+	tool = Kaleidoscope
+
+[merge]
+	tool = Kaleidoscope
+
+[mergetool]
+	keepBackup = true
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+[branch]
+	autosetuprebase = always
+
+[rerere]
+	enabled = true
