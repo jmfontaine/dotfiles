@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
 set -e
+readonly SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source ${SCRIPT_DIR}/../_shared.sh
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-echo "› Installing Homebrew"
-if test ! $(which brew)
-then
+header "Installing Homebrew"
+if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-  echo "already installed."
+  echo "already installed, skipping"
 fi
 echo ""
 
-echo "› Installing formulas"
-brew bundle --file="${CURRENT_DIR}"/Brewfile
+header "Installing formulas"
+brew bundle --file="${SCRIPT_DIR}"/Brewfile
 echo ""
 
 exit 0
