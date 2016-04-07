@@ -11,6 +11,10 @@ if test $(which brew); then
 
   echo "Upgrading installed Homebrew formulas"
   brew upgrade
+
+  echo "Cleaning up Homebrew temporary files"
+  brew cleanup
+  brew cask cleanup
 else
   echo "homebrew is not installed, skipping"
 fi
