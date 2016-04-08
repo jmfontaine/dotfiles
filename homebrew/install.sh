@@ -18,4 +18,9 @@ section_header "Installing formulas"
 brew bundle --file="${SCRIPT_DIR}"/Brewfile
 echo ""
 
+section_header "Cleaning up Homebrew temporary files"
+brew cleanup
+brew cask cleanup
+echo ""
+
 exit 0
