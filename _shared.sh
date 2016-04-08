@@ -5,14 +5,18 @@ set -e
 readonly ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 readonly VENDOR_DIR=${VENDOR_DIR:-$ROOT_DIR/vendor}
 
-readonly RED="\\033[0;31m"
+readonly BLUE_BOLD="\\033[1;34m"
 readonly GREEN="\\033[0;32m"
-readonly NO_COLOR="\\033[0m"
+readonly RED="\\033[0;31m"
+readonly RESET="\\033[0m"
 
-header () {
-  echo -e "${GREEN}› $1${NO_COLOR}"
+module_header () {
+  echo -e "${BLUE_BOLD}${1}${RESET}"
 }
 
+section_header () {
+  echo -e "${GREEN}› ${1}${RESET}"
+}
 
 symlink_dotfile () {
   local src=$1 dst="${HOME}/${1##*/}"

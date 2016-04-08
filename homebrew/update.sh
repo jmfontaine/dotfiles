@@ -4,17 +4,21 @@ set -e
 readonly SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source ${SCRIPT_DIR}/../_shared.sh
 
-header "Homebrew"
+module_header "Homebrew"
+
 if test $(which brew); then
-  echo "Updating Homebrew and formulas list"
+  section_header "Updating Homebrew and formulas list"
   brew update
+  echo ""
 
-  echo "Upgrading installed Homebrew formulas"
+  section_header "Upgrading installed Homebrew formulas"
   brew upgrade
+  echo ""
 
-  echo "Cleaning up Homebrew temporary files"
+  section_header "Cleaning up Homebrew temporary files"
   brew cleanup
   brew cask cleanup
+  echo ""
 else
   echo "homebrew is not installed, skipping"
 fi
