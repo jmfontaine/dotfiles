@@ -1,0 +1,64 @@
+# Brew Formulas
+tap 'homebrew/dupes'
+tap 'homebrew/php'
+brew 'awscli'
+brew 'composer'
+brew 'docker'
+brew 'docker-compose'
+brew 'docker-machine'
+brew 'git'
+brew 'git-extras'
+brew 'go'
+brew 'graphviz'
+brew 'htop'
+brew 'httpie'
+brew 'jq'
+brew 'nvm'
+brew 'openssh'
+brew 'openssl'
+brew 'php70'
+brew 'php70-intl'
+brew 'pv'
+brew 'wget', args: ['enable-iri']
+brew 'zsh'
+
+# Brew GNU Formulas
+brew 'coreutils', args: ['with-default-names']
+brew 'findutils', args: ['with-default-names']
+brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-tar', args: ['with-default-names']
+brew 'grep', args: ['with-default-names']
+
+# Cask Applications
+cask_args appdir: '/Applications'
+tap 'caskroom/cask'
+cask 'atom'
+cask 'alfred'
+cask 'archiver'
+cask 'bartender'
+cask 'caffeine'
+cask 'carbon-copy-cloner'
+cask 'charles'
+cask 'dropbox'
+cask 'evernote'
+cask 'fantastical'
+cask 'firefox'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'kaleidoscope'
+cask 'lastfm'
+cask 'mplayer-osx-extended'
+cask 'optimal-layout'
+cask 'path-finder'
+cask 'phpstorm'
+cask 'sequel-pro'
+cask 'skitch'
+cask 'skype'
+cask 'tower'
+cask 'transmit'
+cask 'virtualbox'
+cask 'viscosity'
+
+# Cask Fonts
+tap 'caskroom/fonts'
+cask 'font-inconsolata-dz-for-powerline'

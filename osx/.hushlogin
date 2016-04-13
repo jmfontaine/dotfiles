@@ -1,0 +1,5 @@
+Disable the ‘Last login’ message when opening a new Terminal window:
+touch ~/.hushlogin
+
+Enable the ‘Last login’ message when opening a new Terminal window:
+rm ~/.hushlogin

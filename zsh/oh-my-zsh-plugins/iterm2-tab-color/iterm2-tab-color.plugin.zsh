@@ -8,7 +8,6 @@ if [[ -n "$ITERM_SESSION_ID" ]]; then
         echo -ne "\033]6;1;bg;blue;brightness;$3\a"
     }
     tab-red() { tab-color 252 42 28 }
-    tab-blue() { tab-color 58 155 219 }
     tab-reset() { echo -ne "\033]6;1;bg;*;default\a" }
 
     function iterm2_precmd() {
@@ -17,11 +16,7 @@ if [[ -n "$ITERM_SESSION_ID" ]]; then
 
     function iterm2_preexec() {
         if [[ "$1" =~ "^ssh " ]]; then
-            if [[ "$1" =~ "dev-" ]]; then
-                tab-blue
-            else
-                tab-red
-            fi
+            tab-red
         fi
     }
 
