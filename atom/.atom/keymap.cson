@@ -1,0 +1,4 @@
+# Custom keyboard shortcuts go here.
+
+'body':
+  'cmd-shift-w': 'tabs:close-all-tabs'

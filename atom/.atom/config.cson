@@ -1,0 +1,27 @@
+"*":
+  core:
+    disabledPackages: [
+      "exception-reporting"
+      "markdown-preview"
+      "metrics"
+    ]
+    projectHome: "~/Projects"
+    themes: [
+      "seti-ui"
+      "monokai-seti"
+    ]
+  editor:
+    fontFamily: "Inconsolata-dz for Powerline"
+    fontSize: 12
+    invisibles: {}
+    lineHeight: 1.2
+    showInvisibles: true
+    tabLength: 4
+    tabType: "soft"
+  "markdown-preview-plus":
+    useGitHubStyle: true
+  "seti-ui":
+    compactView: true
+    themeColor: "Green"
+  welcome:
+    showOnStartup: false
