@@ -4,6 +4,7 @@ alias ....="cd ../../../"
 alias .....="cd ../../../../"
 alias ......="cd ../../../../../"
 
+alias a="atom ."
 alias gh="history | grep"
 alias h="history"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
