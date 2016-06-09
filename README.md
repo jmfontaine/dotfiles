@@ -23,6 +23,8 @@ Some files have a special purpose:
 
 You will need to install a [Powerline-patched font](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-2-install-powerline-fonts) for the ZSH theme to render correctly.
 
+If you need to define confidential data in ZSH such as authentication tokens, you can copy the `zsh/secrets.zsh.dist` file as `zsh/secrets.zsh` and add your secrets there. This file is ignored by Git so your secrets won't be commited.
+
 ## Feedback
 
 Please report suggestions and improvements to https://github.com/jmfontaine/dotfiles/issues.
@@ -36,5 +38,3 @@ These dotfiles have be put together and polished by Jean-Marc Fontaine with insp
 * [Isaac Wolkerstorfer](https://gist.github.com/agnoster/3712874)
 * [Wade Simmons](https://github.com/wadey/dotfiles)
 * [Zach Holman](https://github.com/holman/dotfiles)
-
-
