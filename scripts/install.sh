@@ -8,7 +8,7 @@ source ${SCRIPT_DIR}/_shared.sh
 ${ROOT_DIR}/homebrew/install.sh
 
 # Install everything except Homebrew and ZSH
-find ${ROOT_DIR} -mindepth 2 -type f -not -path "${ROOT_DIR}/homebrew/*" -not -path "${ROOT_DIR}/zsh/*" -name install.sh -exec sh -c {} \;
+find ${ROOT_DIR} -mindepth 2 -type f -not -path "${ROOT_DIR}/homebrew/*" -not -path "${ROOT_DIR}/scripts/*" -not -path "${ROOT_DIR}/zsh/*" -name install.sh -exec sh -c {} \;
 
 # Install ZSH last
 ${ROOT_DIR}/zsh/install.sh

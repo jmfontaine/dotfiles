@@ -11,9 +11,12 @@ Some files have a special purpose:
 * `<MODULE>/update.sh` updates a module.
 * `<MODULE>/aliases.zsh` defines ZSH aliases.
 * `<MODULE>/path.zsh` tweaks `$PATH`.
-* `install.sh` installs all modules.
-* `uninstall.sh` uninstalls all modules.
-* `update.sh` updates all modules.
+
+For your convenience, there are some shortcuts to manage all modules:
+
+* `make install`
+* `make update`
+* `make uninstall`
 
 ## Installation
 

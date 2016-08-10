@@ -2,7 +2,7 @@
 
 set -e
 readonly SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source ${SCRIPT_DIR}/../_shared.sh
+source ${SCRIPT_DIR}/../scripts/_shared.sh
 
 module_header "Homebrew"
 
