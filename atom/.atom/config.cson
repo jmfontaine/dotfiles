@@ -18,6 +18,9 @@
     showInvisibles: true
     tabLength: 4
     tabType: "soft"
+  "highlight-line": {}
+  linter:
+    errorPanelHeight: 73
   "markdown-preview-plus":
     useGitHubStyle: true
   "seti-ui":
