@@ -22,7 +22,7 @@ brew 'wget', args: ['enable-iri']
 brew 'zsh'
 
 # Brew GNU Formulas
-brew 'coreutils', args: ['with-default-names']
+brew 'coreutils'
 brew 'findutils', args: ['with-default-names']
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-tar', args: ['with-default-names']
