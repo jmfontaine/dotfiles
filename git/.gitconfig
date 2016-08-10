@@ -1,7 +1,7 @@
 [core]
   editor = vi
   excludesfile = ~/.gitignore
-  pager = cat
+  pager = "diff-so-fancy | cat"
 
 [user]
   name = Jean-Marc Fontaine
