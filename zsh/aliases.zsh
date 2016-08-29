@@ -16,4 +16,4 @@ alias reload="source ~/.zshrc"
 alias sudo='sudo '
 
 # Update software
-alias update='${DOTFILES}/update.sh'
+alias update='${DOTFILES}/scripts/update.sh'
