@@ -7,16 +7,19 @@ brew 'diff-so-fancy'
 brew 'direnv'
 brew 'git'
 brew 'git-extras'
+brew 'git-secrets'
 brew 'go'
 brew 'graphviz'
+brew 'gzip'
 brew 'htop'
 brew 'httpie'
 brew 'jq'
+brew 'make'
 brew 'nvm'
 brew 'openssh'
 brew 'openssl'
-brew 'php70'
-brew 'php70-intl'
+brew 'php71'
+brew 'php71-intl'
 brew 'pv'
 brew 'wget', args: ['enable-iri']
 brew 'zsh'
@@ -26,6 +29,7 @@ brew 'coreutils'
 brew 'findutils', args: ['with-default-names']
 brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-tar', args: ['with-default-names']
+brew 'gnu-which', args: ['with-default-names']
 brew 'grep', args: ['with-default-names']
 
 # Cask Applications
@@ -44,7 +48,7 @@ cask 'evernote'
 cask 'fantastical'
 cask 'firefox'
 cask 'google-chrome'
-cask 'caskroom/versions/iterm2-beta'
+cask 'iterm2'
 cask 'kaleidoscope'
 cask 'lastfm'
 cask 'mplayer-osx-extended'
