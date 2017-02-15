@@ -4,6 +4,7 @@
 
 export DOTFILES="${HOME}/.dotfiles"
 export DEFAULT_USER="$USER"
+export TERM="xterm-256color"
 
 ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${DOTFILES}/**/*.zsh)
 
@@ -57,7 +58,6 @@ if ! zgen saved; then
     # oh my zsh
     zgen oh-my-zsh
     zgen oh-my-zsh plugins/aws
-    zgen oh-my-zsh plugins/brew
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/encode64
     zgen oh-my-zsh plugins/git-extras
