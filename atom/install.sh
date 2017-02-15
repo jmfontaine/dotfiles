@@ -18,7 +18,7 @@ done
 echo ""
 
 section_header "Installing packages"
-packages=( autoclose-html colorful-json dash editorconfig highlight-line
+packages=( autoclose-html colorful-json dash editorconfig go-plus highlight-line
   highlight-selected language-docker linter pigments todo-show )
 for package in "${packages[@]}"; do
   apm install ${package}

@@ -6,6 +6,7 @@
       "metrics"
     ]
     projectHome: "~/Projects"
+    telemetryConsent: "no"
     themes: [
       "seti-ui"
       "monokai-seti"
