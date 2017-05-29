@@ -8,13 +8,43 @@
   email =
 
 [alias]
-  ci   = commit
-  co   = checkout
-  cp   = cherry-pick
-  lg   = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative
-  oops = reset HEAD^ --soft
-  st   = status
-  wip  = !git add -A && git commit -m 'WIP'
+  # Shorter names for commands
+  ci       = commit
+  co       = checkout
+  cp       = cherry-pick
+  st       = status
+
+  # Display a nicely formatted history
+  lg       = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative
+
+  # Delete the latest commit but preserve its changes
+  oops     = reset HEAD^ --soft
+
+  # Get a general idea of what everyone has been getting up to across all branches
+  # Can be augmented with --since limits
+  overview = log --all --oneline --no-merges
+
+  # Show the the last things I worked on
+  # Can be augmented with --since limits
+  recap    = log --all --oneline --no-merges --author='Jean-Marc Fontaine'
+
+  # Show us the last 10 local branches that were worked on, sorted by the time that we were last working there
+  recent   = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
+  # Shows how many commits were made by each author
+  stats    = shortlog -sn
+
+  # Show all commits I did today in this repository
+  today    = log --since=00:00:00 --all --no-merges --oneline --author='Jean-Marc Fontaine'
+
+  # See what has happened upstream before pulling all of those changes down into the local branch
+  # Usage:
+  # git fetch
+  # git upstream or git upstream <REMOTE IF NOT ORIGIN>
+  upstream = !git log --oneline --no-merges ..${1:-origin}/$(git rev-parse --abbrev-ref HEAD)
+
+  # Commit all current changes with "WIP" as commit message
+  wip      = !git add -A && git commit -m 'WIP'
 
 [apply]
   # Detect whitespace errors when applying a patch
