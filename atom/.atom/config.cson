@@ -18,10 +18,11 @@
     lineHeight: 1.2
     showInvisibles: true
     tabLength: 4
-    tabType: "soft"
+    tabType: "auto"
   "highlight-line": {}
-  linter:
-    errorPanelHeight: 73
+  linter: {}
+  "linter-ui-default":
+    showPanel: true
   "markdown-preview-plus":
     useGitHubStyle: true
   "seti-ui":
