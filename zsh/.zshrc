@@ -80,6 +80,12 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 ####################################################################################
+# Google Cloud SDK
+####################################################################################
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+####################################################################################
 # ZSH Hooks
 ####################################################################################
 eval "$(direnv hook zsh)"
