@@ -61,6 +61,7 @@ cask 'skitch'
 cask 'skype'
 cask 'tower'
 cask 'transmit'
+cask 'typora'
 cask 'viscosity'
 
 # Cask Fonts
