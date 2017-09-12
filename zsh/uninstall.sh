@@ -6,14 +6,6 @@ source ${SCRIPT_DIR}/../scripts/_shared.sh
 
 module_header "ZSH"
 
-section_header "Uninstalling zgen"
-if [ -d "${VENDOR_DIR}/zgen" ]; then
-  rm -rf "${VENDOR_DIR}/zgen"
-else
-  echo "zgen is not installed, skipping"
-fi
-echo ""
-
 section_header "Uninstalling zgen dependencies"
 if [ -d "${HOME}/.zgen" ]; then
   rm -rf "${HOME}/.zgen"

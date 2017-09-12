@@ -6,14 +6,6 @@ source ${SCRIPT_DIR}/../scripts/_shared.sh
 
 module_header "ZSH"
 
-section_header "Installing zgen"
-if [ ! -d "${VENDOR_DIR}/zgen" ]; then
-  git clone https://github.com/tarjoilija/zgen.git ${VENDOR_DIR}/zgen
-else
-  echo "already installed, skipping"
-fi
-echo ""
-
 section_header "Symlinking ZSH configuration file"
 symlink_dotfile "${SCRIPT_DIR}/.zshrc"
 echo ""
