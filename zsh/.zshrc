@@ -63,6 +63,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git-extras
 	zgen oh-my-zsh plugins/httpie
 	zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/wd
 
     zgen load ${DOTFILES}/zsh/oh-my-zsh-plugins/iterm2-tab-color
 	zgen load zsh-users/zsh-syntax-highlighting
