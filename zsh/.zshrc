@@ -63,7 +63,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git-extras
 	zgen oh-my-zsh plugins/httpie
 	zgen oh-my-zsh plugins/npm
-	zgen oh-my-zsh plugins/symfony2
 
     zgen load ${DOTFILES}/zsh/oh-my-zsh-plugins/iterm2-tab-color
 	zgen load zsh-users/zsh-syntax-highlighting
@@ -78,12 +77,6 @@ fi
 ####################################################################################
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
-
-####################################################################################
-# Google Cloud SDK
-####################################################################################
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 ####################################################################################
 # ZSH Hooks
