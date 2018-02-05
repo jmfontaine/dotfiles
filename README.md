@@ -1,5 +1,13 @@
 # Jean-Marc’s dotfiles
 
+# Mission Statement
+
+- Dotfiles must be self-contained. Installation must only require to clone this repository and run a script.
+- Scripts must be indempotent.
+- Updated scripts must be able to run only the new and modified parts.
+
+# Readme 
+
 Here are my dotfiles. They are organized around topic areas that I call modules.
 
 Each module is self contained and can be managed independently with the exception of the `homebrew` module which is always run first because it  provides tools used by other modules.
