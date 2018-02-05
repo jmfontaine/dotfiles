@@ -61,6 +61,7 @@ cask 'skype'
 cask 'tower'
 cask 'transmit'
 cask 'typora'
+cask 'visual-studio-code'
 
 # Cask Fonts
 tap 'caskroom/fonts'

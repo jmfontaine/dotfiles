@@ -4,6 +4,7 @@ alias ....="cd ../../../"
 alias .....="cd ../../../../"
 alias ......="cd ../../../../../"
 
+alias c="code ."
 alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 alias gh="history | grep"
 alias h="history"
