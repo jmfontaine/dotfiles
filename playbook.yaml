@@ -1,0 +1,13 @@
+- name: Collecting Facts
+  hosts: local
+  gather_facts: yes
+
+- name: Set up local environment
+  hosts: local
+  roles:
+    - homebrew
+    - zsh
+    - macos
+    - git
+    - hyper
+    - visual-studio-code

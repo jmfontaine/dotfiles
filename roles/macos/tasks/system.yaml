@@ -1,0 +1,77 @@
+- name: Enable Menu Bar transparency
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleEnableMenuBarTransparency
+    type: bool
+    value: true
+    state: present
+
+- name: Use dark Menu Bar and Dock
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleInterfaceStyle
+    type: string
+    value: Dark
+    state: present
+
+- name: Double-click a window's title bar to zoom
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleActionOnDoubleClick
+    type: string
+    value: Maximize
+    state: present
+
+- name: Enable mouse right-click
+  osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseButtonMode
+    type: string
+    value: TwoButton
+    state: present
+
+- name: Increase mouse speed
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.scaling
+    type: float
+    value: 1.5
+    state: present
+
+- name: Disable "Look up & data detectors" trackpad gesture
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerTapGesture
+    type: int
+    value: 0
+    state: present
+
+- name: Enable right-click in the trackpad lower right corner
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadCornerSecondaryClick
+    type: int
+    value: 2
+    state: present
+
+- name: Enable trackpad haptic feedback
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.forceClick
+    type: int
+    value: 1
+    state: present
+
+- name: Set cursor speed when using trackpad
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.scaling
+    type: int
+    value: 1
+    state: present
+
+- name: Restart the Finder to pick up new settings
+  command: killall Finder
+
+- name: Restart SystemUIServer to pick up new settings
+  command: killall SystemUIServer
