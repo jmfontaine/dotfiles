@@ -1,0 +1,11 @@
+- name: Enable automatic updates of macOS software
+  command: softwareupdate --schedule on
+
+- name: Install mas
+  homebrew:
+    name: mas
+    state: present
+
+- name: Install App Store applications
+  command: mas install {{ item }}
+  with_items: '{{ app_store_applications }}'

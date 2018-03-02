@@ -1,0 +1,34 @@
+- name: Install ZSH
+  homebrew:
+    name: zsh
+    state: present
+
+- name: Install ZSH completions
+  homebrew:
+    name: zsh-completions
+    state: present
+
+- name: Copy ZSH configuration file
+  template:
+    src: '{{ role_path }}/templates/.zshrc.j2'
+    dest: ~/.zshrc
+
+- name: Ensures ZSH configuration directory exists
+  file:
+    path: ~/.zsh
+    state: directory
+
+- name: Copy ZSH initialization file
+  copy:
+    src: '{{ role_path }}/files/zsh_init.zsh'
+    dest: ~/.zsh/zsh_init.zsh
+
+- name: Install zplug
+  homebrew:
+    name: zplug
+    state: present
+
+- name: Copy zplug packages file
+  copy:
+    src: '{{ role_path }}/files/zplug_packages.zsh'
+    dest: ~/.zsh/zplug_packages.zsh

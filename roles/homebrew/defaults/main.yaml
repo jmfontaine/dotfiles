@@ -1,0 +1,46 @@
+# Packages that don't get installed by any of the other roles
+homebrew_packages:
+  - ansible-lint
+  - awscli
+  - diff-so-fancy
+  - direnv
+  - dockutil
+  - graphviz
+  - grc
+  - htop
+  - httpie
+  - jq
+  - md5sha1sum
+  - terraform
+  - youtube-dl
+
+# Casks that don't get installed by any of the other roles
+homebrew_casks:
+  - 1password
+  - alfred
+  - archiver
+  - bartender
+  - caffeine
+  - charles
+  - cleanmymac
+  - dash
+  - docker
+  - dropbox
+  - evernote
+  - fantastical
+  - firefox
+  - google-chrome
+  - grammarly
+  - hipchat
+  - font-inconsolata-dz
+  - moom
+  - mplayer-osx-extended
+  - path-finder
+  - sequel-pro
+  - skitch
+  - skype
+  - tower
+  - transmit
+  - typora
+  - xact
+  - xld

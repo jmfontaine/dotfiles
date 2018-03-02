@@ -1,0 +1,21 @@
+- name: Install GNU utilities
+  homebrew:
+    name: '{{ item }}'
+    state: present
+    install_options: with-default-names
+    update_homebrew: false
+  with_items: '{{ gnu_utilities }}'
+
+- name: Install utilities
+  homebrew:
+    name: '{{ item }}'
+    state: present
+    update_homebrew: false
+  with_items: '{{ utilities }}'
+
+- name: Install curl
+  homebrew:
+    name: curl
+    state: present
+    install_options: with-nghttp2,with-openssl
+    update_homebrew: false

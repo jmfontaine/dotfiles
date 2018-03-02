@@ -1,0 +1,12 @@
+# Initialize zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_LOADFILE='{{ ansible_env.HOME }}/.zsh/zplug_packages.zsh'
+source $ZPLUG_HOME/init.zsh
+
+# Install zplug packages if necessary
+if ! zplug check; then
+    zplug install
+fi
+
+# Source plugins and add commands to the PATH
+zplug load

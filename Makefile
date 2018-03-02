@@ -1,16 +1,14 @@
-.DEFAULT: help
-.PHONY: help
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
+.DEFAULT_GOAL := help
+.SILENT:
 
-.PHONY: install
-install: ## Install dotfiles
-	@sh ./scripts/install.sh
+ROOT_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: uninstall
-uninstall: ## Uninstall dotfiles
-	@sh ./scripts/uninstall.sh
+help: ## Display usage
+	awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-.PHONY: update
-update: ## Update dotfiles
-	@sh ./scripts/update.sh
+install: ## Install/update local host configuration
+	ansible-playbook --inventory="$(ROOT_DIR)/hosts" "$(ROOT_DIR)/playbook.yaml"
+	echo 'Run "source ~/.zshrc" in this shell to reload ZSH configuration'
+
+lint: ## Check playbook for practices and behaviour that could potentially be improved
+	ansible-lint playbook.yaml

@@ -1,0 +1,36 @@
+#!/bin/bash
+set +e
+
+echo 'Do you want to set up this computer? [y/n]'
+read -s CONFIRMATION
+if [[ $CONFIRMATION != 'y' ]]; then
+    echo 'Aborting'
+    exit 0
+fi
+echo
+
+read -p 'Install the SSH key required to clone the dotfiles repository and then press any key.'
+echo
+
+DEFAULT_DOTFILES_PATH='~/.dotfiles'
+read -p "Where do you want to install the dotfiles? [$DEFAULT_DOTFILES_PATH]: " DOTFILES_PATH
+if [[ $DOTFILES_PATH == '' ]]; then
+    INSTALLATION_PATH="$DEFAULT_DOTFILES_PATH"
+fi
+git clone git@github.com:jmfontaine/dotfiles.git $DOTFILES_PATH
+echo
+
+if ! hash brew 2>/dev/null; then
+  echo 'Installing Homebrew'
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+echo
+
+if ! hash ansible 2>/dev/null; then
+  echo 'Installing Ansible'
+  brew install ansible
+fi
+echo
+
+cd $INSTALLATION_PATH
+make install

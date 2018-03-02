@@ -1,0 +1,41 @@
+- name: Check is Xcode Command Line Tools are installed
+  stat:
+    path: /Library/Developer/CommandLineTools
+  register: command_line_tools
+
+- name: Install Xcode Command Line Tools
+  command: xcode-select --install
+  when: not command_line_tools.stat.exists
+
+- name: Install Homebrew packages
+  homebrew:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ homebrew_packages }}'
+
+- name: Tap into caskroom/cask
+  homebrew_tap:
+    tap: caskroom/cask
+    state: present
+
+- name: Tap into caskroom/fonts
+  homebrew_tap:
+    tap: caskroom/fonts
+    state: present
+
+- name: Install Homebrew casks
+  homebrew_cask:
+    name: '{{ item }}'
+    state: present
+    install_options: appdir=/Applications
+  with_items: '{{ homebrew_casks }}'
+
+- name: Copy initialization file
+  copy:
+    src: '{{ role_path }}/files/homebrew_init.zsh'
+    dest: ~/.zsh/homebrew_init.zsh
+
+- name: Copy update file
+  copy:
+    src: '{{ role_path }}/files/homebrew_update.zsh'
+    dest: ~/.zsh/homebrew_update.zsh

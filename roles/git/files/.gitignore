@@ -1,0 +1,49 @@
+#########
+# macOS #
+#########
+.AppleDouble
+.DS_Store
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.apdisk
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# Packages
+*.dmg
+*.pkg
+
+################
+# Applications #
+################
+
+### Archives ###
+*.7z
+*.bz2
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+### Logs ####
+*.log
+
+### Databases ####
+*.sql
+*.sqlite

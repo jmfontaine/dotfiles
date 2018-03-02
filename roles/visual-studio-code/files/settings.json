@@ -1,0 +1,9 @@
+{
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "editor.renderWhitespace": "boundary",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "gitlens.currentLine.enabled": false,
+  "workbench.colorTheme": "Seti Monokai",
+  "workbench.iconTheme": "seti"
+}
