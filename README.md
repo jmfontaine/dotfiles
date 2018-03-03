@@ -3,7 +3,7 @@
 ## Installation
 
 ```shell
-curl -sS https://raw.githubusercontent.com/jmfontaine/dotfiles/ansible-reboot/bootstrap | /bin/bash
+bash <(curl -sS https://raw.githubusercontent.com/jmfontaine/dotfiles/master/bootstrap)
 ```
 
 ## Usage

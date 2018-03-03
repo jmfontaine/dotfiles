@@ -1,12 +1,3 @@
-- name: Check is Xcode Command Line Tools are installed
-  stat:
-    path: /Library/Developer/CommandLineTools
-  register: command_line_tools
-
-- name: Install Xcode Command Line Tools
-  command: xcode-select --install
-  when: not command_line_tools.stat.exists
-
 - name: Install Homebrew packages
   homebrew:
     name: '{{ item }}'
@@ -29,6 +20,11 @@
     state: present
     install_options: appdir=/Applications
   with_items: '{{ homebrew_casks }}'
+
+- name: Ensures ZSH configuration directory exists
+  file:
+    path: ~/.zsh
+    state: directory
 
 - name: Copy initialization file
   copy:
