@@ -8,11 +8,17 @@
   homebrew_tap:
     tap: caskroom/cask
     state: present
+  # KLUDGE: Ansible has a bug where taps succeed but look like a failure
+  # https://github.com/ansible/ansible/issues/40853
+  ignore_errors: yes
 
 - name: Tap into caskroom/fonts
   homebrew_tap:
     tap: caskroom/fonts
     state: present
+  # KLUDGE: Ansible has a bug where taps succeed but look like a failure
+  # https://github.com/ansible/ansible/issues/40853
+  ignore_errors: yes
 
 - name: Install Homebrew casks
   homebrew_cask:
