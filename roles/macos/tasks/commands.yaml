@@ -1,4 +1,4 @@
-- name: Install GNU utilities
+- name: Install GNU Utilities
   homebrew:
     name: '{{ item }}'
     state: present
@@ -6,7 +6,7 @@
     update_homebrew: false
   with_items: '{{ gnu_utilities }}'
 
-- name: Install utilities
+- name: Install Utilities
   homebrew:
     name: '{{ item }}'
     state: present

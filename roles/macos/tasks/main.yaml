@@ -1,9 +1,9 @@
-- name: Copy initialization file
+- name: Copy Initialization File
   copy:
     src: '{{ role_path }}/files/macos_init.zsh'
     dest: ~/.zsh/macos_init.zsh
 
-- name: Copy update file
+- name: Copy Update File
   copy:
     src: '{{ role_path }}/files/macos_update.zsh'
     dest: ~/.zsh/macos_update.zsh
@@ -13,7 +13,7 @@
 - include_tasks: roles/macos/tasks/dock.yaml
 - include_tasks: roles/macos/tasks/system.yaml
 
-- name: Disable the "Last login" message when opening a new Terminal window
+- name: Disable the "Last login" Message When Opening a New Terminal Window
   copy:
     src: '{{ role_path }}/files/.hushlogin'
     dest: ~/.hushlogin

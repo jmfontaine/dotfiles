@@ -1,4 +1,4 @@
-- name: Install a newer git version than the one provided by Apple
+- name: Install a Newer Version
   homebrew:
     name: git
     state: present
@@ -13,17 +13,17 @@
     name: git-secrets
     state: present
 
-- name: Copy global .gitignore file
+- name: Copy Global .gitignore File
   copy:
     src: '{{ role_path }}/files/.gitignore'
     dest: ~/.gitignore
 
-- name: Copy .gitconfig file
+- name: Copy .gitconfig File
   copy:
     src: '{{ role_path }}/files/.gitconfig'
     dest: ~/.gitconfig
 
-- name: Copy initialization file
+- name: Copy initialization File
   copy:
     src: '{{ role_path }}/files/git_init.zsh'
     dest: ~/.zsh/git_init.zsh

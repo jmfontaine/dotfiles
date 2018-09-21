@@ -3,17 +3,17 @@
     name: zsh
     state: present
 
-- name: Install ZSH completions
+- name: Install ZSH Completions
   homebrew:
     name: zsh-completions
     state: present
 
-- name: Copy ZSH configuration file
+- name: Copy ZSH Configuration File
   template:
     src: '{{ role_path }}/templates/.zshrc.j2'
     dest: ~/.zshrc
 
-- name: Copy ZSH initialization file
+- name: Copy ZSH Initialization File
   copy:
     src: '{{ role_path }}/files/zsh_init.zsh'
     dest: ~/.zsh/zsh_init.zsh
@@ -23,7 +23,7 @@
     name: zplug
     state: present
 
-- name: Copy zplug packages file
+- name: Copy zplug Packages File
   copy:
     src: '{{ role_path }}/files/zplug_packages.zsh'
     dest: ~/.zsh/zplug_packages.zsh

@@ -2,7 +2,7 @@
   hosts: local
   gather_facts: yes
 
-- name: Initialize setup type
+- name: Initialize Setup Type
   hosts: local
   tasks:
     - set_fact:
@@ -10,11 +10,11 @@
     - debug:
         var: setup_type
 
-- name: Set up local environment
+- name: Set Up Local Environment
   hosts: local
   roles:
     - homebrew
-    #- zsh
-    #- macos
-    #- git
-    #- visual-studio-code
+    - zsh
+    - macos
+    - git
+    - visual-studio-code

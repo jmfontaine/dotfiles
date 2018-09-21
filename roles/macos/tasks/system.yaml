@@ -1,4 +1,4 @@
-- name: Enable Menu Bar transparency
+- name: Enable Menu Bar Transparency
   osx_defaults:
     domain: NSGlobalDomain
     key: AppleEnableMenuBarTransparency
@@ -6,7 +6,7 @@
     value: true
     state: present
 
-- name: Use dark Menu Bar and Dock
+- name: Use Dark Menu Bar and Dock
   osx_defaults:
     domain: NSGlobalDomain
     key: AppleInterfaceStyle
@@ -14,7 +14,7 @@
     value: Dark
     state: present
 
-- name: Double-click a window's title bar to zoom
+- name: Double-click a Window's Title Bar to Zoom
   osx_defaults:
     domain: NSGlobalDomain
     key: AppleActionOnDoubleClick
@@ -22,7 +22,7 @@
     value: Maximize
     state: present
 
-- name: Enable mouse right-click
+- name: Enable Mouse Right-click
   osx_defaults:
     domain: com.apple.AppleMultitouchMouse
     key: MouseButtonMode
@@ -30,7 +30,7 @@
     value: TwoButton
     state: present
 
-- name: Increase mouse speed
+- name: Increase Mouse Speed
   osx_defaults:
     domain: NSGlobalDomain
     key: com.apple.mouse.scaling
@@ -38,7 +38,7 @@
     value: 1.5
     state: present
 
-- name: Disable "Look up & data detectors" trackpad gesture
+- name: Disable "Look up & data detectors" Trackpad Gesture
   osx_defaults:
     domain: com.apple.AppleMultitouchTrackpad
     key: TrackpadThreeFingerTapGesture
@@ -46,7 +46,7 @@
     value: 0
     state: present
 
-- name: Enable right-click in the trackpad lower right corner
+- name: Enable Right-click in the Trackpad Lower Right Corner
   osx_defaults:
     domain: com.apple.AppleMultitouchTrackpad
     key: TrackpadCornerSecondaryClick
@@ -54,7 +54,7 @@
     value: 2
     state: present
 
-- name: Enable trackpad haptic feedback
+- name: Enable Trackpad Haptic Feedback
   osx_defaults:
     domain: NSGlobalDomain
     key: com.apple.trackpad.forceClick
@@ -62,7 +62,7 @@
     value: 1
     state: present
 
-- name: Set cursor speed when using trackpad
+- name: Set Cursor Speed When Using Trackpad
   osx_defaults:
     domain: NSGlobalDomain
     key: com.apple.trackpad.scaling
@@ -70,8 +70,8 @@
     value: 1
     state: present
 
-- name: Restart the Finder to pick up new settings
+- name: Restart the Finder to Pick Up New Settings
   command: killall Finder
 
-- name: Restart SystemUIServer to pick up new settings
+- name: Restart SystemUIServer to Pick Up New Settings
   command: killall SystemUIServer

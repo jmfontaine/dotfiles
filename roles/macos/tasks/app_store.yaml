@@ -1,4 +1,4 @@
-- name: Enable automatic updates of macOS software
+- name: Enable Automatic Updates of macOS Software
   command: softwareupdate --schedule on
 
 - name: Install mas
@@ -6,6 +6,6 @@
     name: mas
     state: present
 
-- name: Install App Store applications
+- name: Install App Store Applications
   command: mas install {{ item }}
   with_items: '{{ app_store_applications }}'

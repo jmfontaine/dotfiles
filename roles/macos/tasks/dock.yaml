@@ -1,4 +1,4 @@
-- name: Automatically hide and show the Dock
+- name: Automatically Hide and Show the Dock
   osx_defaults:
     domain: com.apple.dock
     key: autohide
@@ -6,7 +6,7 @@
     value: true
     state: present
 
-- name: Minimize windows into application icon
+- name: Minimize Windows Into Application Icon
   osx_defaults:
     domain: com.apple.dock
     key: mimimize-to-application
@@ -14,7 +14,7 @@
     value: true
     state: present
 
-- name: Make Dock icons bigger
+- name: Make Dock Icons Bigger
   osx_defaults:
     domain: com.apple.dock
     key: tilesize
@@ -22,10 +22,10 @@
     value: 54
     state: present
 
-- name: Remove all items from the Dock
+- name: Remove All Items From the Dock
   command: dockutil --remove all
 
-- name: Set the default Dock items
+- name: Set the Default Dock Items
   command: 'dockutil --add {{ item }} --no-restart'
   with_items:
    - /Applications/Path\ Finder.app
@@ -35,5 +35,5 @@
    - /Applications/iTunes.app
    - /Applications --view grid --display folder --sort name
 
-- name: Restart the Dock to pick up new settings
+- name: Restart the Dock to Pick Up New Settings
   command: killall Dock

@@ -4,16 +4,16 @@
     state: present
     install_options: appdir=/Applications
 
-- name: Install Visual Studio Code extensions
+- name: Install Visual Studio Code Extensions
   command: code --install-extension {{item}}
   with_items: '{{ extensions }}'
 
-- name: Copy configuration file
+- name: Copy Configuration File
   copy:
     src: '{{ role_path }}/files/settings.json'
     dest: ~/Library/Application Support/Code/User/settings.json
 
-- name: Copy initialization file
+- name: Copy Initialization File
   copy:
     src: '{{ role_path }}/files/visual-studio-code_init.zsh'
     dest: ~/.zsh/visual-studio-code_init.zsh

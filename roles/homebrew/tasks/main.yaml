@@ -1,24 +1,24 @@
-- name: Install common Homebrew packages
+- name: Install Common Packages
   homebrew:
     name: '{{ item }}'
     state: present
   with_items: '{{ homebrew_packages_common }}'
 
-- name: Install home-specific Homebrew packages
+- name: Install Home-specific Packages
   homebrew:
     name: '{{ item }}'
     state: present
   with_items: '{{ homebrew_packages_home }}'
   when: setup_type == 'home'
 
-- name: Install work-specific Homebrew packages
+- name: Install Work-specific Packages
   homebrew:
     name: '{{ item }}'
     state: present
   with_items: '{{ homebrew_packages_work }}'
   when: setup_type == 'work'
 
-- name: Tap into caskroom/cask
+- name: Tap Into caskroom/cask
   homebrew_tap:
     tap: caskroom/cask
     state: present
@@ -26,7 +26,7 @@
   # https://github.com/ansible/ansible/issues/40853
   ignore_errors: yes
 
-- name: Tap into caskroom/fonts
+- name: Tap Into caskroom/fonts
   homebrew_tap:
     tap: caskroom/fonts
     state: present
@@ -34,14 +34,14 @@
   # https://github.com/ansible/ansible/issues/40853
   ignore_errors: yes
 
-- name: Install common Homebrew casks
+- name: Install Common Casks
   homebrew_cask:
     name: '{{ item }}'
     state: present
     install_options: appdir=/Applications
   with_items: '{{ homebrew_casks_common }}'
 
-- name: Install home-specific Homebrew casks
+- name: Install Home-specific Casks
   homebrew_cask:
     name: '{{ item }}'
     state: present
@@ -49,7 +49,7 @@
   with_items: '{{ homebrew_casks_home }}'
   when: setup_type == 'home'
 
-- name: Install work-specific Homebrew casks
+- name: Install Work-specific Casks
   homebrew_cask:
     name: '{{ item }}'
     state: present
@@ -57,17 +57,17 @@
   with_items: '{{ homebrew_casks_work }}'
   when: setup_type == 'work'
 
-- name: Ensures ZSH configuration directory exists
+- name: Ensures ZSH Configuration Directory Exists
   file:
     path: ~/.zsh
     state: directory
 
-- name: Copy initialization file
+- name: Copy Initialization File
   copy:
     src: '{{ role_path }}/files/homebrew_init.zsh'
     dest: ~/.zsh/homebrew_init.zsh
 
-- name: Copy update file
+- name: Copy Update File
   copy:
     src: '{{ role_path }}/files/homebrew_update.zsh'
     dest: ~/.zsh/homebrew_update.zsh
