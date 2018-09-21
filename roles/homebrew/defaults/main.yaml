@@ -1,46 +1,58 @@
-# Packages that don't get installed by any of the other roles
-homebrew_packages:
+# Common packages that don't get installed by any of the other roles
+homebrew_packages_common:
   - ansible-lint
   - awscli
+  - aws-shell
+  - csvkit
   - diff-so-fancy
   - direnv
   - dockutil
+  - go
   - graphviz
-  - grc
   - htop
-  - httpie
   - jq
+  - make
   - md5sha1sum
   - terraform
-  - youtube-dl
+  - terraform_landscape
 
-# Casks that don't get installed by any of the other roles
-homebrew_casks:
+# Common casks that don't get installed by any of the other roles
+homebrew_casks_common:
   - 1password
   - alfred
-  - archiver
+  - aws-vault
+  - bear
   - bartender
   - caffeine
   - charles
   - cleanmymac
-  - dash
   - docker
   - dropbox
-  - evernote
   - fantastical
-  - firefox
   - google-chrome
-  - grammarly
   - hipchat
   - font-inconsolata-dz
   - moom
-  - mplayer-osx-extended
   - path-finder
-  - sequel-pro
   - skitch
-  - skype
   - tower
-  - transmit
   - typora
+
+# Home-specific packages that don't get installed by any of the other roles
+homebrew_packages_home:
+  - youtube-dl
+
+# Home-specific casks that don't get installed by any of the other roles
+homebrew_casks_home:
+  - arq
+  - evernote
+  - mplayer-osx-extended
   - xact
   - xld
+
+# Work-specific packages that don't get installed by any of the other roles
+homebrew_packages_work:
+  - packer
+
+# Work-specific casks that don't get installed by any of the other roles
+homebrew_casks_work:

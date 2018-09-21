@@ -1,0 +1,14 @@
+- name: Ensures workspace directory exists
+  file:
+    path: ~/Workspace
+    state: directory
+
+- name: Ensures Go directory exists
+  file:
+    path: ~/Workspace/go
+    state: directory
+
+- name: Copy initialization file
+  copy:
+    src: '{{ role_path }}/files/workspace_init.zsh'
+    dest: ~/.zsh/workspace_init.zsh

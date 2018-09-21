@@ -23,6 +23,7 @@ echo
 if ! hash brew 2>/dev/null; then
   echo 'Installing Homebrew'
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  export PATH="/usr/local/bin:$PATH"
 fi
 echo
 
