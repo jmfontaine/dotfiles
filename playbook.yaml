@@ -2,11 +2,19 @@
   hosts: local
   gather_facts: yes
 
+- name: Initialize setup type
+  hosts: local
+  tasks:
+    - set_fact:
+        setup_type: '{% if ansible_nodename == "Jupiter.local" %}home{% else %}work{% endif %}'
+    - debug:
+        var: setup_type
+
 - name: Set up local environment
   hosts: local
   roles:
     - homebrew
-    - zsh
-    - macos
-    - git
-    - visual-studio-code
+    #- zsh
+    #- macos
+    #- git
+    #- visual-studio-code

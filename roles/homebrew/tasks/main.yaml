@@ -1,8 +1,22 @@
-- name: Install Homebrew packages
+- name: Install common Homebrew packages
   homebrew:
     name: '{{ item }}'
     state: present
-  with_items: '{{ homebrew_packages }}'
+  with_items: '{{ homebrew_packages_common }}'
+
+- name: Install home-specific Homebrew packages
+  homebrew:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ homebrew_packages_home }}'
+  when: setup_type == 'home'
+
+- name: Install work-specific Homebrew packages
+  homebrew:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ homebrew_packages_work }}'
+  when: setup_type == 'work'
 
 - name: Tap into caskroom/cask
   homebrew_tap:
@@ -20,12 +34,28 @@
   # https://github.com/ansible/ansible/issues/40853
   ignore_errors: yes
 
-- name: Install Homebrew casks
+- name: Install common Homebrew casks
   homebrew_cask:
     name: '{{ item }}'
     state: present
     install_options: appdir=/Applications
-  with_items: '{{ homebrew_casks }}'
+  with_items: '{{ homebrew_casks_common }}'
+
+- name: Install home-specific Homebrew casks
+  homebrew_cask:
+    name: '{{ item }}'
+    state: present
+    install_options: appdir=/Applications
+  with_items: '{{ homebrew_casks_home }}'
+  when: setup_type == 'home'
+
+- name: Install work-specific Homebrew casks
+  homebrew_cask:
+    name: '{{ item }}'
+    state: present
+    install_options: appdir=/Applications
+  with_items: '{{ homebrew_casks_work }}'
+  when: setup_type == 'work'
 
 - name: Ensures ZSH configuration directory exists
   file:
