@@ -1,9 +1,0 @@
-- name: Install Hyper
-  homebrew_cask:
-    name: hyper
-    state: present
-
-- name: Copy configuration file
-  copy:
-    src: '{{ role_path }}/files/.hyper.js'
-    dest: ~/.hyper.js
