@@ -4,8 +4,13 @@
     state: present
     install_options: appdir=/Applications
 
-- name: Install Visual Studio Code Extensions
-  command: code --install-extension {{item}}
+- name: Install/Update Visual Studio Code Extensions
+  shell: |
+    spawn code --install-extension {{item}}
+    expect "> Extension '*' v* is already installed, but a newer version * is available in the marketplace. Would you like to update? Yes(0) | No(1)\n"
+    send "1\n"
+
+    exit 0
   with_items: '{{ extensions }}'
 
 - name: Copy Configuration File
