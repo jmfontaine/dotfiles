@@ -1,19 +1,20 @@
 extensions:
-  - alexdima.copy-relative-path
-  - christian-kohler.path-intellisense
-  - deerawan.vscode-dash
-  - eamodio.gitlens
-  - EditorConfig.EditorConfig
-  - jmMeessen.jenkins-declarative-support
-  - lukehoban.Go
+  - alexdima.copy-relative-path # Copy Relative Path
+  - christian-kohler.path-intellisense # Path Intellisense
+  - deerawan.vscode-dash # Dash
+  - eamodio.gitlens # GitLens
+  - EditorConfig.EditorConfig # EditorConfig for VS Code
+  - jmMeessen.jenkins-declarative-support # Declarative Jenkinsfile Support
+  - lukehoban.Go # Go
   - minhthai.vscode-todo-parser
-  - HookyQR.beautify
-  - PeterJausovec.vscode-docker
-  - qezhu.gitlink
-  - qinjia.seti-icons
-  - Rubymaniac.vscode-paste-and-indent
-  - ryu1kn.partial-diff
-  - SmukkeKim.theme-setimonokai
-  - Tyriar.sort-lines
-  - wholroyd.HCL
-  - wwm.better-align
+  - HookyQR.beautify # Beautify
+  - PeterJausovec.vscode-docker # TODO Parser
+  - qezhu.gitlink # gitlink
+  - Rubymaniac.vscode-paste-and-indent # Paste and Indent
+  - ryu1kn.partial-diff # Partial Diff
+  - Tyriar.sort-lines # Sort lines
+  - wholroyd.HCL # HCL
+  - wwm.better-align # Better Align
+  # Theme
+  - qinjia.seti-icons # seti-icons
+  - SmukkeKim.theme-setimonokai # Theme - Seti-Monokai
