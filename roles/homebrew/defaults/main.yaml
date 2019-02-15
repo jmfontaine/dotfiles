@@ -6,38 +6,33 @@ homebrew_packages_common:
   - direnv
   - dockutil
   - graphviz
-  - grc
   - htop
   - httpie
   - jq
   - md5sha1sum
-  - terraform
+  - tfenv
+  - terraform_landscape
 
 # Common casks that don't get installed by any of the other roles
 homebrew_casks_common:
   - 1password
   - alfred
-  - archiver
+  - aws-vault
   - bartender
   - caffeine
   - charles
   - cleanmymac
-  - dash
   - docker
   - dropbox
   - fantastical
-  - firefox
   - google-chrome
-  - grammarly
   - hipchat
+  - iterm2
   - font-inconsolata-dz
   - moom
   - path-finder
-  - sequel-pro
   - skitch
-  - skype
   - tower
-  - transmit
   - typora
 
 # Home-specific packages that don't get installed by any of the other roles
@@ -47,7 +42,6 @@ homebrew_packages_home:
 # Home-specific casks that don't get installed by any of the other roles
 homebrew_casks_home:
   - arq
-  - evernote
   - mplayer-osx-extended
   - xact
   - xld
@@ -57,3 +51,4 @@ homebrew_packages_work:
 
 # Work-specific casks that don't get installed by any of the other roles
 homebrew_casks_work:
+  - sequel-pro
