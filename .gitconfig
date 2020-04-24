@@ -1,12 +1,3 @@
-[core]
-  editor       = vi
-  excludesfile = ~/.gitignore
-  pager        = "cat"
-
-[user]
-  name  = Jean-Marc Fontaine
-  email =
-
 [alias]
   # Shorter names for commands
   ci       = commit
@@ -20,13 +11,8 @@
   # Delete the latest commit but preserve its changes
   oops     = reset HEAD^ --soft
 
-  # Get a general idea of what everyone has been getting up to across all branches
-  # Can be augmented with --since limits
-  overview = log --all --oneline --no-merges
-
-  # Show the the last things I worked on
-  # Can be augmented with --since limits
-  recap    = log --all --oneline --no-merges --author='Jean-Marc Fontaine'
+  # Delete merged branches
+  prune    = !git delete-merged-branches
 
   # Show us the last 10 local branches that were worked on, sorted by the time that we were last working there
   recent   = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
@@ -52,8 +38,36 @@
 [color]
   ui = true
 
+[color "branch"]
+	current = yellow reverse
+	local   = yellow
+	remote  = green
+
+[color "diff"]
+  commit                 = yellow bold
+  frag                   = magenta bold
+  meta                   = 11
+  new                    = green bold
+  old                    = red bold
+  whitespace             = red reverse
+
+[color "diff-highlight"]
+  newHighlight = green bold 22
+  newNormal    = green bold
+  oldHighlight = red bold 52
+  oldNormal    = red bold
+
+[core]
+  editor       = vi
+  excludesfile = ~/.gitignore
+  pager        = "diff-so-fancy | cat"
+
 [push]
   default = current
 
 [status]
 	showUntrackedFiles = all
+
+[user]
+  name  = Jean-Marc Fontaine
+  email =
