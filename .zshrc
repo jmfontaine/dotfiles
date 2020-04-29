@@ -24,12 +24,10 @@ export CLICOLOR=1 # Enable colors in terminal
 
 # Configure history
 HISTFILE=~/.zsh_history
-HISTORY_IGNORE="(cd|cd -|cd ..|exit|ls|pwd)"
 HISTSIZE=100000
 SAVEHIST=100000
 
 setopt EXTENDED_HISTORY # Add timestamps to history
-setopt HIST_EXPIRE_DUPS_FIRST # Remove duplicates first when trimming history
 setopt HIST_IGNORE_SPACE # Ignore when the first character on the line is a space
 setopt HIST_REDUCE_BLANKS # Remove superfluous blanks
 setopt HIST_VERIFY # Do not execute command from history directly
@@ -53,6 +51,10 @@ source $ZPLUG_HOME/init.zsh
 zplug MichaelAquilina/zsh-you-should-use
 zplug zdharma/fast-syntax-highlighting
 zplug mfaerevaag/wd, as:command, use:"wd.sh", hook-load:"wd() { . $ZPLUG_REPOS/mfaerevaag/wd/wd.sh }"
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|* --help|* --version)"
+zplug zsh-users/zsh-autosuggestions
 
 zplug mafredri/zsh-async, from:github # Pure dependency
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
