@@ -20,9 +20,7 @@ alias tfi="terraform init"
 alias tfp="terraform plan"
 alias sudo='sudo ' # Enables aliases to be sudo’ed
 
-# Configure colors in terminal
-export CLICOLOR=1
-export LSCOLORS="exfxcxdxbxegedabagacad"
+export CLICOLOR=1 # Enable colors in terminal
 
 # Configure history
 HISTFILE=~/.zsh_history
