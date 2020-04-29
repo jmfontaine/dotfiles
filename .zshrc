@@ -67,4 +67,4 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load
+zplug load --verbose
