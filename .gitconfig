@@ -70,4 +70,7 @@
 
 [user]
   name  = Jean-Marc Fontaine
-  email =
+  email = jm@jmfontaine.net
+
+[includeIf "gitdir:~/Workspaces/Work/"]
+  path = ~/.gitconfig-work
