@@ -67,7 +67,7 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load --verbose
+zplug load
 
 # Configure nvm
 export NVM_DIR="$HOME/.nvm"
