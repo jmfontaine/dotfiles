@@ -53,7 +53,7 @@ zplug zdharma/fast-syntax-highlighting
 zplug mfaerevaag/wd, as:command, use:"wd.sh", hook-load:"wd() { . $ZPLUG_REPOS/mfaerevaag/wd/wd.sh }"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|* --help|* --version)"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|.|..*|* --help|* --version)"
 zplug zsh-users/zsh-autosuggestions
 
 zplug mafredri/zsh-async, from:github # Pure dependency
