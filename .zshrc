@@ -68,3 +68,10 @@ if ! zplug check --verbose; then
 fi
 
 zplug load --verbose
+
+# Configure nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+# Configure coreutils
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
