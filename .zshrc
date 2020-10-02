@@ -14,6 +14,7 @@ alias gh='history | grep'
 alias h='history'
 alias ls='ls -F'
 alias ll='ls -aFhl'
+alias t="open -a Typora ."
 alias tf="terraform"
 alias tfa="terraform apply"
 alias tfi="terraform init"
