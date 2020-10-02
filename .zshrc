@@ -70,9 +70,15 @@ fi
 
 zplug load
 
+path=(
+    /usr/local/opt/coreutils/libexec/gnubin
+    /usr/local/opt/gnu-sed/libexec/gnubin
+    /usr/local/opt/gzip/bin
+    /usr/local/opt/python@3.8/libexec/bin
+    $path
+)
+
 # Configure nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
-# Configure coreutils
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
