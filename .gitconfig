@@ -60,7 +60,7 @@
 [core]
   editor       = vi
   excludesfile = ~/.gitignore
-  pager        = "diff-so-fancy | cat"
+  pager        = "cat"
 
 [push]
   default = current
@@ -71,6 +71,3 @@
 [user]
   name  = Jean-Marc Fontaine
   email = jm@jmfontaine.net
-
-[includeIf "gitdir:~/Workspaces/Work/"]
-  path = ~/.gitconfig-work
