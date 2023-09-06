@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ ! -d "$HOME/Projects" ]; then
+  echo "Creating the Projects folder"
+  mkdir "$HOME/Projects"
+fi
