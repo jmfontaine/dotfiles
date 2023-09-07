@@ -1,0 +1,2 @@
+mfaerevaag/wd kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
