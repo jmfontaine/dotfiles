@@ -1,3 +1,9 @@
+### zsh path (must be first)
+path=(
+    $(brew --prefix)/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
+    $path
+)
+
 ###############################################################################
 # Commands                                                                    #
 ###############################################################################
@@ -7,7 +13,7 @@ zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
   # lazy-load antidote and generate the static load file only when needed
   (
-    source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+    source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
     antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
   )
 fi
@@ -16,7 +22,7 @@ source ${zsh_plugins}.zsh
 ### bat
 alias -g -- -h="-h 2>&1 | bat --language=help --plain" # colorize --help messages
 alias -g -- --help="--help 2>&1 | bat --language=help --plain"
-export MANPAGER="sh -c 'col -bx | bat --language man --paging never --plain'" # colorize man pages
+export MANPAGER="sh -c 'col -bx | bat --language man --plain'" # colorize man pages
 
 ### eza
 eval $(dircolors -b $HOME/.DIR_COLORS)
@@ -62,17 +68,18 @@ if type brew &>/dev/null; then
   # See http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Completion.
   [ -n "${terminfo[kcbt]}" ] && bindkey "${terminfo[kcbt]}" reverse-menu-complete
 fi
+source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 ### Functions
 
 # update packages
 function update {
   echo -e "\033[1m────────── Homebrew ──────────\033[0m"
-  brew bundle --global --quiet
+  brew bundle --all --cleanup --global --quiet
   brew autoremove --quiet
   echo ""
   echo "\033[1m────────── Antidote ──────────\033[0m"
-  source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+  source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
   antidote update --bundles
   echo ""
 }
@@ -86,9 +93,3 @@ setopt HIST_FIND_NO_DUPS # ignore dupilcates when searching history
 setopt HIST_IGNORE_SPACE # ignore commands that start with space
 setopt HIST_VERIFY # show command with history expansion to user before running it
 setopt SHARE_HISTORY # share history with other sessions
-
-### Path
-path=(
-    /opt/homebrew/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
-    $path
-)

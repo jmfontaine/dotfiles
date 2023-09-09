@@ -1,5 +1,20 @@
 {
-    "editor.minimap.enabled": false,
-    "explorer.confirmDelete": false,
-    "security.workspace.trust.untrustedFiles": "open"
+  "better-comments.tags": [
+    {
+      "tag": "KLUDGE",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "editor.fontFamily": "'Meslo LG M', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 13,
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "Monokai Night",
+  "workbench.iconTheme": "vscode-icons",
 }

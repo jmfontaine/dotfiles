@@ -209,11 +209,12 @@ terminal:
       - '#8959a8'
       - '#3e999f'
       - '#ffffff'
-  font: JetBrains Mono
   fallbackFont: Menlo
   customColorSchemes: []
   hideTabIndex: true
   fontWeight: 300
+  fontSize: 13
+  font: MesloLGM Nerd Font
 ssh: {}
 configSync:
   parts: {}
