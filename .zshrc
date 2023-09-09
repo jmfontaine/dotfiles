@@ -1,4 +1,39 @@
 ###############################################################################
+# Commands                                                                    #
+###############################################################################
+
+### Antidote
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  # lazy-load antidote and generate the static load file only when needed
+  (
+    source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+  )
+fi
+source ${zsh_plugins}.zsh
+
+### bat
+alias -g -- -h="-h 2>&1 | bat --language=help --plain" # colorize --help messages
+alias -g -- --help="--help 2>&1 | bat --language=help --plain"
+export MANPAGER="sh -c 'col -bx | bat --language man --paging never --plain'" # colorize man pages
+
+### eza
+eval $(dircolors -b $HOME/.DIR_COLORS)
+
+### fzf
+source ~/.fzf.zsh
+source ~/.fzf_functions.zsh
+
+### Starship
+eval "$(starship init zsh)" # Initialize Starship
+
+### zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|.|..*|* --help|* --version)"
+
+
+###############################################################################
 # zsh                                                                         #
 ###############################################################################
 
@@ -17,7 +52,7 @@ if type brew &>/dev/null; then
   setopt AUTO_PARAM_SLASH
   zstyle ':completion:*' menu yes select
 
-  if [[ -v "$LS_COLORS" ]]; then
+  if [[ -v LS_COLORS ]]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
   fi
 
@@ -57,35 +92,3 @@ path=(
     /opt/homebrew/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
     $path
 )
-
-
-###############################################################################
-# Commands                                                                    #
-###############################################################################
-
-### Antidote
-zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
-if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
-  # lazy-load antidote and generate the static load file only when needed
-  (
-    source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
-  )
-fi
-source ${zsh_plugins}.zsh
-
-### bat
-alias -g -- -h="-h 2>&1 | bat --language=help --plain" # colorize --help messages
-alias -g -- --help="--help 2>&1 | bat --language=help --plain"
-export MANPAGER="sh -c 'col -bx | bat --language man --paging never --plain'" # colorize man pages
-
-### fzf
-source ~/.fzf.zsh
-source ~/.fzf_functions.zsh
-
-### Starship
-eval "$(starship init zsh)" # Initialize Starship
-
-### zsh-users/zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|.|..*|* --help|* --version)"
