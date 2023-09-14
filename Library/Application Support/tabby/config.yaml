@@ -78,9 +78,9 @@ hotkeys:
   rename-tab:
     - ⌘-R
   next-tab:
-    - ⌘-Shift-Right
+    - Ctrl-⌘-Right
   previous-tab:
-    - ⌘-Shift-Left
+    - Ctrl-⌘-Left
   move-tab-left: []
   move-tab-right: []
   rearrange-panes:

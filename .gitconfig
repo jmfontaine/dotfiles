@@ -3,7 +3,7 @@
   lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative
 
   # Delete the latest commit but preserve its changes
-  oops = reset HEAD^ --soft
+  oops = reset 'HEAD^' --soft
 
   # Commit all current changes with "WIP" as commit message
   wip = !git add -A && git commit -m 'WIP'
@@ -20,12 +20,12 @@
 	remote  = green
 
 [color "diff"]
-  commit                 = yellow bold
-  frag                   = magenta bold
-  meta                   = 11
-  new                    = green bold
-  old                    = red bold
-  whitespace             = red reverse
+  commit     = yellow bold
+  frag       = magenta bold
+  meta       = 11
+  new        = green bold
+  old        = red bold
+  whitespace = red reverse
 
 [color "diff-highlight"]
   newHighlight = green bold 22
@@ -45,13 +45,16 @@
   line-numbers = true
 
 [diff]
-    colorMoved = default
+  colorMoved = default
+
+[init]
+  defaultBranch = main
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 
 [push]
   default = current
