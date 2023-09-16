@@ -33,6 +33,9 @@
   oldHighlight = red bold 52
   oldNormal    = red bold
 
+[commit]
+	gpgsign = true
+
 [core]
   editor       = vi
   excludesfile = ~/.gitignore
@@ -46,6 +49,15 @@
 
 [diff]
   colorMoved = default
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[include]
+  path = .gitconfig.local
 
 [init]
   defaultBranch = main
@@ -63,15 +75,5 @@
 	showUntrackedFiles = all
 
 [user]
-  name  = Jean-Marc Fontaine
-  email = jm@jmfontaine.net
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
-
-[gpg]
-	format = ssh
-
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-
-[commit]
-	gpgsign = true
+  name       = Jean-Marc Fontaine
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
