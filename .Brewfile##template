@@ -55,3 +55,16 @@ vscode "redhat.vscode-yaml"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "Tyriar.sort-lines"
 vscode "vscode-icons-team.vscode-icons"
+
+{% if yadm.class == "Spacelift" %}
+tap "spacelift-io/spacelift"
+
+brew "awscli"
+brew "pre-commit"
+brew "spacectl"
+
+cask "bartender"
+cask "fantastical"
+cask "microsoft-teams"
+cask "zoom"
+{% endif %}
