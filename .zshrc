@@ -2,6 +2,7 @@
 path=(
     $(brew --prefix)/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
     $(brew --prefix)/opt/node@18/bin # necessary because node@18 is keg-only
+    $(brew --prefix)/opt/python@3.11/libexec/bin
     $path
 )
 
