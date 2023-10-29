@@ -12,5 +12,5 @@ fi
 # Install packages
 if [ -f "$HOME/.Brewfile" ]; then
   echo "Updating Homebrew bundle"
-  brew bundle --all --cleanup --global
+  brew bundle --all --cleanup --global --quiet
 fi
