@@ -1,0 +1,8 @@
+dl:~/Downloads
+projects:~/Projects
+
+{% if yadm.class == "PentimentoLabs" %}
+docslookout:~/Projects/docslookout
+evergreenshot:~/Projects/evergreenshot
+pl:~/Projects/pentimentolabs
+{% endif %}
