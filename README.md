@@ -1,5 +1,9 @@
 # Jean-Marc’s dotfiles
 
-This is my configuration for my shell and commands on MacOS.
 
-Nothing fancy but a huge time-saver for me.
+
+## Usage
+
+- Install [yadm](https://yadm.io/docs/install)
+- Run yadm: `yadm clone --bootstrap https://github.com/jmfontaine/dotfiles.git`
+
