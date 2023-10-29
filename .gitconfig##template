@@ -1,0 +1,93 @@
+[alias]
+  # Display a nicely formatted history
+  lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%G?%Creset %Cgreen(%aN)%Creset' --date=relative
+
+  # Delete the latest commit but preserve its changes
+  oops = reset 'HEAD^' --soft
+
+  # Commit all current changes with "WIP" as commit message
+  wip = !git add -A && git commit -m 'WIP'
+
+[branch]
+  autosetuprebase = always
+
+[color]
+  ui = true
+
+[color "branch"]
+	current = yellow reverse
+	local   = yellow
+	remote  = green
+
+[color "diff"]
+  commit     = yellow bold
+  frag       = magenta bold
+  meta       = 11
+  new        = green bold
+  old        = red bold
+  whitespace = red reverse
+
+[color "diff-highlight"]
+  newHighlight = green bold 22
+  newNormal    = green bold
+  oldHighlight = red bold 52
+  oldNormal    = red bold
+
+[commit]
+	gpgsign = true
+
+[core]
+  editor       = vi
+  excludesfile = ~/.gitignore
+  pager        = "delta"
+
+[delta]
+  # features     = Monokai Extended
+  theme        = Monokai Extended
+  light        = false
+  line-numbers = true
+
+[diff]
+  colorMoved = default
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = /Users/jmf/.ssh/allowed_signers
+	program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[init]
+  defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
+[merge]
+  conflictstyle = diff3
+
+[pull]
+  rebase = true
+
+[push]
+  default = current
+
+[status]
+	showUntrackedFiles = all
+
+[user]
+  name = Jean-Marc Fontaine
+
+{% if yadm.class == "Personal" %}
+  email = jm@jmfontaine.net
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
+{% endif %}
+
+{% if yadm.class == "Spacelift" %}
+  email = jmf@spacelift.io
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDTH3YA8M/HDpQwH2TS6oj2JaFT7QDaTk/agLW1O6rq
+{% endif %}
+
+{% if yadm.class == "PentimentoLabs" %}
+  email = jm@pentimentolabs.com
+{% endif %}

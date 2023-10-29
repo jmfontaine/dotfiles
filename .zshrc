@@ -1,86 +1,98 @@
-export EDITOR='vi'
+### zsh path (must be first)
+path=(
+    $(brew --prefix)/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
+    $(brew --prefix)/opt/node@18/bin # necessary because node@18 is keg-only
+    $(brew --prefix)/opt/python@3.11/libexec/bin
+    $path
+)
 
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias ......='cd ../../../../../'
-alias .......='cd ../../../../../../'
-alias ........='cd ../../../../../../../'
-alias cask="brew cask"
-alias c='code .'
-alias g="git"
-alias gh='history | grep'
-alias h='history'
-alias ls='ls -F'
-alias ll='ls -aFhl'
-alias t="open -a Typora ."
-alias tf="terraform"
-alias tfa="terraform apply"
-alias tfi="terraform init"
-alias tfp="terraform plan"
-alias sudo='sudo ' # Enables aliases to be sudo’ed
+###############################################################################
+# Commands                                                                    #
+###############################################################################
 
-export CLICOLOR=1 # Enable colors in terminal
+### Antidote
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  # lazy-load antidote and generate the static load file only when needed
+  (
+    source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+  )
+fi
+source ${zsh_plugins}.zsh
 
-# Configure history
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+### bat
+alias -g -- -h="-h 2>&1 | bat --language=help --plain" # colorize --help messages
+alias -g -- --help="--help 2>&1 | bat --language=help --plain"
+export MANPAGER="sh -c 'col -bx | bat --language man --plain'" # colorize man pages
 
-setopt EXTENDED_HISTORY # Add timestamps to history
-setopt HIST_IGNORE_SPACE # Ignore when the first character on the line is a space
-setopt HIST_REDUCE_BLANKS # Remove superfluous blanks
-setopt HIST_VERIFY # Do not execute command from history directly
-setopt INC_APPEND_HISTORY # Add incrementally to the history file
+### eza
+eval $(dircolors -b $HOME/.DIR_COLORS)
 
-# Configure completion
+### fzf
+source ~/.fzf.zsh
+source ~/.fzf_functions.zsh
+
+### Starship
+eval "$(starship init zsh)" # Initialize Starship
+
+### zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|.|..*|* --help|* --version)"
+
+
+###############################################################################
+# zsh                                                                         #
+###############################################################################
+
+### Aliases
+alias history="fc -l 1" # remove the 16-item limitation
+
+### Completion
+unsetopt LIST_BEEP # don't beep on an ambiguous completion
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
 
   autoload -Uz compinit
   compinit
 
   setopt AUTO_MENU
+  setopt AUTO_PARAM_SLASH
   zstyle ':completion:*' menu yes select
+
+  if [[ -v LS_COLORS ]]; then
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+  fi
+
+  # Shift-Tab: Perform menu completion, like menu-complete, except that if a menu
+  # completion is already in progress, move to the previous completion rather than
+  # the next.
+  # See http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Completion.
+  [ -n "${terminfo[kcbt]}" ] && bindkey "${terminfo[kcbt]}" reverse-menu-complete
 fi
+source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
-# Configure zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+### Functions
 
-zplug MichaelAquilina/zsh-you-should-use
-zplug zdharma/fast-syntax-highlighting
-zplug mfaerevaag/wd, as:command, use:"wd.sh", hook-load:"wd() { . $ZPLUG_REPOS/mfaerevaag/wd/wd.sh }"
+# update packages
+function update {
+  echo -e "\033[1m────────── Homebrew ──────────\033[0m"
+  brew bundle --all --cleanup --global --quiet
+  brew upgrade
+  brew autoremove --quiet
+  echo ""
+  echo "\033[1m────────── Antidote ──────────\033[0m"
+  source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+  antidote update --bundles
+  echo ""
+}
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|ls *|pwd|youtube-dl *|.|..*|* --help|* --version)"
-zplug zsh-users/zsh-autosuggestions
-
-zplug mafredri/zsh-async, from:github # Pure dependency
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-zstyle :prompt:pure:git:stash show yes
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load
-
-path=(
-    /usr/local/opt/coreutils/libexec/gnubin
-    /usr/local/opt/gnu-sed/libexec/gnubin
-    /usr/local/opt/gzip/bin
-    /usr/local/opt/python@3.8/libexec/bin
-    $path
-)
-
-# Configure nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-
-# Configure direnv
-eval "$(direnv hook zsh)"
+### History
+export HISTFILE=~/.zsh_history # set history file path
+export HISTFILESIZE=1000000000 # set history file max size
+export HISTSIZE=1000000000 # set history max size
+setopt EXTENDED_HISTORY # record the timestamp of each command
+setopt HIST_FIND_NO_DUPS # ignore dupilcates when searching history
+setopt HIST_IGNORE_SPACE # ignore commands that start with space
+setopt HIST_VERIFY # show command with history expansion to user before running it
+setopt SHARE_HISTORY # share history with other sessions

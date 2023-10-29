@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# Update the yadm repository origin URL to use SSH
+yadm remote set-url origin "git@github.com:jmfontaine/dotfiles.git"
