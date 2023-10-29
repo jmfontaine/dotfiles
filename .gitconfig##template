@@ -54,7 +54,8 @@
 	format = ssh
 
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  allowedSignersFile = /Users/jmf/.ssh/allowed_signers
+	program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
 [init]
   defaultBranch = main
@@ -75,15 +76,16 @@
 	showUntrackedFiles = all
 
 [user]
-  name       = Jean-Marc Fontaine
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
+  name = Jean-Marc Fontaine
 
 {% if yadm.class == "Personal" %}
   email = jm@jmfontaine.net
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
 {% endif %}
 
 {% if yadm.class == "Spacelift" %}
   email = jmf@spacelift.io
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDTH3YA8M/HDpQwH2TS6oj2JaFT7QDaTk/agLW1O6rq
 {% endif %}
 
 {% if yadm.class == "PentimentoLabs" %}
