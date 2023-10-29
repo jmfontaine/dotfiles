@@ -1,6 +1,6 @@
 [alias]
   # Display a nicely formatted history
-  lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%d%Creset %Cgreen(%aN)%Creset' --date=relative
+  lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%G?%Creset %Cgreen(%aN)%Creset' --date=relative
 
   # Delete the latest commit but preserve its changes
   oops = reset 'HEAD^' --soft
