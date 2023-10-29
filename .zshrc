@@ -78,6 +78,7 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 function update {
   echo -e "\033[1m────────── Homebrew ──────────\033[0m"
   brew bundle --all --cleanup --global --quiet
+  brew upgrade
   brew autoremove --quiet
   echo ""
   echo "\033[1m────────── Antidote ──────────\033[0m"

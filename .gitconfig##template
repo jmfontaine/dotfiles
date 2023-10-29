@@ -56,9 +56,6 @@
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
-[include]
-  path = .gitconfig.local
-
 [init]
   defaultBranch = main
 
@@ -80,3 +77,15 @@
 [user]
   name       = Jean-Marc Fontaine
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
+
+{% if yadm.class == "Personal" %}
+  email = jm@jmfontaine.net
+{% endif %}
+
+{% if yadm.class == "Spacelift" %}
+  email = jmf@spacelift.io
+{% endif %}
+
+{% if yadm.class == "PentimentoLabs" %}
+  email = jm@pentimentolabs.com
+{% endif %}
