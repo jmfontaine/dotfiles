@@ -10,7 +10,9 @@
       "italic": false
     }
   ],
-  "editor.fontFamily": "'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "black-formatter.args": ["--line-length", "120"],
+  "editor.fontFamily": "'Monaspace Neon', monospace",
+  "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.minimap.enabled": false,
   "editor.rulers": [120],
@@ -18,21 +20,20 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "github.gitProtocol": "ssh",
+  "grammarly.config.documentDialect": "american",
   "security.workspace.trust.untrustedFiles": "open",
+  "vsicons.dontShowNewVersionMessage": true,
   "workbench.colorTheme": "Monokai Night",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
-  "terminal.integrated.defaultLocation": "editor",
-  "vsicons.dontShowNewVersionMessage": true,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "black-formatter.args": ["--line-length", "120"],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
   }
 }
