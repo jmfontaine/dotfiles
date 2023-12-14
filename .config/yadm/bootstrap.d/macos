@@ -4,39 +4,3 @@ set -eu
 
 # Install Rosetta 2
 pgrep -q oahd || softwareupdate --agree-to-license --install-rosetta
-
-# Inspired by https://mths.be/macos
-
-# Close any open System Preferences panes, to prevent them from overriding settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
-
-
-###############################################################################
-# Keyboard Shortcuts                                                          #
-###############################################################################
-
-# Disable Show Spotlight search keyboard shortcut so that ⌘-Space can be used with the application launcher
-defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
-
-# Force keyboard shortcuts reload
-/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-
-
-###############################################################################
-# Dock                                                                        #
-###############################################################################
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -int 1
-
-# Set auto-hide speed
-defaults write com.apple.dock autohide-time-modifier -float 0.2
-
-# Do not show recent applications
-defaults write com.apple.dock show-recents -bool false
-
-# Set Dock icon size
-defaults write com.apple.dock tilesize -int 76
-
-# Restart Dock
-killall Dock
