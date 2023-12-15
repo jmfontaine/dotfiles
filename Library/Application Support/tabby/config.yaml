@@ -1,4 +1,4 @@
-version: 6
+version: 7
 profiles: []
 groups: []
 hotkeys:
@@ -213,8 +213,8 @@ terminal:
   customColorSchemes: []
   hideTabIndex: true
   fontWeight: 300
-  fontSize: 13
-  font: MesloLGM Nerd Font
+  font: MonaspiceNe Nerd Font
+  fontSize: 15
 ssh: {}
 configSync:
   parts: {}

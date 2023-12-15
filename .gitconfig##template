@@ -78,7 +78,7 @@
 [user]
   name = Jean-Marc Fontaine
 
-{% if yadm.class == "Mercure" %}
+{% if yadm.hostname == "Mercure" %}
   email      = jm@jmfontaine.net
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
 {% endif %}

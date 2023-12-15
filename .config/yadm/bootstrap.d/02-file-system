@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [ ! -d "$HOME/Projects" ]; then
+  echo "Creating the Projects folder"
+  mkdir "$HOME/Projects"
+fi
+
+ehco "Avoid the 'zsh compinit: insecure directories, run compaudit for list.' warning when starting a shell"
+chmod g-w /opt/homebrew/share

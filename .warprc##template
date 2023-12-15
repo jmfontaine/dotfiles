@@ -1,7 +1,7 @@
 dl:~/Downloads
-projects:~/Projects
+prj:~/Projects
 
-{% if yadm.class == "Mercure" %}
+{% if yadm.hostname == "Mercure" %}
 docslookout:~/Projects/docslookout
 evergreenshot:~/Projects/evergreenshot
 pl:~/Projects/pentimentolabs

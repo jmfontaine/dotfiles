@@ -1,44 +1,102 @@
-tap "homebrew/cask-fonts"
+##################################################
+# Shared
+##################################################
 
-brew "antidote"
-brew "bat"
-brew "checkov"
+# Applications
+cask "1password"
+mas "1Password for Safari", id: 1569813296
+cask "bartender"
+cask "google-chrome"
+cask "raycast"
+cask "roon"
+
+# CLI command replacements
+brew "bat" # cat
+brew "eza" # ls
+brew "fd" # find
+brew "zenith" # htop
+
+# Fonts
+tap "homebrew/cask-fonts"
+cask "font-monaspace"
+cask "font-monaspace-nerd-font"
+
+# GNU version of CLI commands
 brew "coreutils"
-brew "eza"
-brew "fd"
+brew "grep"
+brew "gzip"
+brew "wget"
+
+# Package Management
+brew "antidote"
+brew "mas"
+brew "whalebrew"
+brew "yadm"
+
+# Terminal
+cask "tabby"
+brew "starship"
+brew "zsh-completions"
+
+# Misc.
 brew "fzf"
+brew "jq"
+
+{% if yadm.hostname == "Jupiter" %}
+##################################################
+# Jupiter
+##################################################
+
+# Applications
+cask "backblaze"
+cask "jaikoz"
+cask "xld"
+{% endif %}
+
+{% if yadm.hostname == "Mercure" %}
+##################################################
+# Mercure
+##################################################
+
+# Applications
+cask "backblaze"
+cask "fantastical"
+cask "firefox"
+mas "GoodLinks", id: 1474335294
+cask "kindle"
+cask "nordvpn"
+cask "notion"
+mas "Photomator – Photo Editor", id: 1444636541
+cask "readdle-spark"
+cask "slack"
+cask "sunsama"
+cask "typora"
+
+# AWS
+brew "awscli"
+
+# Docker
+brew "hadolint"
+cask "orbstack"
+
+# Git
 brew "git"
 brew "git-delta"
 brew "git-extras"
-brew "grep"
-brew "gzip"
-brew "hadolint"
-brew "jq"
-brew "node@18"
-brew "pre-commit"
-brew "python@3.11"
-brew "starship"
-brew "terraform"
-brew "tfsec"
-brew "wget"
-brew "yadm"
-brew "zenith"
-brew "zsh-completions"
 
-cask "1password"
-cask "1password-cli"
-cask "font-monaspace"
-cask "google-chrome"
-cask "firefox"
-cask "kindle"
-cask "notion"
-cask "orbstack"
-cask "raycast"
-cask "roon"
-cask "slack"
-cask "sunsama"
-cask "tabby"
-cask "typora"
+# Music Making
+cask "ableton-live-suite"
+
+# OpenTofu
+brew "opentofu"
+brew "tflint"
+brew "tfsec"
+
+# Quality Assurance
+brew "checkov"
+brew "pre-commit"
+
+# Visual Studio Code
 cask "visual-studio-code"
 
 vscode "aaron-bond.better-comments"
@@ -48,36 +106,39 @@ vscode "EditorConfig.EditorConfig"
 vscode "esbenp.prettier-vscode"
 vscode "fabiospampinato.vscode-monokai-night"
 vscode "GitHub.codespaces"
-vscode "hashicorp.terraform"
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 vscode "kamikillerto.vscode-colorize"
 vscode "ms-azuretools.vscode-docker"
-vscode "ms-python.black-formatter"
-vscode "ms-python.isort"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.python"
 vscode "ms-vscode-remote.remote-containers"
-vscode "njqdev.vscode-python-typehint"
-vscode "redhat.vscode-yaml"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "Tyriar.sort-lines"
 vscode "usernamehw.errorlens"
 vscode "vscode-icons-team.vscode-icons"
-vscode "znck.grammarly"
+{% endif %}
 
 {% if yadm.class == "Minerva" %}
-tap "spacelift-io/spacelift"
+##################################################
+# Minerva
+##################################################
 
-brew "awscli"
-brew "opentofu"
-brew "spacectl"
-brew "tflint"
-
-cask "bartender"
+# Applications
 cask "clickup"
 cask "fantastical"
+cask "firefox"
+mas "GoodLinks", id: 1474335294
 cask "grammarly"
+cask "kindle"
 cask "logitune"
 cask "microsoft-teams"
+cask "notion"
+cask "slack"
+cask "sunsama"
 cask "tailscale"
+cask "typora"
 cask "zoom"
+
+# spacectl
+tap "spacelift-io/spacelift"
+brew "spacectl"
 {% endif %}
