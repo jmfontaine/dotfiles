@@ -2,8 +2,9 @@
 
 set -eu
 
-# Install packages
+source $(dirname "$0")/../helpers
+
 if [ -f "$HOME/.Brewfile" ]; then
-  echo "Updating Homebrew bundle"
+  info "Install Homebrew packages"
   brew bundle --all --cleanup --global --quiet
 fi

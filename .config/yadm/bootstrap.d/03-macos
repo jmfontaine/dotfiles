@@ -2,5 +2,8 @@
 
 set -eu
 
-# Install Rosetta 2
-pgrep -q oahd || softwareupdate --agree-to-license --install-rosetta
+source $(dirname "$0")/../helpers
+
+$(pgrep -q oahd > /dev/null) || \
+  info "Install Rosetta 2" && \
+  softwareupdate --agree-to-license --install-rosetta

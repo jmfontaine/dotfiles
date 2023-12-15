@@ -2,5 +2,8 @@
 
 set -eu
 
-# Update the yadm repository origin URL to use SSH
-yadm remote set-url origin "git@github.com:jmfontaine/dotfiles.git"
+source $(dirname "$0")/../helpers
+
+$(yadm remote -v | grep 'https://github.com/jmfontaine/dotfiles.git' > /dev/null) && \
+  info "Update the yadm repository origin URL to use SSH" && \
+  yadm remote set-url origin "git@github.com:jmfontaine/dotfiles.git"

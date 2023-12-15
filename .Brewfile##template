@@ -42,6 +42,12 @@ brew "zsh-completions"
 brew "fzf"
 brew "jq"
 
+
+{% if yadm.hostname in ["Mercure", "Minerva"] %}
+brew "csvkit"
+{% endif %}
+
+
 {% if yadm.hostname == "Jupiter" %}
 ##################################################
 # Jupiter

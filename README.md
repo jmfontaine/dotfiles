@@ -2,7 +2,8 @@
 
 ## Usage
 
-- Install [Homebrew](https://brew.sh).
-- Run `eval "$(/opt/homebrew/bin/brew shellenv)"` to complete the Homebrew installation.
-- Install [yadm](https://yadm.io/docs/install).
-- Run `yadm clone --bootstrap https://github.com/jmfontaine/dotfiles.git` to bootstrap the local machine.
+Run the following command in a terminal:
+
+```shell
+/bin/bash -c "$(curl -fsLS https://gist.githubusercontent.com/jmfontaine/fa4ddffe18fefd2f1ffc63ff34e358e5/raw/66c8179e8061cb0882f9821759cdb4fd9297f87e/bootstrap.sh)"
+```

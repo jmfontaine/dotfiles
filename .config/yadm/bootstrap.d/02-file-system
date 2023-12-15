@@ -2,10 +2,14 @@
 
 set -eu
 
+source $(dirname "$0")/../helpers
+
 if [ ! -d "$HOME/Projects" ]; then
-  echo "Creating the Projects folder"
+  info "Creating the Projects folder"
   mkdir "$HOME/Projects"
 fi
 
-ehco "Avoid the 'zsh compinit: insecure directories, run compaudit for list.' warning when starting a shell"
-chmod g-w /opt/homebrew/share
+if [[ $(stat -c "%a" /opt/homebrew/share) != "755" ]]; then
+  info "Avoid the 'zsh compinit: insecure directories, run compaudit for list.' warning when starting a shell"
+  chmod g-w /opt/homebrew/share
+fi

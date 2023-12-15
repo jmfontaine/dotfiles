@@ -1,8 +1,6 @@
 ### zsh path (must be first)
 path=(
     $(brew --prefix)/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
-    $(brew --prefix)/opt/node@18/bin # necessary because node@18 is keg-only
-    $(brew --prefix)/opt/python@3.11/libexec/bin
     $path
 )
 
@@ -34,7 +32,7 @@ source ~/.fzf.zsh
 source ~/.fzf_functions.zsh
 
 ### Starship
-eval "$(starship init zsh)" # Initialize Starship
+eval "$(starship init zsh)"
 
 ### zsh-users/zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
