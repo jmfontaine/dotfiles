@@ -64,7 +64,7 @@ vscode "usernamehw.errorlens"
 vscode "vscode-icons-team.vscode-icons"
 vscode "znck.grammarly"
 
-{% if yadm.class == "Spacelift" %}
+{% if yadm.class == "Minerva" %}
 tap "spacelift-io/spacelift"
 
 brew "awscli"

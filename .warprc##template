@@ -1,7 +1,7 @@
 dl:~/Downloads
 projects:~/Projects
 
-{% if yadm.class == "PentimentoLabs" %}
+{% if yadm.class == "Mercure" %}
 docslookout:~/Projects/docslookout
 evergreenshot:~/Projects/evergreenshot
 pl:~/Projects/pentimentolabs
