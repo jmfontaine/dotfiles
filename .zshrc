@@ -79,6 +79,9 @@ function update {
   brew upgrade
   brew autoremove --quiet
   echo ""
+  echo "\033[1m────────── App Store ──────────\033[0m"
+  mas upgrade
+  echo ""
   echo "\033[1m────────── Antidote ──────────\033[0m"
   source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
   antidote update --bundles
