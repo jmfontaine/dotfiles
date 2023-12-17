@@ -21,6 +21,11 @@ tap "homebrew/cask-fonts"
 cask "font-monaspace"
 cask "font-monaspace-nerd-font"
 
+# Git
+brew "git"
+brew "git-delta"
+brew "git-extras"
+
 # GNU version of CLI commands
 brew "coreutils"
 brew "grep"
@@ -37,6 +42,27 @@ brew "yadm"
 cask "tabby"
 brew "starship"
 brew "zsh-completions"
+
+# Visual Studio Code
+cask "visual-studio-code"
+
+vscode "aaron-bond.better-comments"
+vscode "alefragnani.Bookmarks"
+vscode "chrmarti.regex"
+vscode "EditorConfig.EditorConfig"
+vscode "esbenp.prettier-vscode"
+vscode "fabiospampinato.vscode-monokai-night"
+vscode "GitHub.codespaces"
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
+vscode "kamikillerto.vscode-colorize"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode-remote.remote-containers"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "tamasfe.even-better-toml"
+vscode "Tyriar.sort-lines"
+vscode "usernamehw.errorlens"
+vscode "vscode-icons-team.vscode-icons"
 
 # Misc.
 brew "fzf"
@@ -80,11 +106,6 @@ brew "awscli"
 brew "hadolint"
 cask "orbstack"
 
-# Git
-brew "git"
-brew "git-delta"
-brew "git-extras"
-
 # Music Making
 cask "ableton-live-suite"
 
@@ -96,26 +117,6 @@ brew "tfsec"
 # Quality Assurance
 brew "checkov"
 brew "pre-commit"
-
-# Visual Studio Code
-cask "visual-studio-code"
-
-vscode "aaron-bond.better-comments"
-vscode "alefragnani.Bookmarks"
-vscode "chrmarti.regex"
-vscode "EditorConfig.EditorConfig"
-vscode "esbenp.prettier-vscode"
-vscode "fabiospampinato.vscode-monokai-night"
-vscode "GitHub.codespaces"
-vscode "GitHub.copilot"
-vscode "GitHub.copilot-chat"
-vscode "kamikillerto.vscode-colorize"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode-remote.remote-containers"
-vscode "streetsidesoftware.code-spell-checker"
-vscode "Tyriar.sort-lines"
-vscode "usernamehw.errorlens"
-vscode "vscode-icons-team.vscode-icons"
 {% endif %}
 
 {% if yadm.class == "Minerva" %}

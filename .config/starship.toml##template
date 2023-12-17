@@ -1,0 +1,7 @@
+continuation_prompt = '▶▶ '
+
+{% if yadm.hostname == "Jupiter" %}
+# KLUDGE: https://github.com/starship/starship/issues/5350
+[battery]
+disabled = true
+{% endif %}
