@@ -7,6 +7,7 @@ cask "1password"
 mas "1Password for Safari", id: 1569813296
 cask "bartender"
 cask "google-chrome"
+cask "notion"
 cask "raycast"
 cask "roon"
 
@@ -92,7 +93,6 @@ cask "firefox"
 mas "GoodLinks", id: 1474335294
 cask "kindle"
 cask "nordvpn"
-cask "notion"
 mas "Photomator – Photo Editor", id: 1444636541
 cask "readdle-spark"
 cask "slack"
@@ -133,7 +133,6 @@ cask "grammarly"
 cask "kindle"
 cask "logitune"
 cask "microsoft-teams"
-cask "notion"
 cask "slack"
 cask "sunsama"
 cask "tailscale"
