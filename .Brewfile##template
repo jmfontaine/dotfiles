@@ -69,16 +69,18 @@ vscode "vscode-icons-team.vscode-icons"
 brew "fzf"
 brew "jq"
 
-
 {% if yadm.hostname == "Jupiter" %}
 ##################################################
 # Jupiter
 ##################################################
 
 # Applications
+mas "Amphetamine", id: 937984704
 cask "backblaze"
 cask "jaikoz"
+cask "vlc"
 cask "xld"
+brew "yt-dlp"
 {% endif %}
 
 {% if yadm.hostname == "Mercure" %}
@@ -98,6 +100,7 @@ cask "readdle-spark"
 cask "slack"
 cask "sunsama"
 cask "typora"
+cask "vlc"
 
 # AWS
 brew "awscli"
