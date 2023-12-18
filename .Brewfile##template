@@ -78,6 +78,7 @@ brew "jq"
 mas "Amphetamine", id: 937984704
 cask "backblaze"
 cask "jaikoz"
+brew "node"
 cask "vlc"
 cask "xld"
 brew "yt-dlp"
@@ -95,6 +96,7 @@ cask "firefox"
 mas "GoodLinks", id: 1474335294
 cask "kindle"
 cask "nordvpn"
+cask "orbstack"
 mas "Photomator – Photo Editor", id: 1444636541
 cask "readdle-spark"
 cask "slack"
@@ -107,7 +109,6 @@ brew "awscli"
 
 # Docker
 brew "hadolint"
-cask "orbstack"
 
 # Music Making
 cask "ableton-live-suite"
