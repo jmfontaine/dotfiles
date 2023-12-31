@@ -57,8 +57,10 @@ vscode "GitHub.codespaces"
 vscode "GitHub.copilot"
 vscode "GitHub.copilot-chat"
 vscode "kamikillerto.vscode-colorize"
+vscode "mechatroner.rainbow-csv"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-vscode-remote.remote-containers"
+vscode "rebornix.toggle"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "tamasfe.even-better-toml"
 vscode "Tyriar.sort-lines"
@@ -94,15 +96,20 @@ cask "backblaze"
 cask "fantastical"
 cask "firefox"
 mas "GoodLinks", id: 1474335294
+mas "Habitify", id: 1111447047
+cask "jaikoz"
 cask "kindle"
 cask "nordvpn"
 cask "orbstack"
+cask "paulxstretch"
+cask "postman"
 mas "Photomator – Photo Editor", id: 1444636541
 cask "readdle-spark"
 cask "slack"
 cask "sunsama"
 cask "typora"
 cask "vlc"
+cask "xact"
 
 # AWS
 brew "awscli"
@@ -112,6 +119,9 @@ brew "hadolint"
 
 # Music Making
 cask "ableton-live-suite"
+
+# Node.js
+brew "nvm"
 
 # OpenTofu
 brew "opentofu"
