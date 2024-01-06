@@ -99,7 +99,15 @@ setopt HIST_IGNORE_SPACE # ignore commands that start with space
 setopt HIST_VERIFY # show command with history expansion to user before running it
 setopt SHARE_HISTORY # share history with other sessions
 
-### VS Code
+###############################################################################
+# VS Code                                                                     #
+###############################################################################
 
 # Makes 1Password SSH agent available inside VS Code devcontainers
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+###############################################################################
+# nvm                                                                         #
+###############################################################################
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
