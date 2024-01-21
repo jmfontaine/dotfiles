@@ -88,7 +88,7 @@
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
 {% endif %}
 
-{% if yadm.class == "Minerva" %}
+{% if yadm.hostname == "Minerva" %}
   email      = jmf@spacelift.io
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDTH3YA8M/HDpQwH2TS6oj2JaFT7QDaTk/agLW1O6rq
 {% endif %}

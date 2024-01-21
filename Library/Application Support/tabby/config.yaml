@@ -167,48 +167,48 @@ terminal:
   searchOptions: {}
   colorScheme:
     name: Monokai Soda
-    foreground: '#c4c5b5'
-    background: '#1a1a1a'
-    cursor: '#f6f7ec'
+    foreground: "#c4c5b5"
+    background: "#1a1a1a"
+    cursor: "#f6f7ec"
     colors:
-      - '#1a1a1a'
-      - '#f4005f'
-      - '#98e024'
-      - '#fa8419'
-      - '#9d65ff'
-      - '#f4005f'
-      - '#58d1eb'
-      - '#c4c5b5'
-      - '#625e4c'
-      - '#f4005f'
-      - '#98e024'
-      - '#e0d561'
-      - '#9d65ff'
-      - '#f4005f'
-      - '#58d1eb'
-      - '#f6f6ef'
+      - "#1a1a1a"
+      - "#f4005f"
+      - "#98e024"
+      - "#fa8419"
+      - "#9d65ff"
+      - "#f4005f"
+      - "#58d1eb"
+      - "#c4c5b5"
+      - "#625e4c"
+      - "#f4005f"
+      - "#98e024"
+      - "#e0d561"
+      - "#9d65ff"
+      - "#f4005f"
+      - "#58d1eb"
+      - "#f6f6ef"
   lightColorScheme:
     name: Tabby Default Light
-    foreground: '#4d4d4c'
-    background: '#ffffff'
-    cursor: '#4d4d4c'
+    foreground: "#4d4d4c"
+    background: "#ffffff"
+    cursor: "#4d4d4c"
     colors:
-      - '#000000'
-      - '#c82829'
-      - '#718c00'
-      - '#eab700'
-      - '#4271ae'
-      - '#8959a8'
-      - '#3e999f'
-      - '#ffffff'
-      - '#000000'
-      - '#c82829'
-      - '#718c00'
-      - '#eab700'
-      - '#4271ae'
-      - '#8959a8'
-      - '#3e999f'
-      - '#ffffff'
+      - "#000000"
+      - "#c82829"
+      - "#718c00"
+      - "#eab700"
+      - "#4271ae"
+      - "#8959a8"
+      - "#3e999f"
+      - "#ffffff"
+      - "#000000"
+      - "#c82829"
+      - "#718c00"
+      - "#eab700"
+      - "#4271ae"
+      - "#8959a8"
+      - "#3e999f"
+      - "#ffffff"
   fallbackFont: Menlo
   customColorSchemes: []
   hideTabIndex: true

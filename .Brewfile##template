@@ -8,6 +8,7 @@ mas "1Password for Safari", id: 1569813296
 cask "bartender"
 cask "google-chrome"
 cask "notion"
+cask "notion-calendar"
 cask "raycast"
 cask "roon"
 
@@ -46,7 +47,6 @@ brew "zsh-completions"
 
 # Visual Studio Code
 cask "visual-studio-code"
-
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.Bookmarks"
 vscode "chrmarti.regex"
@@ -93,14 +93,12 @@ brew "yt-dlp"
 
 # Applications
 cask "backblaze"
-cask "fantastical"
 cask "firefox"
 mas "GoodLinks", id: 1474335294
 mas "Habitify", id: 1111447047
 cask "jaikoz"
 cask "kindle"
 cask "nordvpn"
-cask "orbstack"
 cask "paulxstretch"
 cask "postman"
 mas "Photomator – Photo Editor", id: 1444636541
@@ -109,6 +107,7 @@ cask "slack"
 cask "sunsama"
 cask "typora"
 cask "vlc"
+cask "workspaces"
 cask "xact"
 
 # AWS
@@ -116,6 +115,7 @@ brew "awscli"
 
 # Docker
 brew "hadolint"
+cask "orbstack"
 
 # Music Making
 cask "ableton-live-suite"
@@ -125,35 +125,57 @@ brew "nvm"
 
 # OpenTofu
 brew "opentofu"
-brew "tflint"
-brew "tfsec"
 
 # Quality Assurance
 brew "checkov"
 brew "pre-commit"
+
+# Terraform
+brew "tflint"
+brew "tfsec"
 {% endif %}
 
-{% if yadm.class == "Minerva" %}
+{% if yadm.hostname == "Minerva" %}
 ##################################################
 # Minerva
 ##################################################
 
 # Applications
 cask "clickup"
-cask "fantastical"
 cask "firefox"
 mas "GoodLinks", id: 1474335294
 cask "grammarly"
 cask "kindle"
 cask "logitune"
+cask "loom"
 cask "microsoft-teams"
 cask "slack"
 cask "sunsama"
 cask "tailscale"
 cask "typora"
+cask "workspaces"
 cask "zoom"
+
+# Docker
+brew "hadolint"
+cask "orbstack"
+
+# OpenTofu
+brew "opentofu"
+
+# Quality Assurance
+brew "checkov"
+brew "pre-commit"
 
 # spacectl
 tap "spacelift-io/spacelift"
 brew "spacectl"
+
+# Terraform
+brew "tflint"
+brew "tfsec"
+
+# Visual Studio Code
+vscode "hashicorp.terraform"
+vscode "znck.grammarly"
 {% endif %}
