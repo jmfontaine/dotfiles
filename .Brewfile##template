@@ -6,6 +6,7 @@
 cask "1password"
 mas "1Password for Safari", id: 1569813296
 cask "bartender"
+cask "fantastical"
 cask "google-chrome"
 cask "notion"
 cask "notion-calendar"
@@ -97,7 +98,7 @@ cask "firefox"
 mas "GoodLinks", id: 1474335294
 mas "Habitify", id: 1111447047
 cask "jaikoz"
-cask "kindle"
+mas "Amazon Kindle", id: 302584613
 cask "nordvpn"
 cask "paulxstretch"
 cask "postman"
@@ -145,7 +146,7 @@ cask "clickup"
 cask "firefox"
 mas "GoodLinks", id: 1474335294
 cask "grammarly"
-cask "kindle"
+mas "Amazon Kindle", id: 302584613
 cask "logitune"
 cask "loom"
 cask "microsoft-teams"
