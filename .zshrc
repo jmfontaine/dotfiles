@@ -1,5 +1,6 @@
 ### zsh path (must be first)
 path=(
+    /Users/jmf/.local/bin # pipx
     $(brew --prefix)/opt/coreutils/libexec/gnubin # use GNU commands instead of MacOS ones
     $path
 )
@@ -97,3 +98,8 @@ setopt HIST_FIND_NO_DUPS # ignore dupilcates when searching history
 setopt HIST_IGNORE_SPACE # ignore commands that start with space
 setopt HIST_VERIFY # show command with history expansion to user before running it
 setopt SHARE_HISTORY # share history with other sessions
+
+### VS Code
+
+# Makes 1Password SSH agent available inside VS Code devcontainers
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock

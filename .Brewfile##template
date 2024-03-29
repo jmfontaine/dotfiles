@@ -9,9 +9,9 @@ cask "bartender"
 cask "fantastical"
 cask "google-chrome"
 cask "notion"
-cask "notion-calendar"
 cask "raycast"
 cask "roon"
+mas "Todoist", id: 585829637
 
 # CLI command replacements
 brew "bat" # cat
@@ -71,6 +71,7 @@ vscode "vscode-icons-team.vscode-icons"
 # Misc.
 brew "fzf"
 brew "jq"
+brew "pipx"
 
 {% if yadm.hostname == "Jupiter" %}
 ##################################################
