@@ -6,13 +6,12 @@
 cask "1password"
 mas "1Password for Safari", id: 1569813296
 cask "bartender"
-mass "Drafts", id: 1435957248
+mas "Drafts", id: 1435957248
 cask "fantastical"
 cask "google-chrome"
 cask "notion"
 cask "raycast"
 cask "roon"
-mas "Todoist", id: 585829637
 
 # CLI command replacements
 brew "bat" # cat
@@ -101,11 +100,11 @@ brew "yt-dlp"
 ##################################################
 
 # Applications
+cask "akiflow"
 cask "backblaze"
 cask "bruno"
 cask "firefox"
 mas "GoodLinks", id: 1474335294
-mas "Habitify", id: 1111447047
 cask "jaikoz"
 mas "Amazon Kindle", id: 302584613
 cask "nordvpn"
@@ -115,10 +114,8 @@ mas "Photomator – Photo Editor", id: 1444636541
 cask "readdle-spark"
 mas "Reeder", id: 1529448980
 cask "slack"
-cask "sunsama"
 cask "typora"
 cask "vlc"
-cask "workspaces"
 cask "xact"
 
 # AWS
@@ -158,6 +155,7 @@ brew "yt-dlp"
 ##################################################
 
 # Applications
+cask "akiflow"
 cask "bruno"
 cask "clickup"
 cask "firefox"
@@ -169,10 +167,8 @@ cask "loom"
 cask "microsoft-teams"
 mas "Reeder", id: 1529448980
 cask "slack"
-cask "sunsama"
 cask "tailscale"
 cask "typora"
-cask "workspaces"
 cask "zoom"
 
 # Docker
