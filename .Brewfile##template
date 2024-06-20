@@ -88,6 +88,10 @@ cask "jaikoz"
 brew "node"
 cask "vlc"
 cask "xld"
+
+# yt-dlp
+brew "ffmpeg"
+brew "fprobe"
 brew "yt-dlp"
 {% endif %}
 
@@ -126,6 +130,7 @@ cask "orbstack"
 
 # Music Making
 cask "ableton-live-suite"
+cask "waves-central"
 
 # Node.js
 brew "nvm"
@@ -140,6 +145,11 @@ brew "pre-commit"
 # Terraform
 brew "tflint"
 brew "tfsec"
+
+# yt-dlp
+brew "ffmpeg"
+brew "fprobe"
+brew "yt-dlp"
 {% endif %}
 
 {% if yadm.hostname == "Minerva" %}
