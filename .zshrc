@@ -32,8 +32,8 @@ eval $(dircolors -b $HOME/.DIR_COLORS)
 source ~/.fzf.zsh
 source ~/.fzf_functions.zsh
 
-### Starship
-eval "$(starship init zsh)"
+### Oh My Posh
+eval "$(oh-my-posh init zsh --config ~/.jmf.omp.yaml)"
 
 ### zsh-users/zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#677A83,bg=#000000"
@@ -111,3 +111,4 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 ###############################################################################
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
+source ${HOME}/.ghcup/env

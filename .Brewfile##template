@@ -2,12 +2,14 @@
 # Shared
 ##################################################
 
+# Options
+cask_args require_sha: true
+
 # Applications
 cask "1password"
 mas "1Password for Safari", id: 1569813296
 cask "bartender"
 mas "Drafts", id: 1435957248
-cask "fantastical"
 cask "google-chrome"
 cask "notion"
 cask "raycast"
@@ -42,8 +44,9 @@ brew "whalebrew"
 brew "yadm"
 
 # Terminal
-cask "tabby"
-brew "starship"
+tap "jandedobbeleer/oh-my-posh"
+brew "oh-my-posh"
+cask "warp"
 brew "zsh-completions"
 
 # Visual Studio Code
@@ -69,6 +72,14 @@ vscode "tamasfe.even-better-toml"
 vscode "Tyriar.sort-lines"
 vscode "usernamehw.errorlens"
 vscode "vscode-icons-team.vscode-icons"
+
+# MacOS Quick Look Plugins
+cask "qlcolorcode"      # QL for code with highlighting
+cask "qlimagesize"      # QL for size info for images
+cask "qlmarkdown"       # QL for markdown files
+cask "qlvideo"          # QL for video formats
+cask "quicklook-csv"    # QL for tables in CSV format
+cask "quicklook-json"   # QL for JSON, with trees
 
 # Misc.
 brew "fzf"
@@ -109,9 +120,7 @@ cask "jaikoz"
 mas "Amazon Kindle", id: 302584613
 cask "nordvpn"
 cask "paulxstretch"
-cask "postman"
 mas "Photomator – Photo Editor", id: 1444636541
-cask "readdle-spark"
 mas "Reeder", id: 1529448980
 cask "slack"
 cask "typora"
@@ -127,6 +136,8 @@ cask "orbstack"
 
 # Music Making
 cask "ableton-live-suite"
+vscode "jatinchowdhury18.vscode-supercollider"
+vscode "justusadam.language-haskell"
 cask "waves-central"
 
 # Node.js
@@ -141,7 +152,6 @@ brew "pre-commit"
 
 # Terraform
 brew "tflint"
-brew "tfsec"
 
 # yt-dlp
 brew "ffmpeg"
@@ -191,7 +201,6 @@ brew "spacectl"
 
 # Terraform
 brew "tflint"
-brew "tfsec"
 
 # Visual Studio Code
 vscode "hashicorp.terraform"
