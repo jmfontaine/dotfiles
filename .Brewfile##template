@@ -8,6 +8,7 @@ cask_args require_sha: true
 # Applications
 cask "1password"
 mas "1Password for Safari", id: 1569813296
+cask "akiflow"
 cask "bartender"
 mas "Drafts", id: 1435957248
 cask "google-chrome"
@@ -22,7 +23,6 @@ brew "fd" # find
 brew "zenith" # htop
 
 # Fonts
-tap "homebrew/cask-fonts"
 cask "font-monaspace"
 cask "font-monaspace-nerd-font"
 
@@ -42,6 +42,11 @@ brew "antidote"
 brew "mas"
 brew "whalebrew"
 brew "yadm"
+
+# Python
+brew "pipx"
+brew "poetry"
+brew "pyenv"
 
 # Terminal
 tap "jandedobbeleer/oh-my-posh"
@@ -79,12 +84,11 @@ cask "qlimagesize"      # QL for size info for images
 cask "qlmarkdown"       # QL for markdown files
 cask "qlvideo"          # QL for video formats
 cask "quicklook-csv"    # QL for tables in CSV format
-cask "quicklook-json"   # QL for JSON, with trees
+cask "quicklook-json", args: { require_sha: false } # QL for JSON, with trees
 
 # Misc.
 brew "fzf"
 brew "jq"
-brew "pipx"
 
 {% if yadm.hostname == "Jupiter" %}
 ##################################################
@@ -114,10 +118,12 @@ brew "yt-dlp"
 cask "akiflow"
 cask "backblaze"
 cask "bruno"
+cask "chatgpt"
 cask "firefox"
 mas "GoodLinks", id: 1474335294
 cask "jaikoz"
 mas "Amazon Kindle", id: 302584613
+mas "LiquidText", id: 922765270
 cask "nordvpn"
 cask "paulxstretch"
 mas "Photomator – Photo Editor", id: 1444636541
@@ -167,6 +173,7 @@ brew "yt-dlp"
 # Applications
 cask "akiflow"
 cask "bruno"
+cask "chatgpt"
 cask "clickup"
 cask "firefox"
 mas "GoodLinks", id: 1474335294

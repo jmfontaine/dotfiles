@@ -51,11 +51,11 @@
   colorMoved = default
 
 [gpg]
-	format = ssh
+  format = ssh
 
 [gpg "ssh"]
   allowedSignersFile = /Users/jmf/.ssh/allowed_signers
-	program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+#  program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
 [init]
   defaultBranch = main
