@@ -117,3 +117,6 @@ source ${HOME}/.ghcup/env
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+echo "🚀  Loaded .zshrc"
+>>>>>>> bf9f3f8 (Update)

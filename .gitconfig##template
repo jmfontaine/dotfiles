@@ -1,4 +1,7 @@
 [alias]
+  # Generate git commit message based on the changes
+  gpt = "!f() { git diff $1 | llm 'Write concise, informative commit messages: Start with a summary in imperative mood, explain the 'why' behind changes, keep the summary under 50 characters, use bullet points for multiple changes, and reference related issues or tickets. What you write will be passed to git commit -m \"[message]\"'; }; f"
+
   # Display a nicely formatted history
   lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%G?%Creset %Cgreen(%aN)%Creset' --date=relative
 

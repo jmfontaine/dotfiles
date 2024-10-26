@@ -69,8 +69,10 @@ vscode "GitHub.copilot"
 vscode "kamikillerto.vscode-colorize"
 vscode "mechatroner.rainbow-csv"
 vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.black-formatter"
 vscode "ms-python.python"
 vscode "ms-vscode-remote.remote-containers"
+vscode "nefrob.vscode-just-syntax"
 vscode "rebornix.toggle"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "tamasfe.even-better-toml"
@@ -146,17 +148,14 @@ vscode "jatinchowdhury18.vscode-supercollider"
 vscode "justusadam.language-haskell"
 cask "waves-central"
 
-# Node.js
+# Programming
+brew "just"
 brew "nvm"
+brew "uv"
 
-# OpenTofu
-brew "opentofu"
-
-# Quality Assurance
+# IaC
 brew "checkov"
-brew "pre-commit"
-
-# Terraform
+brew "opentofu"
 brew "tflint"
 
 # yt-dlp

@@ -12,7 +12,7 @@
       "italic": false
     }
   ],
-  "editor.fontFamily": "'Monaspace Neon', monospace",
+  "editor.fontFamily": "'MonaspiceNe Nerd Font Mono', 'Monaspace Neon', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.minimap.enabled": false,
@@ -43,5 +43,10 @@
   "dotfiles.targetPath": "~/",
   "dotfiles.installCommand": "yadm alt",
   "github.copilot.editor.enableAutoCompletions": true,
-  "editor.largeFileOptimizations": false
+  "editor.largeFileOptimizations": false,
+  "svelte.enable-ts-plugin": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "python.venvFolders": ["/Users/jmf/Library/Caches/pypoetry/virtualenvs"]
+  // "python.venvPath": "/Users/jmf/Library/Caches/pypoetry/virtualenvs"
+  // "python.venvFolders": [".venv"]
 }
