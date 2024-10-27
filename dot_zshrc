@@ -1,0 +1,28 @@
+### zsh path (must be first)
+path=(
+    $(brew --prefix)/opt/coreutils/libexec/gnubin # Use GNU commands instead of macOS ones
+    $path
+)
+
+# Update packages
+function update {
+  echo -e "\033[1m────────── Homebrew ──────────\033[0m"
+  brew bundle --all --cleanup --global --quiet
+  brew upgrade
+  brew autoremove --quiet
+  echo ""
+}
+
+export EDITOR="code --new-window --wait"
+
+### antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+### bat
+alias -g -- -h="-h 2>&1 | bat --language=help --plain" # colorize --help messages
+alias -g -- --help="--help 2>&1 | bat --language=help --plain"
+export MANPAGER="sh -c 'col -bx | bat --language man --plain'" # colorize man pages
+
+### eza
+eval $(dircolors -b $HOME/.DIR_COLORS)
