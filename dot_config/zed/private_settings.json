@@ -1,0 +1,32 @@
+{
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+    },
+    "version": "2"
+  },
+  "auto_install_extensions": {
+    "just": true,
+    "toml": true,
+    "vscode-monokai-charcoal": true
+  },
+  "buffer_font_family": "MonaspiceNe Nerd Font",
+  "buffer_font_size": 14,
+  "preferred_line_length": 120,
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
+  "show_whitespaces": "all",
+  "soft_wrap": "preferred_line_length",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "theme": {
+    "dark": "Monokai Charcoal",
+    "light": "Monokai Charcoal",
+    "mode": "system"
+  },
+  "ui_font_size": 16
+}

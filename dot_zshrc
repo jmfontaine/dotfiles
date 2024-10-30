@@ -4,25 +4,15 @@ path=(
     $path
 )
 
-# Update packages
-function update {
-  echo -e "\033[1m────────── Homebrew ──────────\033[0m"
-  brew bundle --all --cleanup --global --quiet
-  brew upgrade
-  brew autoremove --quiet
-  echo ""
-}
-
+# Use VS Code as editor
 export EDITOR="code --new-window --wait"
 
-### antidote
+# antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
-### bat
-alias -g -- -h="-h 2>&1 | bat --language=help --plain" # colorize --help messages
-alias -g -- --help="--help 2>&1 | bat --language=help --plain"
-export MANPAGER="sh -c 'col -bx | bat --language man --plain'" # colorize man pages
+# Have zsh-autosuggestions suggest zsh-abbr's abbreviation
+ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 
-### eza
-eval $(dircolors -b $HOME/.DIR_COLORS)
+# Oh My Posh
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/jmf.omp.yaml)"
