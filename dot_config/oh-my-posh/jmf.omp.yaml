@@ -1,39 +1,36 @@
-$schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-version: 2
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 
-blocks:
-  - type: prompt
-    alignment: left
-    segments:
-      - type: path
-        style: plain
-        foreground: "#fd971f"
-        # background: "#1f1f1f"
-        properties:
-          style: full
-        template: "{{ .Path }} "
-      - type: git
-        style: plain
-        foreground: "#ae81ff"
-        template: "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#f92672>*</>{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}  "
-        properties:
-          fetch_status: true
-          fetch_upstream_icon: true
-      - type: python
-        style: plain
-        foreground: "#100e23"
-        background: "#ae81ff"
-        home_enabled: true
-        template: " \uE235 {{ .Full }} "
-  - type: prompt
-    alignment: left
-    newline: true
-    segments:
-      - type: text
-        foreground: "#a6e22e"
-        style: plain
-        template: "\u276f "
-final_space: true
 transient_prompt:
-  foreground: #f8f8f2
-  template: "\u276f "
+  template: "❯ "
+blocks:
+- type: prompt
+  alignment: left
+  segments:
+  - properties:
+      style: full
+    style: plain
+    template: "{{ .Path }} "
+    foreground: "#fd971f"
+    type: path
+  - properties:
+      fetch_status: true
+      fetch_upstream_icon: true
+    style: plain
+    template: "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#f92672>*</>{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}  "
+    foreground: "#ae81ff"
+    type: git
+  - style: plain
+    template: " \ue235 {{ .Full }} "
+    foreground: "#100e23"
+    background: "#ae81ff"
+    type: python
+- type: prompt
+  alignment: left
+  segments:
+  - style: plain
+    template: "❯ "
+    foreground: "#a6e22e"
+    type: text
+  newline: true
+version: 3
+final_space: true
