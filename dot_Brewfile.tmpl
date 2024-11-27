@@ -19,6 +19,8 @@ cask "bartender"                                # Menu bar icon organiser
 {{ if .personalMachine }}cask "backblaze"                                # Data backup and storage service{{ end }}
 {{ if .personalMachine }}cask "bruno"                                    # API explorer{{ end }}
 cask "chatgpt"                                  # AI chatbot
+{{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                    # Browser for SQLite databases{{ end }}
+{{ if eq .computerName "Mercure" }}cask "djstudio"                                 # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                 # Monaspice Nerd Font families (Monaspace)
 cask "google-chrome"                            # Web browser
 cask "iterm2"                                   # Terminal emulator
@@ -30,6 +32,7 @@ cask "orbstack"                                 # Docker Desktop replacement
 cask "raycast"                                  # Application and command launcher
 cask "roon"                                     # Music player
 cask "visual-studio-code"                       # Code editor
+cask "vlc"                                      # Media player
 cask "zed"                                      # Code editor
 
 mas "Actions", id: 1586435171                   # Additional actions for Shortcuts
@@ -40,14 +43,14 @@ vscode "aaron-bond.better-comments"             # Comments highlighter
 vscode "bruno-api-client.bruno"                 # Bruno support
 vscode "editorconfig.editorconfig"              # EditorConfig support
 vscode "esbenp.prettier-vscode"                 # Multi-language code formater
-vscode "fabiospampinato.vscode-monokai-night"   # Theme
 vscode "gitHub.copilot-chat"                    # GitHub AI chatbot
 vscode "gitHub.copilot"                         # GitHub AI copilot
-vscode "kamikillerto.vscode-colorize"           # CSS color visualizer
+vscode "inferrinizzard.prettier-sql-vscode"     # SQL formatter
 vscode "mechatroner.rainbow-csv"                # CSV and TSV file highlighter
 vscode "ms-python.black-formatter"              # Python code formater
 vscode "ms-python.python"                       # Python support
 vscode "nefrob.vscode-just-syntax"              # Just support
+vscode "smukkekim.theme-setimonokai"            # Theme
 vscode "streetsidesoftware.code-spell-checker"  # Spell checker
 vscode "tamasfe.even-better-toml"               # TOML highlighter
 vscode "tyriar.sort-lines"                      # Line sorter
