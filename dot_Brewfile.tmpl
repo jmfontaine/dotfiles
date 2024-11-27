@@ -1,0 +1,58 @@
+cask_args require_sha: true
+
+tap "jandedobbeleer/oh-my-posh"
+
+brew "antidote"                                 # Plugin manager for zsh
+brew "chezmoi"                                  # dotfiles manager
+brew "coreutils"                                # GNU File, Shell, and Text utilities
+brew "dockutil"                                 # macOS dock manager
+brew "git"                                      # Distributed revision control system
+brew "just"                                     # Project-specific commands runner
+brew "oh-my-posh"                               # Prompt theme engine
+brew "uv"                                       # Python package installer and resolver
+
+{{ if eq .computerName "Mercure" }}cask "ableton-live-suite"                       # Digital Audio Workstation (DAW){{ end }}
+cask "1password-cli"                            # Command-line interface for 1Password
+cask "1password"                                # Password manager
+cask "akiflow"                                  # Time blocking and productivity platform
+cask "bartender"                                # Menu bar icon organiser
+{{ if .personalMachine }}cask "backblaze"                                # Data backup and storage service{{ end }}
+{{ if .personalMachine }}cask "bruno"                                    # API explorer{{ end }}
+cask "chatgpt"                                  # AI chatbot
+{{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                    # Browser for SQLite databases{{ end }}
+{{ if eq .computerName "Mercure" }}cask "djstudio"                                 # DAW for DJs{{ end }}
+cask "font-monaspace-nerd-font"                 # Monaspice Nerd Font families (Monaspace)
+cask "google-chrome"                            # Web browser
+cask "iterm2"                                   # Terminal emulator
+cask "languagetool"                             # Style and grammar checker
+{{ if eq .computerName "Mercure" }}cask "nordvpn", args: { require_sha: false }    # VPN client{{ end }}
+cask "notion"                                   # Content management and productivy platform
+cask "orbstack"                                 # Docker Desktop replacement
+{{ if eq .computerName "Mercure" }}cask "paulxstretch"                             # Extreme audio time stretching{{ end }}
+cask "raycast"                                  # Application and command launcher
+cask "roon"                                     # Music player
+cask "visual-studio-code"                       # Code editor
+cask "vlc"                                      # Media player
+cask "zed"                                      # Code editor
+
+mas "Actions", id: 1586435171                   # Additional actions for Shortcuts
+mas "Data Jar", id: 1453273600                  # Data store for Shortcuts            
+mas "Spark Classic - Email App", id: 1176895641 # Email client
+
+vscode "aaron-bond.better-comments"             # Comments highlighter
+vscode "bruno-api-client.bruno"                 # Bruno support
+vscode "editorconfig.editorconfig"              # EditorConfig support
+vscode "esbenp.prettier-vscode"                 # Multi-language code formater
+vscode "gitHub.copilot-chat"                    # GitHub AI chatbot
+vscode "gitHub.copilot"                         # GitHub AI copilot
+vscode "inferrinizzard.prettier-sql-vscode"     # SQL formatter
+vscode "mechatroner.rainbow-csv"                # CSV and TSV file highlighter
+vscode "ms-python.black-formatter"              # Python code formater
+vscode "ms-python.python"                       # Python support
+vscode "nefrob.vscode-just-syntax"              # Just support
+vscode "smukkekim.theme-setimonokai"            # Theme
+vscode "streetsidesoftware.code-spell-checker"  # Spell checker
+vscode "tamasfe.even-better-toml"               # TOML highlighter
+vscode "tyriar.sort-lines"                      # Line sorter
+vscode "usernamehw.errorlens"                   # Inline error display
+vscode "vscode-icons-team.vscode-icons"         # Explorer icons

@@ -1,0 +1,27 @@
+[alias]
+  # Display a nicely formatted history
+  lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%G?%Creset %Cgreen(%aN)%Creset' --date=relative
+
+  # Delete the latest commit but preserve its changes
+  oops = reset 'HEAD^' --soft
+
+  # Commit all current changes with "WIP" as commit message
+  wip = !git add -A && git commit -m 'WIP'
+
+[commit]
+	gpgsign = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = /Users/jmf/.ssh/allowed_signers
+  program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[init]
+  defaultBranch = main
+
+[user]
+  email      = {{ .email }}
+  name       = Jean-Marc Fontaine
+  signingkey = {{ .gitSigningKey }}

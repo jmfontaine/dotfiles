@@ -1,8 +1,0 @@
-dl:~/Downloads
-prj:~/Projects
-
-{% if yadm.hostname == "Mercure" %}
-docslookout:~/Projects/docslookout
-evergreenshot:~/Projects/evergreenshot
-pl:~/Projects/pentimentolabs
-{% endif %}

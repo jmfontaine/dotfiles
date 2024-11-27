@@ -1,0 +1,18 @@
+### zsh path (must be first)
+path=(
+    $(brew --prefix)/opt/coreutils/libexec/gnubin # Use GNU commands instead of macOS ones
+    $path
+)
+
+# Use VS Code as editor
+export EDITOR="code --new-window --wait"
+
+# antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+# Have zsh-autosuggestions suggest zsh-abbr's abbreviation
+ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
+
+# Oh My Posh
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/jmf.omp.yaml)"
