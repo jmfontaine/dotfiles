@@ -1,0 +1,9 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.fontSize": 15,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.fontSize": 15,
+    "workbench.colorTheme": "Seti Monokai: Original",
+    "workbench.startupEditor": "none"
+}
