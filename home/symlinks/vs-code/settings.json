@@ -6,5 +6,11 @@
     "terminal.integrated.fontSize": 15,
     "workbench.colorTheme": "Seti Monokai: Original",
     "workbench.startupEditor": "none",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "cSpell.userWords": [
+        "datasette",
+        "llm",
+        "Mercure",
+        "tmpl"
+    ]
 }
