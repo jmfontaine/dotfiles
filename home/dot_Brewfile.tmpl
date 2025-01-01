@@ -10,6 +10,7 @@ brew "dockutil"                                      # macOS dock manager
 brew "git"                                           # Distributed revision control system
 brew "just"                                          # Project-specific commands runner
 {{ if eq .computerName "Mercure" }}brew "llm"                                           # Access large language models from the command-line{{ end }}
+brew "mas"                                           # Mac App Store command-line interface
 brew "oh-my-posh"                                    # Prompt theme engine
 {{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
 brew "uv"                                            # Python package installer and resolver
@@ -18,32 +19,35 @@ brew "uv"                                            # Python package installer 
 cask "1password-cli"                                 # Command-line interface for 1Password
 cask "1password"                                     # Password manager
 cask "akiflow"                                       # Time blocking and productivity platform
+cask "appcleaner"                                    # Application uninstaller
 cask "bartender"                                     # Menu bar icon organizer
 {{ if .personalMachine }}cask "backblaze"                                     # Data backup and storage service{{ end }}
-{{ if eq .computerName "Mercure" }}cask "bruno"                                         # API explorer{{ end }}
+{{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
 cask "chatgpt"                                       # AI chatbot
-{{ if eq .computerName "Mercure" }}cask "cursor"                                        # AI Code editor{{ end }}
+cask "claude"                                        # Claude AI desktop ap
+{{ if eq .machineType "laptop" }}cask "cursor"                                        # AI Code editor{{ end }}
 {{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                         # Browser for SQLite databases{{ end }}
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
+cask "ghostty"                                       # Terminal emulator
 cask "google-chrome", args: { require_sha: false }   # Web browser
-cask "iterm2"                                        # Terminal emulator
 cask "languagetool"                                  # Style and grammar checker
+{{ if eq .machineType "laptop" }}cask "meetingbar"                                    # Shows the next meeting in the menu bar{{ end }}
 {{ if eq .computerName "Mercure" }}cask "mixed-in-key"                                  # Harmonic mixing for DJs and music producers{{ end }}
 {{ if eq .computerName "Mercure" }}cask "nordvpn", args: { require_sha: false }         # VPN client{{ end }}
 cask "notion"                                        # Content management and productivity platform
 cask "orbstack"                                      # Docker Desktop replacement
 {{ if eq .computerName "Mercure" }}cask "paulxstretch"                                  # Extreme audio time stretching{{ end }}
 cask "raycast"                                       # Application and command launcher
+cask "rectangle-pro"                                 # Window snapping tool
 cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .computerName "Mercure" }}cask "send-to-kindle", args: { require_sha: false }  # Tool for sending personal documents to Kindles{{ end }}
-{{ if eq .computerName "Mercure" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
+{{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
 cask "visual-studio-code"                            # Code editor
-cask "vlc"                                           # Media player
-cask "zed"                                           # AI Code editor
+{{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
 
+{{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 mas "Spark Classic - Email App", id: 1176895641      # Email client
-mas "stoic. journal & mental health", id: 1312926037 # AI journaling
 
 vscode "aaron-bond.better-comments"                  # Comments highlighter
 vscode "bruno-api-client.bruno"                      # Bruno support

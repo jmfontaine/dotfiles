@@ -1,17 +1,26 @@
-{{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
-
+{{/* Default Values */}}
 {{- $email := "jm@jmfontaine.net" -}}
 {{- $gitSigningKey := "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5" -}}
-{{- $personalMachine := true -}}
+{{- $machineType := "unknown" -}}
+{{- $personalMachine := false -}}
+
+{{- $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+
+{{- if eq $computerName "Mercure" -}}
+{{-   $machineType = "laptop" -}}
+{{-   $personalMachine = true -}}
+{{- end -}}
 
 {{- if eq $computerName "Minerva" -}}
 {{-   $email = "jmf@spacelift.io" -}}
 {{-   $gitSigningKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDTH3YA8M/HDpQwH2TS6oj2JaFT7QDaTk/agLW1O6rq" -}}
-{{-   $personalMachine := false -}}
+{{-   $machineType = "laptop" -}}
+{{-   $personalMachine = false -}}
 {{- end -}}
 
 [data]
     computerName    = {{ $computerName | quote }}
     email           = {{ $email | quote }}
     gitSigningKey   = {{ $gitSigningKey | quote }}
+    machineType     = {{ $machineType | quote }}
     personalMachine = {{ $personalMachine }}

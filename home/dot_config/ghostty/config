@@ -1,0 +1,10 @@
+theme = "Monokai Soda"
+
+font-family = "MonaspiceNe Nerd Font Mono"
+font-size = 15
+font-thicken = true
+
+# Quick Terminal
+initial-window = false
+quick-terminal-position = top
+keybind = global:opt+space=toggle_quick_terminal

@@ -24,6 +24,7 @@ declare -a applications=(
     "Google Chrome"
     Notion
     ChatGPT
+    Claude
     Roon
 )
 for application in "${applications[@]}"; do
