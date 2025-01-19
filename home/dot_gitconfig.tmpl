@@ -21,7 +21,10 @@
 [init]
   defaultBranch = main
 
+[tag]
+  gpgsign = true
+
 [user]
   email      = {{ .email }}
   name       = Jean-Marc Fontaine
-  signingkey = {{ .gitSigningKey }}
+  signingkey = key::{{ .gitSigningKey }}
