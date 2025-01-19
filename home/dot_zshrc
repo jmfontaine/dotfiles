@@ -5,7 +5,7 @@ path=(
 )
 
 # Use VS Code as editor
-export EDITOR="code --new-window --wait"
+export EDITOR="cursor --new-window --wait"
 
 # antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
