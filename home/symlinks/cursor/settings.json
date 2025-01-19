@@ -1,0 +1,23 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "cSpell.userWords": ["cursorrules"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [120],
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "files.associations": {
+    ".cursorrules": "markdown"
+  },
+  "git.confirmSync": false,
+  "terminal.integrated.fontSize": 15,
+  "workbench.colorTheme": "Seti Monokai: Original",
+  "workbench.iconTheme": "vscode-icons"
+}

@@ -1,0 +1,24 @@
+{{ $extensions := list
+    "aaron-bond.better-comments"
+    "bruno-api-client.bruno"
+    "charliermarsh.ruff"
+    "esbenp.prettier-vscode"
+    "inferrinizzard.prettier-sql-vscode"
+    "mechatroner.rainbow-csv"
+    "ms-python.python"
+    "nefrob.vscode-just-syntax"
+    "redhat.vscode-yaml"
+    "smukkekim.theme-setimonokai"
+    "stkb.rewrap"
+    "streetsidesoftware.code-spell-checker"
+    "tamasfe.even-better-toml"
+    "tyriar.sort-lines"
+    "usernamehw.errorlens"
+    "vscode-icons-team.vscode-icons"
+-}}
+
+#!/bin/sh
+
+{{ range $extensions -}}
+cursor --force --install-extension {{ . | quote }}
+{{ end -}}
