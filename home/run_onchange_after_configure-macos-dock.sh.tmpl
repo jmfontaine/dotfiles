@@ -18,7 +18,7 @@ dockutil --no-restart --remove all
 
 # Add applications to the Dock
 declare -a applications=(
-	Akiflow
+{{ if ne .computerName "Jupiter" }}    Akiflow{{ end }}
     Calendar
     Spark
     "Google Chrome"

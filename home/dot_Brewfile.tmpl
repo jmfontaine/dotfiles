@@ -20,7 +20,7 @@ brew "uv"                                            # Python package installer 
 
 {{ if eq .computerName "Mercure" }}cask "ableton-live-suite@11"                         # Digital Audio Workstation (DAW){{ end }}
 cask "1password"                                     # Password manager
-cask "akiflow"                                       # Time blocking and productivity platform
+{{ if ne .computerName "Jupiter" }}cask "akiflow"                                       # Time blocking and productivity platform{{ end }}
 cask "appcleaner"                                    # Application uninstaller
 cask "bartender"                                     # Menu bar icon organizer
 {{ if .personalMachine }}cask "backblaze"                                     # Data backup and storage service{{ end }}
