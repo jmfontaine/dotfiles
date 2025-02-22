@@ -32,6 +32,7 @@ cask "bartender"                                     # Menu bar icon organizer
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
 cask "ghostty"                                       # Terminal emulator
 cask "google-chrome", args: { require_sha: false }   # Web browser
+{{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}
 cask "languagetool"                                  # Style and grammar checker
 {{ if eq .machineType "laptop" }}cask "meetingbar"                                    # Shows the next meeting in the menu bar{{ end }}
 {{ if eq .computerName "Mercure" }}cask "mixed-in-key"                                  # Harmonic mixing for DJs and music producers{{ end }}
@@ -47,6 +48,8 @@ cask "roon", args: { require_sha: false }            # Music player
 cask "visual-studio-code"                            # Code editor
 {{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
 cask "windsurf"                                      # AI Code editor
+{{ if eq .computerName "Jupiter" }}cask "xact"                                          # Audio Compression Toolkit{{ end }}
+{{ if eq .computerName "Jupiter" }}cask "xld"                                           # Lossless audio decoder{{ end }}
 
 {{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 mas "Spark Classic - Email App", id: 1176895641      # Email client

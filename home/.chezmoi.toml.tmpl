@@ -6,6 +6,11 @@
 
 {{- $computerName := output "scutil" "--get" "ComputerName" | trim -}}
 
+{{- if eq $computerName "Jupiter" -}}
+{{-   $machineType = "desktop" -}}
+{{-   $personalMachine = true -}}
+{{- end -}}
+
 {{- if eq $computerName "Mercure" -}}
 {{-   $machineType = "laptop" -}}
 {{-   $personalMachine = true -}}
