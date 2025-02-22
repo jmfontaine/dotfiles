@@ -23,7 +23,6 @@ declare -a applications=(
     Spark
     "Google Chrome"
     Notion
-    Roon
 )
 for application in "${applications[@]}"; do
 	dockutil --no-restart --add "/Applications/${application}.app"
