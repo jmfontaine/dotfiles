@@ -23,8 +23,6 @@ declare -a applications=(
     Spark
     "Google Chrome"
     Notion
-    ChatGPT
-    Claude
     Roon
 )
 for application in "${applications[@]}"; do

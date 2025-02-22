@@ -25,8 +25,8 @@ cask "appcleaner"                                    # Application uninstaller
 cask "bartender"                                     # Menu bar icon organizer
 {{ if .personalMachine }}cask "backblaze"                                     # Data backup and storage service{{ end }}
 {{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
-cask "chatgpt"                                       # AI chatbot
-cask "claude"                                        # Claude AI desktop ap
+{{ if eq .machineType "laptop" }}cask "chatgpt"                                       # AI chatbot{{ end }}
+{{ if eq .machineType "laptop" }}cask "claude"                                        # Claude AI desktop app{{ end }}
 {{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                         # Browser for SQLite databases{{ end }}
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
