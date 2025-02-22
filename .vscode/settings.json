@@ -1,6 +1,6 @@
 {
   "files.associations": {
-    "*_zshrc": "shellscript",
+    "*_zshrc.tmpl": "shellscript",
     "*.toml.tmpl": "toml",
     "dot_Brewfile.tmpl": "ruby",
     "dot_gitconfig.tmpl": "ini",
