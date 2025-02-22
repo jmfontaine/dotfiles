@@ -16,3 +16,6 @@ ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 
 # Oh My Posh
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/jmf.omp.yaml)"
+
+# direnv
+eval "$(direnv hook zsh)"

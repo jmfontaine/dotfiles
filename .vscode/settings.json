@@ -30,6 +30,7 @@
     "coreutils",
     "Creset",
     "datasette",
+    "direnv",
     "djstudio",
     "dockutil",
     "errorlens",
