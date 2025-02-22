@@ -46,7 +46,7 @@ cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
 cask "visual-studio-code"                            # Code editor
 {{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
-{{ if eq .machineType "laptop" }}cask "windsurf"                                      # AI Code editor{{ end }}
+cask "windsurf"                                      # AI Code editor
 
 {{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 mas "Spark Classic - Email App", id: 1176895641      # Email client
