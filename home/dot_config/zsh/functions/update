@@ -10,6 +10,6 @@ function update {
   antidote update --bundles
   echo ""
 
-  echo "\033[1m────────── Cursor ──────────\033[0m"
-  cursor --update-extensions
+  echo "\033[1m────────── Windsurf ──────────\033[0m"
+  windsurf --update-extensions
 }

@@ -29,7 +29,6 @@ cask "bartender"                                     # Menu bar icon organizer
 {{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
 cask "chatgpt"                                       # AI chatbot
 cask "claude"                                        # Claude AI desktop ap
-{{ if eq .machineType "laptop" }}cask "cursor"                                        # AI Code editor{{ end }}
 {{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                         # Browser for SQLite databases{{ end }}
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
@@ -49,6 +48,7 @@ cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
 cask "visual-studio-code"                            # Code editor
 {{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
+{{ if eq .machineType "laptop" }}cask "windsurf"                                      # AI Code editor{{ end }}
 
 {{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 mas "Spark Classic - Email App", id: 1176895641      # Email client

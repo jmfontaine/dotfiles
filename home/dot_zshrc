@@ -1,11 +1,12 @@
 ### zsh path (must be first)
 path=(
     $(brew --prefix)/opt/coreutils/libexec/gnubin # Use GNU commands instead of macOS ones
+    $HOME/.codeium/windsurf/bin                   # Windsurf
     $path
 )
 
-# Use Cursor as editor
-export EDITOR="cursor --new-window --wait"
+# Use Windsurf as editor
+export EDITOR="windsurf --new-window --wait"
 
 # antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
