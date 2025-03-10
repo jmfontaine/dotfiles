@@ -1,4 +1,7 @@
 {
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
@@ -14,6 +17,12 @@
   "explorer.confirmPasteNative": false,
   "git.confirmSync": false,
   "terminal.integrated.fontSize": 15,
+  "windsurf.autocompleteSpeed": "fast",
+  "windsurf.autoExecutionPolicy": "off",
+  "windsurf.chatFontSize": "default",
+  "windsurf.explainAndFixInCurrentConversation": true,
+  "windsurf.openRecentConversation": true,
+  "windsurf.rememberLastModelSelection": true,
   "workbench.colorTheme": "Seti Monokai: Original",
   "workbench.iconTheme": "vscode-icons"
 }
