@@ -4,10 +4,12 @@
     "bradlc.vscode-tailwindcss"
     "bruno-api-client.bruno"
     "charliermarsh.ruff"
+    "christian-kohler.npm-intellisense"
     "esbenp.prettier-vscode"
     "github.vscode-github-actions"
     "inferrinizzard.prettier-sql-vscode"
     "mechatroner.rainbow-csv"
+    "ms-python.debugpy"
     "ms-python.python"
     "redhat.vscode-yaml"
     "smukkekim.theme-setimonokai"
@@ -22,5 +24,5 @@
 #!/bin/sh
 
 {{ range $extensions -}}
-windsurf --force --install-extension {{ . | quote }}
+cursor --force --install-extension {{ . | quote }}
 {{ end -}}

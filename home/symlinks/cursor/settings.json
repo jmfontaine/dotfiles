@@ -5,6 +5,9 @@
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
@@ -15,14 +18,12 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmPasteNative": false,
+  "git.autofetch": true,
   "git.confirmSync": false,
   "terminal.integrated.fontSize": 15,
-  "windsurf.autocompleteSpeed": "fast",
-  "windsurf.autoExecutionPolicy": "off",
-  "windsurf.chatFontSize": "default",
-  "windsurf.explainAndFixInCurrentConversation": true,
-  "windsurf.openRecentConversation": true,
-  "windsurf.rememberLastModelSelection": true,
   "workbench.colorTheme": "Seti Monokai: Original",
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
 }

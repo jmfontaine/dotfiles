@@ -28,6 +28,7 @@ cask "bartender"                                     # Menu bar icon organizer
 {{ if eq .machineType "laptop" }}cask "chatgpt"                                       # AI chatbot{{ end }}
 {{ if eq .machineType "laptop" }}cask "claude"                                        # Claude AI desktop app{{ end }}
 {{ if eq .machineType "laptop" }}cask "cleanshot"                                     # Screen capture{{ end }}
+cask "cursor"                                        # AI Code editor
 {{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                         # Browser for SQLite databases{{ end }}
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
@@ -47,7 +48,6 @@ cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
 cask "visual-studio-code"                            # Code editor
 {{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
-cask "windsurf"                                      # AI Code editor
 {{ if eq .computerName "Jupiter" }}cask "xact"                                          # Audio Compression Toolkit{{ end }}
 {{ if eq .computerName "Jupiter" }}cask "xld"                                           # Lossless audio decoder{{ end }}
 
