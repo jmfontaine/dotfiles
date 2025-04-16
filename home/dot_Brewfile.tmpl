@@ -1,6 +1,7 @@
 cask_args require_sha: true
 
 tap "jandedobbeleer/oh-my-posh"
+tap "spacelift-io/spacelift"
 
 brew "antidote"                                      # Plugin manager for zsh
 brew "chezmoi"                                       # dotfiles manager
@@ -14,6 +15,7 @@ brew "dockutil"                                      # macOS dock manager
 brew "mas"                                           # Mac App Store command-line interface
 {{ if eq .machineType "laptop" }}brew "node"                                          # Javascript runtime{{ end }}
 brew "oh-my-posh"                                    # Prompt theme engine
+{{ if eq .computerName "Minerva" }}brew "spacelift-io/spacelift/spacectl"               # Spacelift API client{{ end }}
 {{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
 brew "uv"                                            # Python package installer and resolver
 {{ if eq .computerName "Mercure" }}brew "yt-dlp"                                        # CLI audio/video downloader{{ end }}
@@ -29,6 +31,7 @@ cask "bartender"                                     # Menu bar icon organizer
 {{ if eq .machineType "laptop" }}cask "claude"                                        # Claude AI desktop app{{ end }}
 {{ if eq .machineType "laptop" }}cask "cleanshot"                                     # Screen capture{{ end }}
 cask "cursor"                                        # AI Code editor
+{{ if eq .computerName "Minerva" }}cask "clickup"                                       # Task manager{{ end }}
 {{ if eq .computerName "Mercure" }}cask "db-browser-for-sqlite"                         # Browser for SQLite databases{{ end }}
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
@@ -37,8 +40,10 @@ cask "google-chrome", args: { require_sha: false }   # Web browser
 {{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}
 cask "languagetool"                                  # Style and grammar checker
 {{ if eq .machineType "laptop" }}cask "macwhisper"                                    # Speech recognition{{ end }}
+{{ if eq .computerName "Minerva" }}cask "logitune"                                      # Webcam configuration manager{{ end }}
 {{ if eq .machineType "laptop" }}cask "meetingbar"                                    # Shows the next meeting in the menu bar{{ end }}
 {{ if eq .computerName "Mercure" }}cask "mixed-in-key"                                  # Harmonic mixing for DJs and music producers{{ end }}
+{{ if eq .computerName "Minerva" }}cask "microsoft-teams"                               # Team communication and collaboration software{{ end }}
 {{ if eq .computerName "Mercure" }}cask "nordvpn", args: { require_sha: false }         # VPN client{{ end }}
 cask "notion"                                        # Content management and productivity platform
 cask "orbstack"                                      # Docker Desktop replacement
@@ -47,10 +52,14 @@ cask "raycast"                                       # Application and command l
 cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .computerName "Mercure" }}cask "send-to-kindle", args: { require_sha: false }  # Tool for sending personal documents to Kindles{{ end }}
 {{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
+{{ if eq .computerName "Minerva" }}cask "tailscale"                                     # VPN client{{ end }}
 cask "visual-studio-code"                            # Code editor
 {{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
 {{ if eq .computerName "Jupiter" }}cask "xact"                                          # Audio Compression Toolkit{{ end }}
 {{ if eq .computerName "Jupiter" }}cask "xld"                                           # Lossless audio decoder{{ end }}
+{{ if eq .computerName "Minerva" }}cask "zoom"                                          # Team communication and collaboration software{{ end }}
+
+
 
 {{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 {{ if eq .computerName "Jupiter" }}mas "Amphetamine", id:937984704                      # Keep computer awake{{ end }}

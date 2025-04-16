@@ -2,7 +2,7 @@
 mattmc3/ez-compinit                                         # zsh completion system (compinit) manager
 
 # KLUDGE: Must be included in this order
-olets/zsh-abbr kind:defer                                   # Auto-expanding abbreviations
+olets/zsh-abbr branch:v5 kind:defer                         # Auto-expanding abbreviations
 zsh-users/zsh-autosuggestions                               # Fish-like autosuggestions
 olets/zsh-autosuggestions-abbreviations-strategy kind:defer # Have zsh-autosuggestions suggest zsh-abbr's abbreviation
 
