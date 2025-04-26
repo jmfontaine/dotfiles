@@ -1,7 +1,7 @@
 cask_args require_sha: true
 
 tap "jandedobbeleer/oh-my-posh"
-tap "spacelift-io/spacelift"
+{{ if eq .computerName "Minerva" }}tap "spacelift-io/spacelift"{{ end }}
 
 brew "antidote"                                      # Plugin manager for zsh
 brew "chezmoi"                                       # dotfiles manager
