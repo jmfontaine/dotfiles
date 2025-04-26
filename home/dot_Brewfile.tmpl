@@ -5,6 +5,7 @@ tap "spacelift-io/spacelift"
 
 brew "antidote"                                      # Plugin manager for zsh
 brew "chezmoi"                                       # dotfiles manager
+{{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
 {{ if eq .computerName "Mercure" }}brew "copier"                                        # Project templates renderer{{ end }}
 brew "coreutils"                                     # GNU File, Shell, and Text utilities
 {{ if eq .computerName "Mercure" }}brew "datasette"                                     # Tool for exploring and publishing data{{ end }}
