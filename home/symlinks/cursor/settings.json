@@ -2,11 +2,17 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontSize": 15,
@@ -23,7 +29,5 @@
   "terminal.integrated.fontSize": 15,
   "workbench.colorTheme": "Seti Monokai: Original",
   "workbench.iconTheme": "vscode-icons",
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  }
+  "workbench.panel.defaultLocation": "bottom"
 }
