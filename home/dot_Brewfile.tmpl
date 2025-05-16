@@ -3,6 +3,7 @@ cask_args require_sha: true
 tap "jandedobbeleer/oh-my-posh"
 {{ if eq .computerName "Minerva" }}tap "spacelift-io/spacelift"{{ end }}
 
+{{ if eq .machineType "laptop" }}brew "act"                                             # GitHub Actions local runner{{ end }}
 brew "antidote"                                      # Plugin manager for zsh
 brew "chezmoi"                                       # dotfiles manager
 {{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
