@@ -38,7 +38,6 @@ cask "cursor"                                        # AI Code editor
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
 cask "ghostty"                                       # Terminal emulator
-cask "google-chrome", args: { require_sha: false }   # Web browser
 {{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}
 cask "languagetool"                                  # Style and grammar checker
 {{ if eq .computerName "Minerva" }}cask "granola"                                     # AI-powered notepad for meetings{{ end }}
@@ -62,7 +61,7 @@ cask "visual-studio-code"                            # Code editor
 {{ if eq .computerName "Minerva" }}cask "zoom"                                          # Team communication and collaboration software{{ end }}
 
 
-
+{{ if eq .computerName "Mercure" }}mas "1Password for Safari", id:1569813296            # Password manager{{ end }}
 {{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 {{ if eq .computerName "Jupiter" }}mas "Amphetamine", id:937984704                      # Keep computer awake{{ end }}
 {{ if eq .computerName "Mercure" }}mas "Spark Classic - Email App", id: 1176895641      # Email client{{ end }}
