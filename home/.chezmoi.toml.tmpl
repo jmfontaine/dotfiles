@@ -3,6 +3,7 @@
 {{- $gitSigningKey := "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5" -}}
 {{- $machineType := "unknown" -}}
 {{- $personalMachine := false -}}
+{{- $onePasswordAccountId := "TSZBDUXPJVHJNMYBWWJW6HQ3QU" -}}
 
 {{- $computerName := output "scutil" "--get" "ComputerName" | trim -}}
 
@@ -24,9 +25,10 @@
 {{- end -}}
 
 [data]
-    computerName    = {{ $computerName | quote }}
-    email           = {{ $email | quote }}
-    gitHubUsername  = "jmfontaine"
-    gitSigningKey   = {{ $gitSigningKey | quote }}
-    machineType     = {{ $machineType | quote }}
-    personalMachine = {{ $personalMachine }}
+    computerName         = {{ $computerName | quote }}
+    email                = {{ $email | quote }}
+    gitHubUsername       = "jmfontaine"
+    gitSigningKey        = {{ $gitSigningKey | quote }}
+    machineType          = {{ $machineType | quote }}
+    onePasswordAccountId = {{ $onePasswordAccountId | quote }}
+    personalMachine      = {{ $personalMachine }}

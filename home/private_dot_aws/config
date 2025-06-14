@@ -1,0 +1,3 @@
+[default]
+credential_process = sh -c "op item get 'AWS Access Key - jmfontaine@moxietech' --format json | jq -r '{Version:1,AccessKeyId:.fields[1].value,SecretAccessKey:.fields[2].value}'"
+region             = us-east-2

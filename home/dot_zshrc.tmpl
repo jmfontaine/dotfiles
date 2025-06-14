@@ -24,4 +24,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 {{ if eq .computerName "Mercure" }}
 # direnv
 eval "$(direnv hook zsh)"
+
+# 1Password
+op signin --account {{ .onePasswordAccountId }}
 {{ end }}

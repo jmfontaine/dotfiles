@@ -5,6 +5,7 @@ tap "jandedobbeleer/oh-my-posh"
 
 {{ if eq .machineType "laptop" }}brew "act"                                             # GitHub Actions local runner{{ end }}
 brew "antidote"                                      # Plugin manager for zsh
+{{ if eq .computerName "Mercure" }}brew "awscli"                                        # AWS CLI{{ end }}
 brew "chezmoi"                                       # dotfiles manager
 {{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
 {{ if eq .computerName "Mercure" }}brew "copier"                                        # Project templates renderer{{ end }}
@@ -17,6 +18,7 @@ brew "dockutil"                                      # macOS dock manager
 brew "mas"                                           # Mac App Store command-line interface
 {{ if eq .machineType "laptop" }}brew "node"                                          # Javascript runtime{{ end }}
 brew "oh-my-posh"                                    # Prompt theme engine
+{{ if eq .machineType "laptop" }}brew "opentofu"                                        # Infrastructure as Code tool{{ end }}
 {{ if eq .computerName "Minerva" }}brew "spacelift-io/spacelift/spacectl"               # Spacelift API client{{ end }}
 {{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
 brew "uv"                                            # Python package installer and resolver
@@ -24,6 +26,7 @@ brew "uv"                                            # Python package installer 
 
 {{ if eq .computerName "Mercure" }}cask "ableton-live-suite@11"                         # Digital Audio Workstation (DAW){{ end }}
 cask "1password"                                     # Password manager
+{{ if eq .machineType "laptop" }}cask "1password-cli"                                 # 1Password command-line interface{{ end }}
 {{ if ne .computerName "Jupiter" }}cask "akiflow"                                       # Time blocking and productivity platform{{ end }}
 cask "appcleaner"                                    # Application uninstaller
 cask "bartender"                                     # Menu bar icon organizer
