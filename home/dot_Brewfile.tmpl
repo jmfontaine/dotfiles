@@ -51,9 +51,8 @@ cask "languagetool"                                  # Style and grammar checker
 {{ if eq .computerName "Minerva" }}cask "microsoft-teams"                               # Team communication and collaboration software{{ end }}
 {{ if eq .computerName "Mercure" }}cask "nordvpn", args: { require_sha: false }         # VPN client{{ end }}
 cask "notion"                                        # Content management and productivity platform
-cask "orbstack"                                      # Docker Desktop replacement
+{{ if eq .machineType "laptop" }}cask "orbstack"                                      # Docker Desktop replacement{{ end }}
 {{ if eq .computerName "Mercure" }}cask "paulxstretch"                                  # Extreme audio time stretching{{ end }}
-cask "raycast"                                       # Application and command launcher
 cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .computerName "Mercure" }}cask "send-to-kindle", args: { require_sha: false }  # Tool for sending personal documents to Kindles{{ end }}
 {{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
@@ -65,8 +64,7 @@ cask "visual-studio-code"                            # Code editor
 {{ if eq .computerName "Minerva" }}cask "zoom"                                          # Team communication and collaboration software{{ end }}
 
 
-{{ if eq .computerName "Mercure" }}mas "1Password for Safari", id:1569813296            # Password manager{{ end }}
+{{ if .personalMachine }}mas "1Password for Safari", id:1569813296            # Password manager{{ end }}
 {{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
 {{ if eq .computerName "Jupiter" }}mas "Amphetamine", id:937984704                      # Keep computer awake{{ end }}
-{{ if eq .computerName "Mercure" }}mas "Spark Classic - Email App", id: 1176895641      # Email client{{ end }}
 {{ if eq .computerName "Mercure" }}mas "WhatsApp Messenger", id:310633997               # WhatsApp Client{{ end }}
