@@ -21,7 +21,8 @@ brew "oh-my-posh"                                    # Prompt theme engine
 {{ if eq .machineType "laptop" }}brew "opentofu"                                        # Infrastructure as Code tool{{ end }}
 {{ if eq .computerName "Minerva" }}brew "spacelift-io/spacelift/spacectl"               # Spacelift API client{{ end }}
 {{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
-brew "uv"                                            # Python package installer and resolver
+{{ if eq .computerName "Mercure" }}brew "trivy"                                         # Vulnerability scanner{{ end }}
+{{ if eq .machineType "laptop" }}brew "uv"                                            # Python package installer and resolver{{ end }}
 {{ if eq .computerName "Mercure" }}brew "yt-dlp"                                        # CLI audio/video downloader{{ end }}
 
 {{ if eq .computerName "Mercure" }}cask "ableton-live-suite@11"                         # Digital Audio Workstation (DAW){{ end }}
