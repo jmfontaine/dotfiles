@@ -17,7 +17,7 @@ brew "coreutils"                                     # GNU File, Shell, and Text
 brew "dockutil"                                      # macOS dock manager
 {{ if eq .machineType "laptop" }}brew "gh"                                            # GitHub CLI{{ end }}
 {{ if eq .machineType "laptop" }}brew "git"                                           # Distributed revision control system{{ end }}
-{{ if eq .computerName "Mercure" }}brew "just"                                          # Command runner{{ end }}
+{{ if eq .machineType "laptop" }}brew "just"                                          # Command runner{{ end }}
 {{ if eq .computerName "Mercure" }}brew "llm"                                           # Access large language models from the command-line{{ end }}
 brew "mas"                                           # Mac App Store command-line interface
 {{ if eq .computerName "Mercure" }}brew "minamijoyo/tfupdate/tfupdate"                  # Terraform/OpenTofu version update{{ end }}
@@ -37,6 +37,7 @@ cask "1password"                                     # Password manager
 {{ if eq .machineType "laptop" }}cask "1password-cli"                                 # 1Password command-line interface{{ end }}
 {{ if ne .computerName "Jupiter" }}cask "akiflow"                                       # Time blocking and productivity platform{{ end }}
 cask "appcleaner"                                    # Application uninstaller
+{{ if eq .computerName "Minerva" }}cask "arc"                                           # Browser{{ end }}
 cask "bartender"                                     # Menu bar icon organizer
 {{ if .personalMachine }}cask "backblaze"                                     # Data backup and storage service{{ end }}
 {{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
