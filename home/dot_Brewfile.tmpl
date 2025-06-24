@@ -1,6 +1,8 @@
 cask_args require_sha: true
 
 tap "jandedobbeleer/oh-my-posh"
+tap "minamijoyo/tfupdate"
+
 {{ if eq .computerName "Minerva" }}tap "spacelift-io/spacelift"{{ end }}
 
 {{ if eq .machineType "laptop" }}brew "act"                                             # GitHub Actions local runner{{ end }}
@@ -18,12 +20,14 @@ brew "dockutil"                                      # macOS dock manager
 {{ if eq .computerName "Mercure" }}brew "just"                                          # Command runner{{ end }}
 {{ if eq .computerName "Mercure" }}brew "llm"                                           # Access large language models from the command-line{{ end }}
 brew "mas"                                           # Mac App Store command-line interface
+{{ if eq .computerName "Mercure" }}brew "minamijoyo/tfupdate/tfupdate"                  # Terraform/OpenTofu version update{{ end }}
 {{ if eq .machineType "laptop" }}brew "node"                                          # Javascript runtime{{ end }}
 brew "oh-my-posh"                                    # Prompt theme engine
 {{ if eq .machineType "laptop" }}brew "opentofu"                                        # Infrastructure as Code tool{{ end }}
 {{ if eq .machineType "laptop" }}brew "pre-commit"                                      # QA tool for Git repositories{{ end }}
 {{ if eq .computerName "Minerva" }}brew "spacelift-io/spacelift/spacectl"               # Spacelift API client{{ end }}
 {{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
+{{ if eq .computerName "Mercure" }}brew "terraform-docs"                                # Terraform/OpenTofu module documentation generator{{ end }}
 {{ if eq .computerName "Mercure" }}brew "trivy"                                         # Vulnerability scanner{{ end }}
 {{ if eq .machineType "laptop" }}brew "uv"                                            # Python package installer and resolver{{ end }}
 {{ if eq .computerName "Mercure" }}brew "yt-dlp"                                        # CLI audio/video downloader{{ end }}
@@ -46,7 +50,7 @@ cask "cursor"                                        # AI Code editor
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
 cask "ghostty"                                       # Terminal emulator
 {{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}
-cask "languagetool"                                  # Style and grammar checker
+cask "languagetool-desktop"                          # Style and grammar checker
 {{ if eq .computerName "Minerva" }}cask "granola"                                     # AI-powered notepad for meetings{{ end }}
 {{ if eq .computerName "Minerva" }}cask "logitune"                                      # Webcam configuration manager{{ end }}
 {{ if eq .machineType "laptop" }}cask "meetingbar"                                    # Shows the next meeting in the menu bar{{ end }}
@@ -59,7 +63,7 @@ cask "notion"                                        # Content management and pr
 cask "roon", args: { require_sha: false }            # Music player
 {{ if eq .computerName "Mercure" }}cask "send-to-kindle", args: { require_sha: false }  # Tool for sending personal documents to Kindles{{ end }}
 {{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
-{{ if eq .computerName "Minerva" }}cask "tailscale"                                     # VPN client{{ end }}
+{{ if eq .computerName "Minerva" }}cask "tailscale-app"                                 # VPN client{{ end }}
 cask "visual-studio-code"                            # Code editor
 {{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
 {{ if eq .computerName "Jupiter" }}cask "xact"                                          # Audio Compression Toolkit{{ end }}
