@@ -1,10 +1,49 @@
 {
-    "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "all",
-    "editor.fontSize": 15,
-    "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.fontSize": 15,
-    "workbench.colorTheme": "Seti Monokai: Original",
-    "workbench.startupEditor": "none",
-    "workbench.iconTheme": "vscode-icons"
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "better-comments.tags": [
+    {
+      "backgroundColor": "transparent",
+      "bold": false,
+      "color": "orange",
+      "italic": false,
+      "strikethrough": false,
+      "tag": "KLUDGE",
+      "underline": false
+    }
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [120],
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "terminal.integrated.fontSize": 15,
+  "workbench.colorTheme": "Monokai Classic",
+  "workbench.iconTheme": "Monokai Classic Icons",
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.startupEditor": "none"
 }
