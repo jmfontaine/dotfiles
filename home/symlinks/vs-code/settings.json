@@ -20,6 +20,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  "better-comments.multilineComments": true,
   "better-comments.tags": [
     {
       "backgroundColor": "transparent",
@@ -45,5 +46,6 @@
   "workbench.colorTheme": "Monokai Classic",
   "workbench.iconTheme": "Monokai Classic Icons",
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "python.analysis.typeCheckingMode": "standard"
 }
