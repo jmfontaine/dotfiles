@@ -26,4 +26,7 @@ eval "$(direnv hook zsh)"
 
 # 1Password
 op signin --account {{ .onePasswordAccountId }}
+
+## jj
+source <(COMPLETE=zsh jj)
 {{ end }}
