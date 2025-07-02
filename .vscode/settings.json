@@ -91,6 +91,7 @@
     "sqltools",
     "stkb",
     "tamasfe",
+    "tflint",
     "tformat",
     "tfupdate",
     "tmpl",
