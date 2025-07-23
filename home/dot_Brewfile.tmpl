@@ -7,6 +7,7 @@ tap "minamijoyo/tfupdate"
 {{ if eq .machineType "laptop" }}brew "act"                                           # GitHub Actions local runner{{ end }}
 brew "antidote"                                      # Plugin manager for zsh
 {{ if eq .computerName "Mercure" }}brew "awscli"                                        # AWS CLI{{ end }}
+{{ if eq .machineType "laptop" }}brew "ccusage"                                       # Claude Code cost tracking{{ end }}
 brew "chezmoi"                                       # dotfiles manager
 {{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
 {{ if eq .computerName "Mercure" }}brew "copier"                                        # Project templates renderer{{ end }}
