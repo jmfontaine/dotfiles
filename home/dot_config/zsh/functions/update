@@ -12,4 +12,7 @@ function update {
 
   echo "\033[1m────────── VS Code ──────────\033[0m"
   code --update-extensions
+
+  echo "\033[1m────────── uv ──────────\033[0m"
+  uv cache prune
 }
