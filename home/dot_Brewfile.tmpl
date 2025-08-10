@@ -54,6 +54,7 @@ cask "cursor"                                        # AI Code editor
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
 cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
 cask "ghostty"                                       # Terminal emulator
+cask "google-chrome", args: { require_sha: false }   # Web browser
 {{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}
 cask "languagetool-desktop"                          # Style and grammar checker
 {{ if eq .computerName "Minerva" }}cask "granola"                                       # AI-powered notepad for meetings{{ end }}
