@@ -35,19 +35,20 @@
       "underline": false
     }
   ],
+  "colorize.languages": ["javascript", "json"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
   "editor.rulers": [120],
-  "files.associations": {
-    "*.tidal": "haskell"
-  },
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmPasteNative": false,
+  "files.associations": {
+    "*.tidal": "haskell"
+  },
   "terminal.integrated.fontSize": 15,
   "workbench.colorTheme": "Monokai Classic",
   "workbench.iconTheme": "Monokai Classic Icons",
