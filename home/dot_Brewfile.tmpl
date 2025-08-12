@@ -7,7 +7,6 @@ tap "minamijoyo/tfupdate"
 {{ if eq .machineType "laptop" }}brew "act"                                           # GitHub Actions local runner{{ end }}
 brew "antidote"                                      # Plugin manager for zsh
 {{ if eq .computerName "Mercure" }}brew "awscli"                                        # AWS CLI{{ end }}
-{{ if eq .machineType "laptop" }}brew "ccusage"                                       # Claude Code cost tracking{{ end }}
 brew "chezmoi"                                       # dotfiles manager
 {{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
 {{ if eq .computerName "Mercure" }}brew "copier"                                        # Project templates renderer{{ end }}
@@ -46,7 +45,6 @@ cask "bartender"                                     # Menu bar icon organizer
 {{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
 {{ if eq .machineType "laptop" }}cask "chatgpt"                                       # AI chatbot{{ end }}
 {{ if eq .machineType "laptop" }}cask "claude"                                        # Claude AI desktop app{{ end }}
-{{ if eq .machineType "laptop" }}cask "claude-code"                                   # Terminal-based AI coding assistant{{ end }}
 {{ if eq .machineType "laptop" }}cask "cleanshot"                                     # Screen capture{{ end }}
 cask "cursor"                                        # AI Code editor
 {{ if eq .computerName "Minerva" }}cask "clickup"                                       # Task manager{{ end }}

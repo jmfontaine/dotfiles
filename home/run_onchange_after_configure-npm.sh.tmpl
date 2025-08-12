@@ -1,0 +1,11 @@
+{{ $extensions := list
+    "@anthropic-ai/claude-code"
+    "ccusage"
+    "tweakcc"
+-}}
+
+#!/bin/sh
+
+{{ range $extensions -}}
+npm install -g {{ . | quote }}
+{{ end -}}
