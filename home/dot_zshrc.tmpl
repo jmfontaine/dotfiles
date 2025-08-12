@@ -1,6 +1,9 @@
 ### zsh path (must be first)
+GHC_VERSION=$(ghc --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 path=(
-    $(brew --prefix)/opt/coreutils/libexec/gnubin # Use GNU commands instead of macOS ones
+    $(brew --prefix)/opt/coreutils/libexec/gnubin  # Use GNU commands instead of macOS ones
+    ~/.ghcup/bin                                   # Haskell GHCup-managed commands
+    ~/.ghcup/ghc/$GHC_VERSION/bin                  # Haskell ghc
     $path
 )
 
