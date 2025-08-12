@@ -1,14 +1,21 @@
 ### zsh path (must be first)
-GHC_VERSION=$(ghc --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 path=(
     $(brew --prefix)/opt/coreutils/libexec/gnubin  # Use GNU commands instead of macOS ones
-    ~/.ghcup/bin                                   # Haskell GHCup-managed commands
-    ~/.ghcup/ghc/$GHC_VERSION/bin                  # Haskell ghc
     $path
 )
 
 # Use VS Code as editor
 export EDITOR="code --new-window --wait"
+
+{{ if eq .computerName "Mercure" }}
+# ghc
+GHC_VERSION=$(ghc --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+path=(
+    ~/.ghcup/bin                                   # Haskell GHCup-managed commands
+    ~/.ghcup/ghc/$GHC_VERSION/bin                  # Haskell ghc
+    $path
+)
+{{ end }}
 
 # antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
