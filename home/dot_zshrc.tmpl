@@ -1,6 +1,7 @@
 ### zsh path (must be first)
 path=(
     $(brew --prefix)/opt/coreutils/libexec/gnubin # Use GNU commands instead of macOS ones
+    $(brew --prefix)/share/zsh/site-functions     # Let zsh know about Homebrew-managed completion scripts
     $path
 )
 
