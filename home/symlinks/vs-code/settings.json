@@ -49,6 +49,7 @@
   "files.associations": {
     "*.tidal": "haskell"
   },
+  "git.confirmSync": false,
   "terminal.integrated.fontSize": 15,
   "workbench.colorTheme": "Monokai Classic",
   "workbench.iconTheme": "Monokai Classic Icons",
