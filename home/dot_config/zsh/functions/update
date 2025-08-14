@@ -15,4 +15,7 @@ function update {
 
   echo "\033[1m────────── uv ──────────\033[0m"
   uv cache prune
+
+  echo "\033[1m────────── npm (global) ──────────\033[0m"
+  npm update --global
 }
