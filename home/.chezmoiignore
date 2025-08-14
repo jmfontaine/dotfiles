@@ -1,5 +1,1 @@
 symlinks
-
-{{- if ne .computerName "Mercure" }}
-.claude
-{{- end }}
