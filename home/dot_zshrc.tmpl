@@ -8,14 +8,6 @@ path=(
 # Use VS Code as editor
 export EDITOR="code --new-window --wait"
 
-{{ if eq .computerName "Mercure" }}
-path=(
-    ~/.ghcup/bin                     # Haskell GHCup-managed commands
-    $(ghcup whereis --directory ghc) # Haskell ghc
-    $path
-)
-{{ end }}
-
 # antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load

@@ -2,9 +2,6 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "[haskell]": {
-    "editor.defaultFormatter": "haskell.haskell"
-  },
   "[markdown]": {
     "editor.formatOnSave": false
   },
@@ -41,20 +38,16 @@
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
-  "editor.rulers": [120],
+  "editor.rulers": [88],
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmPasteNative": false,
-  "files.associations": {
-    "*.tidal": "haskell"
-  },
   "git.confirmSync": false,
   "terminal.integrated.fontSize": 15,
   "workbench.colorTheme": "Monokai Classic",
   "workbench.iconTheme": "Monokai Classic Icons",
   "workbench.panel.defaultLocation": "bottom",
   "workbench.startupEditor": "none",
-  "python.analysis.typeCheckingMode": "standard",
-  "tidalcycles.bootTidalPath": "~/Projects/Personal/sonic-boom/BootTidal.hs"
+  "python.analysis.typeCheckingMode": "standard"
 }
