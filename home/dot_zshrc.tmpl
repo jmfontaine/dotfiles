@@ -6,10 +6,13 @@ path=(
 )
 
 # Use VS Code as editor
-export EDITOR="code --new-window --wait"
+export EDITOR='code --new-window --wait'
 
 # Disable Homebrew hints
 export HOMEBREW_NO_ENV_HINTS=1
+
+# Configure bat
+export BAT_PAGING='never'
 
 # Override -h and --help globally to use bat to colorize help
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'

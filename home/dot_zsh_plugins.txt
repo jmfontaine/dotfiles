@@ -9,4 +9,3 @@ mattmc3/zephyr path:plugins/zfunctions                      # Lazy-loaded zsh fu
 mfaerevaag/wd kind:defer                                    # Directory jumper
 zdharma-continuum/fast-syntax-highlighting                  # Feature-rich syntax highlighting
 zsh-users/zsh-completions kind:fpath path:src               # Additional zsh completion definitions
-
