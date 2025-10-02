@@ -18,7 +18,7 @@ dockutil --no-restart --remove all
 
 # Add applications to the Dock
 declare -a applications=(
-{{ if ne .computerName "Jupiter" }}    "/Applications/Akiflow.app"{{ end }}
+    "/Applications/Akiflow.app"
     "/System/Applications/Calendar.app"
     "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
     "/Applications/Notion.app"

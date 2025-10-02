@@ -1,84 +1,61 @@
 cask_args require_sha: true
 
 tap "minamijoyo/tfupdate"
-tap "minio/stable"
-{{ if eq .computerName "Minerva" }}tap "spacelift-io/spacelift"{{ end }}
 
-{{ if eq .machineType "laptop" }}brew "act"                                           # GitHub Actions local runner{{ end }}
+brew "act"                                           # GitHub Actions local runner
 brew "antidote"                                      # Plugin manager for zsh
-{{ if eq .computerName "Mercure" }}brew "awscli"                                        # AWS CLI{{ end }}
+brew "awscli"                                        # AWS CLI
 brew "bat"                                           # Modern replacement for cat
 brew "chezmoi"                                       # dotfiles manager
-{{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
-{{ if eq .computerName "Mercure" }}brew "copier"                                        # Project templates renderer{{ end }}
+brew "chromaprint"                                   # Audio fingerprinting
+brew "copier"                                        # Project templates renderer
 brew "coreutils"                                     # GNU File, Shell, and Text utilities
-{{ if eq .computerName "Mercure" }}brew "datasette"                                     # Tool for exploring and publishing data{{ end }}
-{{ if eq .machineType "laptop" }}brew "diff-so-fancy"                                 # Nice looking git diff{{ end }}
-{{ if eq .computerName "Mercure" }}brew "direnv"                                        # Load/unload environment variables based on $PWD{{ end }}
+brew "diff-so-fancy"                                 # Nice looking git diff
+brew "direnv"                                        # Load/unload environment variables based on $PWD
 brew "dockutil"                                      # macOS dock manager
 brew "doggo"                                         # Modern replacement for dig
 brew "eza"                                           # Modern replacement for ls
-{{ if eq .machineType "laptop" }}brew "git"                                           # Distributed revision control system{{ end }}
-{{ if eq .machineType "laptop" }}brew "httpie"                                        # CLI HTTP client{{ end }}
+brew "git"                                           # Distributed revision control system
 brew "htop"                                          # Interactive process viewer
-{{ if eq .computerName "Mercure" }}brew "jj"                                            # Git-compatible distributed VCS{{ end }}
-{{ if eq .machineType "laptop" }}brew "just"                                          # Command runner{{ end }}
-{{ if eq .computerName "Mercure" }}brew "llm"                                           # Access large language models from the command-line{{ end }}
+brew "httpie"                                        # CLI HTTP client
+brew "just"                                          # Command runner
 brew "mas"                                           # Mac App Store command-line interface
-{{ if eq .computerName "Mercure" }}brew "minamijoyo/tfupdate/tfupdate"                  # Terraform/OpenTofu version update{{ end }}
-{{ if eq .computerName "Mercure" }}brew "minio/stable/minio"                            # {{ end }}
-{{ if eq .machineType "laptop" }}brew "node"                                          # Javascript runtime{{ end }}
-brew "oh-my-posh"                                    # Prompt theme engine
-{{ if eq .machineType "laptop" }}brew "opentofu"                                      # Infrastructure as Code tool{{ end }}
-{{ if eq .computerName "Mercure" }}brew "postgresql@17"                                 # Database engine{{ end }}
-{{ if eq .machineType "laptop" }}brew "pre-commit"                                    # QA tool for Git repositories{{ end }}
+brew "minamijoyo/tfupdate/tfupdate"                  # Terraform/OpenTofu version update
+brew "node"                                          # Javascript runtime
+brew "opentofu"                                      # Infrastructure as Code tool
+brew "postgresql@17"                                 # Database engine
+brew "pre-commit"                                    # QA tool for Git repositories
 brew "pure"                                          # zsh prompt
-{{ if eq .computerName "Minerva" }}brew "spacelift-io/spacelift/spacectl"               # Spacelift API client{{ end }}
-{{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
-{{ if eq .computerName "Mercure" }}brew "terraform-docs"                                # Terraform/OpenTofu module documentation generator{{ end }}
-{{ if eq .computerName "Mercure" }}brew "tflint"                                        # Terraform/OpenTofu linter{{ end }}
-{{ if eq .computerName "Mercure" }}brew "trivy"                                         # Vulnerability scanner{{ end }}
-{{ if eq .machineType "laptop" }}brew "uv"                                            # Python package installer and resolver{{ end }}
-{{ if eq .computerName "Mercure" }}brew "yt-dlp"                                        # CLI audio/video downloader{{ end }}
+brew "uv"                                            # Python package installer and resolver
+brew "yt-dlp"                                        # CLI audio/video downloader
 brew "zsh"                                           # Shell
 
-{{ if eq .computerName "Mercure" }}cask "ableton-live-suite@11"                         # Digital Audio Workstation (DAW){{ end }}
+cask "1password-cli"                                 # 1Password command-line interface
 cask "1password"                                     # Password manager
-{{ if eq .machineType "laptop" }}cask "1password-cli"                                 # 1Password command-line interface{{ end }}
-{{ if ne .computerName "Jupiter" }}cask "akiflow"                                       # Time blocking and productivity platform{{ end }}
+cask "ableton-live-suite@11"                         # Digital Audio Workstation (DAW)
+cask "akiflow"                                       # Time blocking and productivity platform
 cask "appcleaner"                                    # Application uninstaller
+cask "backblaze"                                     # Data backup and storage service
 cask "bartender"                                     # Menu bar icon organizer
-{{ if .personalMachine }}cask "backblaze"                                     # Data backup and storage service{{ end }}
-{{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
-{{ if eq .machineType "laptop" }}cask "chatgpt"                                       # AI chatbot{{ end }}
-{{ if eq .machineType "laptop" }}cask "claude"                                        # Claude AI desktop app{{ end }}
-{{ if eq .machineType "laptop" }}cask "cleanshot"                                     # Screen capture{{ end }}
-{{ if eq .computerName "Minerva" }}cask "clickup"                                       # Task manager{{ end }}
-{{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
+cask "bruno"                                         # API explorer
+cask "chatgpt"                                       # AI chatbot
+cask "claude"                                        # Claude AI desktop app
+cask "cleanshot"                                     # Screen capture
+cask "djstudio"                                      # DAW for DJs
 cask "font-monaspice-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
 cask "ghostty"                                       # Terminal emulator
 cask "google-chrome", args: { require_sha: false }   # Web browser
-{{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}
 cask "languagetool-desktop"                          # Style and grammar checker
-{{ if eq .computerName "Minerva" }}cask "granola"                                       # AI-powered notepad for meetings{{ end }}
-{{ if eq .computerName "Minerva" }}cask "logitune"                                      # Webcam configuration manager{{ end }}
-{{ if eq .computerName "Minerva" }}cask "meetingbar"                                    # Shows the next meeting in the menu bar{{ end }}
-{{ if eq .computerName "Mercure" }}cask "mixed-in-key"                                  # Harmonic mixing for DJs and music producers{{ end }}
-{{ if eq .computerName "Minerva" }}cask "microsoft-teams"                               # Team communication and collaboration software{{ end }}
-{{ if eq .computerName "Mercure" }}cask "nordvpn", args: { require_sha: false }         # VPN client{{ end }}
+cask "mixed-in-key"                                  # Harmonic mixing for DJs and music producers
+cask "nordvpn", args: { require_sha: false }         # VPN client
 cask "notion"                                        # Content management and productivity platform
-{{ if eq .machineType "laptop" }}cask "orbstack"                                      # Docker Desktop replacement{{ end }}
-{{ if eq .computerName "Mercure" }}cask "paulxstretch"                                  # Extreme audio time stretching{{ end }}
+cask "orbstack"                                      # Docker Desktop replacement
+cask "paulxstretch"                                  # Extreme audio time stretching
 cask "roon", args: { require_sha: false }            # Music player
-{{ if eq .computerName "Mercure" }}cask "send-to-kindle", args: { require_sha: false }  # Tool for sending personal documents to Kindles{{ end }}
-{{ if eq .machineType "laptop" }}cask "slack"                                         # Team communication and collaboration software{{ end }}
-{{ if eq .computerName "Minerva" }}cask "tailscale-app"                                 # VPN client{{ end }}
+cask "send-to-kindle", args: { require_sha: false }  # Tool for sending personal documents to Kindles
+cask "slack"                                         # Team communication and collaboration software
 cask "visual-studio-code"                            # Code editor
-{{ if .personalMachine }}cask "vlc"                                           # Media player{{ end }}
-{{ if eq .computerName "Jupiter" }}cask "xact"                                          # Audio Compression Toolkit{{ end }}
-{{ if eq .computerName "Jupiter" }}cask "xld"                                           # Lossless audio decoder{{ end }}
-{{ if eq .computerName "Minerva" }}cask "zoom"                                          # Team communication and collaboration software{{ end }}
+cask "vlc"                                           # Media player
 
-{{ if eq .machineType "laptop" }}mas "Amazon Kindle", id: 302584613                   # eBooks reader{{ end }}
-{{ if eq .computerName "Jupiter" }}mas "Amphetamine", id:937984704                      # Keep computer awake{{ end }}
-{{ if eq .computerName "Mercure" }}mas "WhatsApp Messenger", id:310633997               # WhatsApp Client{{ end }}
+mas "Amazon Kindle", id: 302584613                   # eBooks reader
+mas "WhatsApp Messenger", id:310633997               # WhatsApp client
