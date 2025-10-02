@@ -1,30 +1,38 @@
 cask_args require_sha: true
 
-tap "jandedobbeleer/oh-my-posh"
 tap "minamijoyo/tfupdate"
+tap "minio/stable"
 {{ if eq .computerName "Minerva" }}tap "spacelift-io/spacelift"{{ end }}
 
 {{ if eq .machineType "laptop" }}brew "act"                                           # GitHub Actions local runner{{ end }}
 brew "antidote"                                      # Plugin manager for zsh
 {{ if eq .computerName "Mercure" }}brew "awscli"                                        # AWS CLI{{ end }}
+brew "bat"                                           # Modern replacement for cat
 brew "chezmoi"                                       # dotfiles manager
 {{ if eq .computerName "Mercure" }}brew "chromaprint"                                   # Audio fingerprinting{{ end }}
 {{ if eq .computerName "Mercure" }}brew "copier"                                        # Project templates renderer{{ end }}
 brew "coreutils"                                     # GNU File, Shell, and Text utilities
 {{ if eq .computerName "Mercure" }}brew "datasette"                                     # Tool for exploring and publishing data{{ end }}
+{{ if eq .machineType "laptop" }}brew "diff-so-fancy"                                 # Nice looking git diff{{ end }}
 {{ if eq .computerName "Mercure" }}brew "direnv"                                        # Load/unload environment variables based on $PWD{{ end }}
 brew "dockutil"                                      # macOS dock manager
+brew "doggo"                                         # Modern replacement for dig
+brew "eza"                                           # Modern replacement for ls
 {{ if eq .machineType "laptop" }}brew "git"                                           # Distributed revision control system{{ end }}
 {{ if eq .machineType "laptop" }}brew "httpie"                                        # CLI HTTP client{{ end }}
+brew "htop"                                          # Interactive process viewer
 {{ if eq .computerName "Mercure" }}brew "jj"                                            # Git-compatible distributed VCS{{ end }}
 {{ if eq .machineType "laptop" }}brew "just"                                          # Command runner{{ end }}
 {{ if eq .computerName "Mercure" }}brew "llm"                                           # Access large language models from the command-line{{ end }}
 brew "mas"                                           # Mac App Store command-line interface
 {{ if eq .computerName "Mercure" }}brew "minamijoyo/tfupdate/tfupdate"                  # Terraform/OpenTofu version update{{ end }}
+{{ if eq .computerName "Mercure" }}brew "minio/stable/minio"                            # {{ end }}
 {{ if eq .machineType "laptop" }}brew "node"                                          # Javascript runtime{{ end }}
 brew "oh-my-posh"                                    # Prompt theme engine
 {{ if eq .machineType "laptop" }}brew "opentofu"                                      # Infrastructure as Code tool{{ end }}
+{{ if eq .computerName "Mercure" }}brew "postgresql@17"                                 # Database engine{{ end }}
 {{ if eq .machineType "laptop" }}brew "pre-commit"                                    # QA tool for Git repositories{{ end }}
+brew "pure"                                          # zsh prompt
 {{ if eq .computerName "Minerva" }}brew "spacelift-io/spacelift/spacectl"               # Spacelift API client{{ end }}
 {{ if eq .computerName "Mercure" }}brew "sqlite-utils"                                  # CLI utility for manipulating SQLite databases{{ end }}
 {{ if eq .computerName "Mercure" }}brew "terraform-docs"                                # Terraform/OpenTofu module documentation generator{{ end }}
@@ -32,13 +40,13 @@ brew "oh-my-posh"                                    # Prompt theme engine
 {{ if eq .computerName "Mercure" }}brew "trivy"                                         # Vulnerability scanner{{ end }}
 {{ if eq .machineType "laptop" }}brew "uv"                                            # Python package installer and resolver{{ end }}
 {{ if eq .computerName "Mercure" }}brew "yt-dlp"                                        # CLI audio/video downloader{{ end }}
+brew "zsh"                                           # Shell
 
 {{ if eq .computerName "Mercure" }}cask "ableton-live-suite@11"                         # Digital Audio Workstation (DAW){{ end }}
 cask "1password"                                     # Password manager
 {{ if eq .machineType "laptop" }}cask "1password-cli"                                 # 1Password command-line interface{{ end }}
 {{ if ne .computerName "Jupiter" }}cask "akiflow"                                       # Time blocking and productivity platform{{ end }}
 cask "appcleaner"                                    # Application uninstaller
-{{ if eq .computerName "Minerva" }}cask "arc"                                           # Browser{{ end }}
 cask "bartender"                                     # Menu bar icon organizer
 {{ if .personalMachine }}cask "backblaze"                                     # Data backup and storage service{{ end }}
 {{ if eq .machineType "laptop" }}cask "bruno"                                         # API explorer{{ end }}
@@ -47,7 +55,7 @@ cask "bartender"                                     # Menu bar icon organizer
 {{ if eq .machineType "laptop" }}cask "cleanshot"                                     # Screen capture{{ end }}
 {{ if eq .computerName "Minerva" }}cask "clickup"                                       # Task manager{{ end }}
 {{ if eq .computerName "Mercure" }}cask "djstudio"                                      # DAW for DJs{{ end }}
-cask "font-monaspace-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
+cask "font-monaspice-nerd-font"                      # Monaspice Nerd Font families (Monaspace)
 cask "ghostty"                                       # Terminal emulator
 cask "google-chrome", args: { require_sha: false }   # Web browser
 {{ if eq .computerName "Jupiter" }}cask "jaikoz", args: { require_sha: false }          # Audio tag editor{{ end }}

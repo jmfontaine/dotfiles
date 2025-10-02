@@ -8,26 +8,25 @@ path=(
 # Use VS Code as editor
 export EDITOR="code --new-window --wait"
 
-# antidote
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load
-
-# Have zsh-autosuggestions suggest zsh-abbr's abbreviation
-ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
-
-# Oh My Posh
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/jmf.omp.yaml)"
-
 # Disable Homebrew hints
 export HOMEBREW_NO_ENV_HINTS=1
 
-{{ if eq .computerName "Mercure" }}
-# direnv
+# Override -h and --help globally to use bat to colorize help
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# Load direnv
 eval "$(direnv hook zsh)"
 
-# 1Password
-op signin --account {{ .onePasswordAccountId }}
+# Load zsh plugins
+source ~/.zsh_plugins.zsh
 
-## jj
-source <(COMPLETE=zsh jj)
-{{ end }}
+# Configure zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history)
+
+# Configure Pure prompt
+autoload -Uz promptinit
+promptinit
+zstyle ':prompt:pure:prompt:error' color red
+zstyle ':prompt:pure:prompt:success' color green
+prompt pure

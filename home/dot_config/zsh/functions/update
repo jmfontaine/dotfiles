@@ -1,24 +1,20 @@
 function update {
-  echo -e "\033[1m────────── Homebrew ──────────\033[0m"
+  echo -e "\033[1m────────── \033[32mHomebrew\033[0m\033[1m ──────────\033[0m"
   brew bundle --all --cleanup --global --quiet
   brew upgrade
   brew autoremove --quiet
   echo ""
 
-  echo "\033[1m────────── Antidote ──────────\033[0m"
+  echo "\033[1m────────── \033[32mAntidote\033[0m\033[1m ──────────\033[0m"
   source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
   antidote update --bundles
   echo ""
 
-  echo "\033[1m────────── VS Code ──────────\033[0m"
+  echo "\033[1m────────── \033[32mVS Code\033[0m\033[1m ──────────\033[0m"
   code --update-extensions
   echo ""
 
-  echo "\033[1m────────── uv ──────────\033[0m"
+  echo "\033[1m────────── \033[32muv\033[0m\033[1m ──────────\033[0m"
   uv cache prune
-  echo ""
-
-  echo "\033[1m────────── npm (global) ──────────\033[0m"
-  npm update --global
   echo ""
 }

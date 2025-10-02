@@ -11,6 +11,9 @@
 [commit]
   gpgsign = true
 
+[core]
+  pager = "diff-so-fancy"
+
 [gpg]
   format = ssh
 
@@ -20,6 +23,9 @@
 
 [init]
   defaultBranch = main
+
+[interactive]
+  diffFilter = "diff-so-fancy --patch"
 
 [push]
   autoSetupRemote = true

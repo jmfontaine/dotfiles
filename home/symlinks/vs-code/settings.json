@@ -2,6 +2,15 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
+  "[dockercompose]": {
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "[markdown]": {
     "editor.formatOnSave": false
   },
@@ -32,9 +41,9 @@
       "underline": false
     }
   ],
-  "colorize.languages": ["javascript", "json"],
+  "colorize.languages": ["javascript", "json", "tmpl", "yaml"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
@@ -44,10 +53,13 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmPasteNative": false,
   "git.confirmSync": false,
-  "terminal.integrated.fontSize": 15,
+  "python.analysis.typeCheckingMode": "standard",
+  "terminal.integrated.fontFamily": "MonaspiceNe Nerd Font Mono",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.stickyScroll.enabled": false,
   "workbench.colorTheme": "Monokai Classic",
   "workbench.iconTheme": "Monokai Classic Icons",
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.startupEditor": "none",
-  "python.analysis.typeCheckingMode": "standard"
+  "workbench.startupEditor": "none"
 }

@@ -1,8 +1,11 @@
-theme = "Monokai Soda"
+theme = Monokai Classic
 
 font-family = "MonaspiceNe Nerd Font Mono"
 font-size = 15
 font-thicken = true
+
+macos-icon-frame = plastic
+quick-terminal-size = 70%,100%
 
 # Quick Terminal
 initial-window = false
