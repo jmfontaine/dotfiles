@@ -14,6 +14,9 @@ export HOMEBREW_NO_ENV_HINTS=1
 # Configure bat
 export BAT_PAGING='never'
 
+# Use bat to colorize man
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
 # Override -h and --help globally to use bat to colorize help
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
@@ -25,6 +28,7 @@ eval "$(direnv hook zsh)"
 source ~/.zsh_plugins.zsh
 
 # Configure zsh-autosuggestions
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|eza *|ls *|pwd|.|..*|* --help|* --version)"
 ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history)
 
 # Configure Pure prompt
@@ -33,3 +37,7 @@ promptinit
 zstyle ':prompt:pure:prompt:error' color red
 zstyle ':prompt:pure:prompt:success' color green
 prompt pure
+
+# Configure zsh history
+# These are additional settings beyond what mattmc3/zephyr history plugin sets
+setopt share_history # Share history between all sessions
