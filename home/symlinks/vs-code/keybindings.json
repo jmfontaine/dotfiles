@@ -1,0 +1,20 @@
+[
+  {
+    "key": "cmd+k cmd+k",
+    "command": "toggle",
+    "when": "editorTextFocus",
+    "args": {
+      "id": "fontSize",
+      "value": [
+        {
+          "editor.fontSize": 14,
+          "terminal.integrated.fontSize": 14
+        },
+        {
+          "editor.fontSize": 15,
+          "terminal.integrated.fontSize": 15
+        }
+      ]
+    }
+  }
+]
