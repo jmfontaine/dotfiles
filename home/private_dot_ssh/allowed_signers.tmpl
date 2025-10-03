@@ -1,0 +1,4 @@
+{{- /* Retrieve my public SSH keys from GitHub */ -}}
+{{ range gitHubKeys "jmfontaine" -}}
+{{   .Key }}
+{{ end -}}
