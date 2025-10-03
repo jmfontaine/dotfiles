@@ -1,13 +1,11 @@
-# KLUDGE: Must be first
-mattmc3/ez-compinit                                         # zsh completion system (compinit) manager
-
 # KLUDGE: Must be included in this order
-olets/zsh-abbr kind:defer                         # Auto-expanding abbreviations
+olets/zsh-abbr kind:defer                                   # Auto-expanding abbreviations
 zsh-users/zsh-autosuggestions                               # Fish-like autosuggestions
 olets/zsh-autosuggestions-abbreviations-strategy kind:defer # Have zsh-autosuggestions suggest zsh-abbr's abbreviation
 
-belak/zsh-utils path:history                                # Opinionated zsh history configuration
-mattmc3/zfunctions                                          # Lazy-loaded zsh functions
+mattmc3/zephyr path:plugins/completion                      # Opinionated zsh completion configuration
+mattmc3/zephyr path:plugins/history                         # Opinionated zsh history configuration
+mattmc3/zephyr path:plugins/zfunctions                      # Lazy-loaded zsh functions
 mfaerevaag/wd kind:defer                                    # Directory jumper
-zdharma-continuum/fast-syntax-highlighting kind:defer       # Feature-rich syntax highlighting
+zdharma-continuum/fast-syntax-highlighting                  # Feature-rich syntax highlighting
 zsh-users/zsh-completions kind:fpath path:src               # Additional zsh completion definitions

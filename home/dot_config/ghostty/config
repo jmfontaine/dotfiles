@@ -1,10 +1,11 @@
-theme = "Monokai Soda"
+theme = "Monokai Classic"
 
-font-family = "MonaspiceNe Nerd Font Mono"
+font-family = "MonaspiceNe Nerd Font Propo"
 font-size = 15
 font-thicken = true
 
 # Quick Terminal
 initial-window = false
 quick-terminal-position = top
+quick-terminal-size = 70%,100%
 keybind = global:opt+space=toggle_quick_terminal

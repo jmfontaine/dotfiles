@@ -1,15 +1,8 @@
-[alias]
-  # Display a nicely formatted history
-  lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%G?%Creset %Cgreen(%aN)%Creset' --date=relative
-
-  # Delete the latest commit but preserve its changes
-  oops = reset 'HEAD^' --soft
-
-  # Commit all current changes with "WIP" as commit message
-  wip = !git add -A && git commit -m 'WIP'
-
 [commit]
   gpgsign = true
+
+[core]
+  pager = "diff-so-fancy"
 
 [gpg]
   format = ssh
@@ -21,6 +14,9 @@
 [init]
   defaultBranch = main
 
+[interactive]
+  diffFilter = "diff-so-fancy --patch"
+
 [push]
   autoSetupRemote = true
 
@@ -28,6 +24,6 @@
   gpgsign = true
 
 [user]
-  email      = {{ .email }}
+  email      = jmf@spacelift.io
   name       = Jean-Marc Fontaine
-  signingkey = key::{{ .gitSigningKey }}
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMDTH3YA8M/HDpQwH2TS6oj2JaFT7QDaTk/agLW1O6rq

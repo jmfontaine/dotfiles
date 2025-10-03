@@ -1,3 +1,16 @@
-[default]
-credential_process = sh -c "op item get 'AWS Access Key - jmfontaine@moxietech' --format json | jq -r '{Version:1,AccessKeyId:.fields[1].value,SecretAccessKey:.fields[2].value}'"
-region             = us-east-2
+[profile default] ; Identical to jmfontaine
+sso_session = Minerva
+sso_account_id = 295840331105
+sso_role_name = AWSAdministratorAccess
+region = us-east-2
+
+[profile jmfontaine]
+sso_session = Minerva
+sso_account_id = 295840331105
+sso_role_name = AWSAdministratorAccess
+region = us-east-2
+
+[sso-session Minerva]
+sso_start_url = https://d-93677f79b6.awsapps.com/start/#
+sso_region = eu-west-1
+sso_registration_scopes = sso:account:access

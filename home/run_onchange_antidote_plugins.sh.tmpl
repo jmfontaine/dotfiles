@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# dot_zsh_plugins.txt hash: {{ include "dot_zsh_plugins.txt" | sha256sum }}
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.zsh
