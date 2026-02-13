@@ -1,8 +1,40 @@
+[alias]
+  ci = commit
+  co = checkout
+  st = status
+  wt = worktree
+  wtl = worktree list
+  wtp = worktree prune
+
+  # Display a nicely formatted history
+  lg = log --pretty=tformat:'%Cred%h%Creset %cr - %C(bold)%s%Creset %C(yellow)%G?%Creset %Cgreen(%aN)%Creset' --date=relative
+
+  # Delete the latest commit but preserve its changes
+  oops = reset 'HEAD^' --soft
+
+  # Commit all current changes with "WIP" as commit message
+  wip = !git add -A && git commit -m 'WIP'
+
+  # Create a new worktree and branch with the same name
+  wta = "!f() { git worktree add $1 -b $1; }; f"
+
+  # Create a branch from another commit/branch and add it as a worktree
+  wtb = "!f() { git branch -f $1 $2; git worktree add $1 $1; }; f"
+
+  # Create a worktree from a remote branch with the same name
+  wtbo = "!f() { git worktree add $1 origin/$1; }; f"
+
 [commit]
   gpgsign = true
 
 [core]
   pager = "diff-so-fancy"
+
+[filter "lfs"]
+  clean    = git-lfs clean -- %f
+  process  = git-lfs filter-process
+  required = true
+  smudge   = git-lfs smudge -- %f
 
 [gpg]
   format = ssh
