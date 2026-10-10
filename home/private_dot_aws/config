@@ -1,3 +1,4 @@
 [default]
-credential_process = sh -c "op item get 'AWS Access Key - jmfontaine@moxietech' --format json | jq -r '{Version:1,AccessKeyId:.fields[1].value,SecretAccessKey:.fields[2].value}'"
+# 1Password item "AWS Access Key - jmfontaine@moxieforge", referenced by ID so renames don't break it.
+credential_process = sh -c "op item get pkr7caxfwkw6guwm7qg7utt7ri --vault MoxieForge --format json | jq '{Version: 1, AccessKeyId: (.fields[] | select(.label == \"access key id\").value), SecretAccessKey: (.fields[] | select(.label == \"secret access key\").value)}'"
 region             = us-east-2
