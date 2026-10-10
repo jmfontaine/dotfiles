@@ -54,6 +54,3 @@ eval "$(command wt config shell init zsh)"
 
 # Configure zsh-patina
 eval "$(zsh-patina activate)"
-
-# Configure 1Password service account token
-export OP_SERVICE_ACCOUNT_TOKEN=$(security find-generic-password -a "$USER" -s "op-service-account-token" -w 2>/dev/null)
