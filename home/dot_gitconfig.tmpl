@@ -18,12 +18,6 @@
   # Create a new worktree and branch with the same name
   wta = "!f() { git worktree add $1 -b $1; }; f"
 
-  # Create a branch from another commit/branch and add it as a worktree
-  wtb = "!f() { git branch -f $1 $2; git worktree add $1 $1; }; f"
-
-  # Create a worktree from a remote branch with the same name
-  wtbo = "!f() { git worktree add $1 origin/$1; }; f"
-
 [commit]
   gpgsign = true
 
@@ -40,7 +34,7 @@
   format = ssh
 
 [gpg "ssh"]
-  allowedSignersFile = /Users/jmf/.ssh/allowed_signers
+  allowedSignersFile = ~/.ssh/allowed_signers
   program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 
 [init]
