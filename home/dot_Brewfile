@@ -21,7 +21,6 @@ brew "doggo"                                               # Modern replacement 
 brew "eza"                                                 # Modern replacement for ls
 brew "ffmpeg"                                              # Audio/video utility
 brew "flac"                                                # Lossless audio codec
-brew "flyctl"                                              # Fly.io CLI tool
 brew "gh"                                                  # GitHub CLI tool
 brew "git"                                                 # Distributed revision control system
 brew "git-cliff"                                           # GitHub changelog generator
@@ -47,7 +46,6 @@ brew "tree"                                                # Display directories
 brew "uv"                                                  # Python package installer and resolver
 brew "yt-dlp"                                              # CLI audio/video downloader
 brew "vhs"                                                 # CLI video recorder
-brew "worktrunk"                                           # Git worktree manager
 brew "zsh-patina"                                          # Fast ZSH command syntax highlighting
 
 cask "1password-cli"                                       # 1Password command-line interface
