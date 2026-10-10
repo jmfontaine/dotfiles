@@ -1,9 +1,9 @@
 ### zsh path (must be first)
+typeset -U path fpath # Drop duplicate entries
 path=(
-    $(brew --prefix coreutils)/libexec/gnubin # Use GNU commands instead of macOS ones
-    $(brew --prefix curl)/bin                 # Use Homebrew's curl over MacOS's
-    $(brew --prefix postgresql@18)/bin        # PostgreSQL CLI tools
-    $(brew --prefix)/share/zsh/site-functions # Let zsh know about Homebrew-managed completion scripts
+    /opt/homebrew/opt/coreutils/libexec/gnubin # Use GNU commands instead of macOS ones
+    /opt/homebrew/opt/curl/bin                 # Use Homebrew's curl over MacOS's
+    /opt/homebrew/opt/postgresql@18/bin        # PostgreSQL CLI tools
     $HOME/.local/bin
     $path
 )
@@ -25,11 +25,8 @@ export HOMEBREW_NO_ENV_HINTS=1
 export BAT_PAGING='never'
 
 # Use bat to colorize man
-export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
-
-# Override -h and --help globally to use bat to colorize help
-# alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-# alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+export MANPAGER="sh -c 'col -bx | bat -p -lman'"
+export MANROFFOPT='-c'
 
 # Load direnv
 eval "$(direnv hook zsh)"
@@ -42,7 +39,7 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|eza *|ls *|pwd|.|..*|* --help|* --ver
 ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history)
 
 # Configure Powerlevel10k prompt
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 # Configure zsh history

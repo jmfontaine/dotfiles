@@ -7,5 +7,4 @@ mattmc3/zephyr path:plugins/completion                      # Opinionated zsh co
 mattmc3/zephyr path:plugins/history                         # Opinionated zsh history configuration
 mattmc3/zephyr path:plugins/zfunctions                      # Lazy-loaded zsh functions
 mfaerevaag/wd kind:defer                                    # Directory jumper
-# zdharma-continuum/fast-syntax-highlighting                  # Feature-rich syntax highlighting
 zsh-users/zsh-completions kind:fpath path:src               # Additional zsh completion definitions
