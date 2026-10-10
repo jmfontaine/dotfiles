@@ -1,0 +1,11 @@
+# Keys the 1Password SSH agent offers for SSH logins and git signing.
+# The coding agent keys are left out on purpose: the parallel-issues launcher reads
+# them with `op read` into its own ssh-agent, so they never sign or log in here.
+
+[[ssh-keys]]
+item = "Personal SSH Key"
+vault = "Private"
+
+[[ssh-keys]]
+item = "MoxieForge SSH Key"
+vault = "MoxieForge"

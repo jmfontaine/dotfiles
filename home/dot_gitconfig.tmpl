@@ -55,7 +55,20 @@
 [tag]
   gpgsign = true
 
+# No default email or key: each location below sets its own, and useConfigOnly makes
+# a commit anywhere else fail instead of guessing an identity.
 [user]
-  email      = jm@jmfontaine.net
-  name       = Jean-Marc Fontaine
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
+  name          = Jean-Marc Fontaine
+  useConfigOnly = true
+
+[includeIf "gitdir:~/Projects/Personal/"]
+  path = ~/.config/git/personal.gitconfig
+
+[includeIf "gitdir:~/Projects/Third Parties/"]
+  path = ~/.config/git/personal.gitconfig
+
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+  path = ~/.config/git/personal.gitconfig
+
+[includeIf "gitdir:~/Projects/MoxieForge/"]
+  path = ~/.config/git/moxieforge.gitconfig

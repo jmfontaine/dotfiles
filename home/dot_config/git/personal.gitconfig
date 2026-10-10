@@ -1,0 +1,11 @@
+# Included for ~/Projects/Personal/, ~/Projects/Third Parties/ and the chezmoi
+# source (see ~/.gitconfig).
+
+[user]
+  email      = jm@jmfontaine.net
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKOuAaokb7Q8wJ7nGn3YwQlfvxwJGjacWAAaR9wUwQD5
+
+# Key that unattended coding agents sign with (parallel-issues skill). Only the
+# 1Password reference is stored here; the key is read at launch.
+[agent]
+  signingKey = op://Private/Personal Coding Agent SSH Key/private key?ssh-format=openssh
