@@ -1,0 +1,114 @@
+# Claude Max 20x + ChatGPT Pro Lite. Behavior notes: omp 18.x, Oct 2026.
+#
+# Profile: quality-first, no manual escalation. Opus 5.5 at high drives the
+# main loop; effort is set once per role and never needs a per-turn decision.
+
+setupVersion: 2
+
+symbolPreset: nerd
+
+composer:
+  shape: box
+
+theme:
+  dark: dark-monokai
+
+tools:
+  approvalMode: yolo # auto-approve every tier, shell and out-of-workspace writes included
+
+# Applies to roles with no explicit suffix, on models that support effort.
+# Every role below pins its effort explicitly; this is the catch-all.
+defaultThinkingLevel: high
+
+advisor:
+  enabled: false
+
+memory:
+  backend: local
+
+# No automatic tool-issue reports: they are model-written and can quote
+# workspace content, and `granted` pushes them to qa.omp.sh.
+dev:
+  autoqaConsent: denied
+
+# `server-side-fallback-2026-06-01` beta. Only direct-Anthropic Fable/Mythos
+# requests are eligible: on a safety-classifier block Anthropic may retry
+# server-side with claude-opus-4-8 instead of the request hard-failing.
+# Relevant because `slow` is Fable 5.1; every other role is unaffected.
+providers:
+  anthropic:
+    serverSideFallback: true
+
+modelRoles:
+  # Opus 5.5: newer and cheaper than Opus 5 ($4/$20 vs $5/$25 per MTok).
+  # High effort so hard turns get depth without `ultrathink`; adaptive
+  # thinking keeps easy turns short. Shares the general `anthropic:7d`
+  # bucket with plan/task; only Fable has its own weekly-scoped cap
+  # (`anthropic:7d:fable`).
+  default: anthropic/claude-opus-5-5:high
+
+  # One step above default: planning is low-volume and front-loads decisions.
+  plan: anthropic/claude-opus-5-5:xhigh
+
+  # Escalation should differ in model, not just in effort: Opus 5.5 at :max
+  # shares its blind spots — and its quota bucket — with the default role.
+  # Fable 5.1 is the higher-tier line (2.5x Opus 5.5 list price) and bills
+  # to the separate weekly Fable cap, so escalating never starves the main
+  # loop. Also backs the bundled `reviewer` agent (`model: @slow`).
+  # Mythos 5.1 is trusted-access only, so not an option here.
+  slow: anthropic/claude-fable-5-1:max
+
+  # Subagent fan-out multiplies across parallel workers, so Sonnet rather
+  # than Opus, at the same effort as the main loop that dispatches it.
+  # Sonnet 5.5: same $2/$10 as Sonnet 5, half-price cache reads. Its effort
+  # levels are recalibrated (Anthropic suggests medium for well-specified
+  # agentic work); high kept to avoid per-task escalation decisions.
+  # Note: Sonnet 5.5, Fable and Mythos reject forced tool choice (omp
+  # downgrades to `auto`), so schema-bound `completion(model="task"|"slow")`
+  # can answer in prose and fail structured-output validation.
+  task: anthropic/claude-sonnet-5-5:high
+
+  # Haiku 5.5: $0.10/$0.50 (vs Haiku 4.5's $1/$5), adaptive thinking with
+  # effort low..max (no `minimal`). `smol` also backs the bundled `scout` and
+  # `sonic` agents, not only titles. 100K context in omp's catalog; no
+  # server-side refusal fallback.
+  smol: anthropic/claude-haiku-5-5:low
+  commit: anthropic/claude-haiku-5-5:low
+  tiny: anthropic/claude-haiku-5-5:low
+
+  vision: anthropic/claude-sonnet-5-5:medium
+
+  # Cross-vendor by design: a Claude advisor shares blind spots with a
+  # Claude default, which is the correlated-failure case a watchdog exists
+  # to catch. GPT-6.1 Sol: near GPT-6 Astra at $2/$10.
+  advisor: openai-codex/gpt-6.1-sol:high
+
+retry:
+  modelFallback: true
+  fallbackChains:
+    # Fire on ordinary 429s and provider errors, not only quota exhaustion.
+    # Fallbacks keep the primary's effort. GPT-6 has no Terra tier, so
+    # 6.1 Sol covers both the old Sol and Terra slots; Astra ($10/$50)
+    # matches Fable's tier for `slow`.
+    default:
+      - openai-codex/gpt-6.1-sol:high
+      - anthropic/claude-sonnet-5-5:high
+    plan:
+      - openai-codex/gpt-6.1-sol:xhigh
+    slow:
+      - openai-codex/gpt-6-astra:max
+    task:
+      - openai-codex/gpt-6.1-sol:high
+      - anthropic/claude-haiku-5-5:high
+    smol:
+      - openai-codex/gpt-6-luna:low
+    commit:
+      - openai-codex/gpt-6-luna:low
+    tiny:
+      - openai-codex/gpt-6-luna:low
+    vision:
+      - openai-codex/gpt-6.1-sol:medium
+    # Overnight cover when ChatGPT quota runs out. Works only because
+    # models.yml disables Sol's native compaction (see note there).
+    advisor:
+      - anthropic/claude-sonnet-5-5:high

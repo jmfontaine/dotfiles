@@ -1,0 +1,13 @@
+providers:
+  openai-codex:
+    modelOverrides:
+      # The catalog enables OpenAI V2 native compaction for Sol. Once an
+      # advisor compacts natively, its history is an opaque OpenAI replay
+      # payload and omp skips every non-OpenAI fallback, so the Claude entry
+      # in `retry.fallbackChains.advisor` never fires on ChatGPT quota
+      # exhaustion. Without native compaction Sol falls through to
+      # snapcompact/handoff, whose readable history Claude can take over.
+      # Also applies when the default/plan/task roles fall back to Sol.
+      gpt-6.1-sol:
+        remoteCompaction:
+          enabled: false
