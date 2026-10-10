@@ -15,5 +15,5 @@ Follow these steps to bootstrap a Mac:
 - Bootstrap the computer:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jmfontaine/dotfiles/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jmfontaine/dotfiles/main/install.sh)"
 ```
