@@ -10,7 +10,6 @@ brew "awscli"                                              # AWS CLI
 brew "bat"                                                 # Modern replacement for cat
 brew "bash"                                                # Shell
 brew "chezmoi"                                             # dotfiles manager
-brew "container"                                           # tool for creating and running Linux containers using lightweight virtual machines
 brew "copier"                                              # Project templates renderer
 brew "coreutils"                                           # GNU File, Shell, and Text utilities
 brew "chromaprint"                                         # Core component of the AcoustID project
@@ -43,7 +42,6 @@ brew "par2"                                                # Data recovery
 brew "postgresql@18"                                       # PostgreSQL database engine
 brew "powerlevel10k"                                       # zsh prompt
 brew "jmfontaine/tap/redumper", trusted: true              # Disc archiver
-brew "socktainer"                                          # Docker-compatible REST API on top of Apple container
 brew "terror/tap/just-lsp", trusted: true                  # Just LSP
 brew "tree"                                                # Display directories as trees
 brew "uv"                                                  # Python package installer and resolver
@@ -86,7 +84,6 @@ cask "slack"                                               # Team communication 
 cask "visual-studio-code"                                  # Code editor
 cask "vuescan"                                             # Scanner manager
 cask "vlc"                                                 # Media player
-cask "wouterdebie/tap/davit", trusted: true                # GUI for Apple's Container
 
 mas "Amazon Kindle", id: 302584613                         # eBooks reader
 mas "Amphetamine", id: 937984704                           # Keep-awake utility
