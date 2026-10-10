@@ -1,10 +1,8 @@
 {
   "files.associations": {
-    "*_zshrc.tmpl": "shellscript",
-    "*.toml.tmpl": "toml",
-    "dot_Brewfile.tmpl": "ruby",
-    "dot_gitconfig.tmpl": "ini",
-    "dot_gitignore": "shellscript",
+    "*_zshrc": "shellscript",
+    "dot_Brewfile": "ruby",
+    "dot_gitconfig": "ini",
     "dot_warprc": "shellscript",
     "dot_zsh_plugins.txt": "shellscript",
     "private_dot_ssh/private_config": "shellscript",
