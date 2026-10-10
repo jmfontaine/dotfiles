@@ -63,8 +63,15 @@
   "git.confirmSync": false,
   "python.analysis.typeCheckingMode": "off",
   "python.languageServer": "Default",
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "MonaspiceNe Nerd Font Propo",
   "terminal.integrated.fontSize": 14,
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": ["-l"]
+    }
+  },
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.suggest.enabled": false,

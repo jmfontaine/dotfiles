@@ -59,8 +59,8 @@ Edit files in this repository, never the deployed copies in `~`. Then:
   Renaming it does not rerun it. The Dock script empties the Dock and adds back its own
   list.
 - `vscode/` is symlinked, so changes made in VS Code's settings UI edit this repository.
-- Paths assume Apple Silicon (`/opt/homebrew`). The login shell is `/bin/zsh`, not
-  Homebrew's zsh.
+- Paths assume Apple Silicon (`/opt/homebrew`). The shell is macOS's `/bin/zsh`, and
+  `vscode/settings.json` pins the VS Code terminal profile to it.
 - Git commits must be signed (1Password `op-ssh-sign`). The identity comes from the
   `includeIf` rules in `dot_gitconfig`, and `useConfigOnly` makes commits fail outside
   those directories.
