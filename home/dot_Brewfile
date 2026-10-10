@@ -9,6 +9,7 @@ brew "antidote"                                            # Plugin manager for 
 brew "awscli"                                              # AWS CLI
 brew "bat"                                                 # Modern replacement for cat
 brew "bash"                                                # Shell
+brew "betterleaks"                                         # Secrets scanner
 brew "chezmoi"                                             # dotfiles manager
 brew "copier"                                              # Project templates renderer
 brew "coreutils"                                           # GNU File, Shell, and Text utilities

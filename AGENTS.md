@@ -36,7 +36,8 @@ Edit files in this repository, never the deployed copies in `~`. Then:
 - `chezmoi status`: Empty when `~` matches the source state.
 
 [prek](https://prek.j178.dev) runs the hooks in `.pre-commit-config.yaml` (file checks,
-[rumdl](https://rumdl.dev) for Markdown, shellcheck). Recipes live in the `justfile`:
+[betterleaks](https://betterleaks.com) for secrets, [rumdl](https://rumdl.dev) for
+Markdown, shellcheck). Recipes live in the `justfile`:
 
 - `just setup`: Install the Git pre-commit hook.
 - `just pre-commit`: Run every hook on all files.
