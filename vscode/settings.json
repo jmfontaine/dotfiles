@@ -17,6 +17,9 @@
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "[sql]": {
+    "editor.defaultFormatter": "sqlfluff.vscode-sqlfluff"
+  },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },

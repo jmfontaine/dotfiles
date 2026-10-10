@@ -109,7 +109,6 @@ vscode "esbenp.prettier-vscode"                            # Prettier code forma
 vscode "github.vscode-github-actions"                      # GitHub Actions workflow support
 vscode "hashicorp.hcl"                                     # HCL syntax support
 vscode "hashicorp.terraform"                               # Terraform language support
-vscode "inferrinizzard.prettier-sql-vscode"                # SQL formatter for Prettier
 vscode "kamikillerto.vscode-colorize"                      # Inline preview of CSS colors
 vscode "mechatroner.rainbow-csv"                           # Colorized CSV columns
 vscode "monokai.theme-monokai-pro-vscode"                  # Monokai Pro theme
