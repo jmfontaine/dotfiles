@@ -6,12 +6,12 @@ default:
 
 # Bootstrap local environment
 bootstrap:
-  pre-commit install --install-hooks # Install pre-commit hooks
+  prek install --prepare-hooks # Install Git hook shims and prepare hook environments
 
 # Run checks
 check:
-  pre-commit run --all-files --show-diff-on-failure
+  prek run --all-files --show-diff-on-failure
 
-# Update the pre-commit hooks
-update-pre-commit:
-  pre-commit autoupdate
+# Update the hook repositories
+update-hooks:
+  prek update
