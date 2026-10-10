@@ -1,0 +1,9 @@
+[global]
+line-length = 88
+
+[MD013]
+reflow = true
+
+# CLAUDE.md only imports AGENTS.md and has no heading.
+[per-file-ignores]
+"CLAUDE.md" = ["MD041"]
