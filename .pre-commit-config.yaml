@@ -1,11 +1,25 @@
 repos:
+  # General
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
       - id: check-json
       - id: check-merge-conflict
+      - id: check-toml
       - id: check-yaml
       - id: end-of-file-fixer
+      - id: mixed-line-ending
       - id: trailing-whitespace
+
+  - repo: https://github.com/rvben/rumdl-pre-commit
+    rev: 3429bee0c8870bff7874f898c6e8659d1ffe9645  # frozen: v0.2.79
+    hooks:
+      - id: rumdl-fmt
+      - id: rumdl-check
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: a6564f5d57444e123433a5c9af733e3975c77229  # frozen: v0.11.0.1-1
+    hooks:
+      - id: shellcheck
