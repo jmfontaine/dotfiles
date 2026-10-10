@@ -20,7 +20,7 @@ dockutil --no-restart --remove all
 declare -a applications=(
     "/Applications/Akiflow.app"
     "/System/Applications/Calendar.app"
-    "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+    "/Applications/Google Chrome.app"
     "/Applications/Notion.app"
 )
 for application in "${applications[@]}"; do
