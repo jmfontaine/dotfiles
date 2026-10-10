@@ -4,8 +4,16 @@ path=(
     $(brew --prefix curl)/bin                 # Use Homebrew's curl over MacOS's
     $(brew --prefix postgresql@18)/bin        # PostgreSQL CLI tools
     $(brew --prefix)/share/zsh/site-functions # Let zsh know about Homebrew-managed completion scripts
+    $HOME/.local/bin
     $path
 )
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Use VS Code as editor
 export EDITOR='code --new-window --wait'
@@ -33,12 +41,9 @@ source ~/.zsh_plugins.zsh
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|exit|eza *|ls *|pwd|.|..*|* --help|* --version)"
 ZSH_AUTOSUGGEST_STRATEGY=(abbreviations history)
 
-# Configure Pure prompt
-autoload -Uz promptinit
-promptinit
-zstyle ':prompt:pure:prompt:error' color red
-zstyle ':prompt:pure:prompt:success' color green
-prompt pure
+# Configure Powerlevel10k prompt
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 
 # Configure zsh history
 # These are additional settings beyond what mattmc3/zephyr history plugin sets
@@ -46,6 +51,9 @@ setopt share_history # Share history between all sessions
 
 # Configure Worktrunk
 eval "$(command wt config shell init zsh)"
+
+# Configure zsh-patina
+eval "$(zsh-patina activate)"
 
 # Configure 1Password service account token
 export OP_SERVICE_ACCOUNT_TOKEN=$(security find-generic-password -a "$USER" -s "op-service-account-token" -w 2>/dev/null)

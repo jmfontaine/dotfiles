@@ -1,7 +1,8 @@
 function update {
   echo -e "\033[1m────────── \033[32mHomebrew\033[0m\033[1m ──────────\033[0m"
-  brew bundle --all --cleanup --global --quiet
-  brew upgrade
+  HOMEBREW_NO_UPGRADE_QUIT_CASKS=1 brew bundle install --global --quiet --upgrade
+  HOMEBREW_NO_UPGRADE_QUIT_CASKS=1 brew upgrade --yes
+  brew bundle cleanup --force --global
   brew autoremove --quiet
   echo ""
 
@@ -10,11 +11,12 @@ function update {
   antidote update --bundles
   echo ""
 
-  echo "\033[1m────────── \033[32mVS Code\033[0m\033[1m ──────────\033[0m"
-  code --update-extensions
+  echo "\033[1m────────── \033[32muv\033[0m\033[1m ──────────\033[0m"
+  uv tool upgrade --all
+  uv cache prune
   echo ""
 
-  echo "\033[1m────────── \033[32muv\033[0m\033[1m ──────────\033[0m"
-  uv cache prune
+  echo "\033[1m────────── \033[32mAgent Skills\033[0m\033[1m ──────────\033[0m"
+  npx -y skills update -g
   echo ""
 }

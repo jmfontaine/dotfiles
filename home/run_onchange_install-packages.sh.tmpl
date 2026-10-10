@@ -3,4 +3,5 @@
 set -eu
 
 # .Brewfile hash: {{ include "dot_Brewfile.tmpl" | sha256sum }}
-brew bundle --cleanup --global --quiet
+brew bundle --global --quiet
+brew bundle cleanup --global --force --quiet
