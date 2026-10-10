@@ -1,6 +1,6 @@
 function update {
-  echo -e "\033[1m────────── \033[32mHomebrew\033[0m\033[1m ──────────\033[0m"
-  HOMEBREW_NO_UPGRADE_QUIT_CASKS=1 brew bundle install --global --quiet --upgrade
+  echo "\033[1m────────── \033[32mHomebrew\033[0m\033[1m ──────────\033[0m"
+  HOMEBREW_NO_UPGRADE_QUIT_CASKS=1 brew bundle install --global --quiet
   HOMEBREW_NO_UPGRADE_QUIT_CASKS=1 brew upgrade --yes
   brew bundle cleanup --force --global
   brew autoremove --quiet
