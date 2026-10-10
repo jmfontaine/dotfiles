@@ -112,7 +112,6 @@ vscode "hashicorp.terraform"                               # Terraform language 
 vscode "kamikillerto.vscode-colorize"                      # Inline preview of CSS colors
 vscode "mechatroner.rainbow-csv"                           # Colorized CSV columns
 vscode "monokai.theme-monokai-pro-vscode"                  # Monokai Pro theme
-vscode "ms-ossdata.vscode-pgsql"                           # PostgreSQL language support
 vscode "ms-python.debugpy"                                 # Python debugger
 vscode "ms-python.python"                                  # Python language support
 vscode "ms-python.vscode-pylance"                          # Pylance Python language server
