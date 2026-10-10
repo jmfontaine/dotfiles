@@ -49,7 +49,7 @@
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
-  "editor.rulers": [120],
+  "editor.rulers": [88],
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -59,7 +59,7 @@
   },
   "git.confirmSync": false,
   "python.analysis.typeCheckingMode": "standard",
-  "python.languageServer": "None",
+  "python.languageServer": "Default",
   "terminal.integrated.fontFamily": "MonaspiceNe Nerd Font Propo",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
@@ -69,5 +69,17 @@
   "workbench.colorTheme": "Monokai Classic",
   "workbench.iconTheme": "Monokai Classic Icons",
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "extensions.supportAgentsWindow": {
+    "monokai.theme-monokai-pro-vscode": true
+  },
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "claudeCode.hideOnboarding": true
 }
