@@ -1,0 +1,21 @@
+#!/bin/sh
+# Send a Pushover notification: notify-pushover TITLE < MESSAGE
+#
+# The keys come from the login Keychain, so this works while 1Password is locked.
+# Store them once (each command prompts for the value):
+#   security add-generic-password -a "$USER" -s pushover-app-token -w
+#   security add-generic-password -a "$USER" -s pushover-user-key -w
+set -eu
+
+title=${1:-Notification}
+token=$(security find-generic-password -a "$USER" -s pushover-app-token -w)
+user=$(security find-generic-password -a "$USER" -s pushover-user-key -w)
+# Pushover caps messages at 1,024 characters.
+message=$(head -c 1000)
+
+curl -fsS --retry 3 --max-time 20 \
+  --form-string "token=$token" \
+  --form-string "user=$user" \
+  --form-string "title=$title" \
+  --form-string "message=${message:-$title}" \
+  https://api.pushover.net/1/messages.json >/dev/null

@@ -1,0 +1,6 @@
+# omp config overlay for unattended parallel-issues workers only. The launcher passes it
+# with `--config` when `git config agent.ompConfig` points here. Interactive sessions do
+# not load it, so their reviewers stay on the `slow` role (Fable).
+task:
+  agentModelOverrides:
+    reviewer: anthropic/claude-opus-5-5:high

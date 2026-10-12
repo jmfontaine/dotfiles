@@ -18,6 +18,12 @@
   # Create a new worktree and branch with the same name
   wta = "!f() { git worktree add $1 -b $1; }; f"
 
+[agent]
+  # parallel-issues: omp overlay for unattended workers, and the command that
+  # `status --wait` runs to notify me (title as argument, report on stdin).
+  notifyCommand = ~/.local/bin/notify-pushover
+  ompConfig     = ~/.omp/agent/worker.yml
+
 [commit]
   gpgsign = true
 
