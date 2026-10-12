@@ -23,3 +23,9 @@ Temporary Items
 # Claude #
 ##########
 **/.claude/settings.local.json
+
+###########
+# Scratch #
+###########
+# Review, plan, and research files for agents; never committed.
+.scratch/
