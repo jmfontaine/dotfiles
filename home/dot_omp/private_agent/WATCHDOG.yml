@@ -1,0 +1,16 @@
+# Advisor roster for every session started with the advisor on (`--advisor`, `/advisor`).
+# A roster replaces omp's default advisor, so the turn reviewer below keeps the default
+# behavior and the final reviewer adds one review of each finished run. With
+# `agent-end` + `strict`, a concern from the final review can start one continuation
+# instead of waiting as a card for "Review the advisor's feedback."
+# Both use modelRoles.advisor from config.yml.
+advisors:
+  - name: Turn reviewer
+    reviewMode: turn
+    syncBacklog: "off"
+  - name: Final reviewer
+    reviewMode: agent-end
+    syncBacklog: strict
+    instructions: |
+      Review the finished run before it is reported. Raise a concern only with
+      concrete evidence that the answer, an issue body, or a diff is wrong.
