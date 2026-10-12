@@ -4,3 +4,11 @@
 task:
   agentModelOverrides:
     reviewer: anthropic/claude-opus-5-5:high
+# Workers report through the launcher's watcher, and the supervising session tells
+# the user when they are needed, so workers never notify on their own.
+completion:
+  notify: "off"
+ask:
+  notify: "off"
+error:
+  notify: "off"
