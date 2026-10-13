@@ -34,6 +34,7 @@ brew "just"                                                # Command runner
 brew "lychee"                                              # HTTP link checker
 brew "mas"                                                 # Mac App Store command-line interface
 brew "minamijoyo/tfupdate/tfupdate", trusted: true         # Terraform/OpenTofu version update
+brew "mosh"                                                # Mobile shell that survives roaming and sleep
 brew "neonctl"                                             # Neon CLI tool
 brew "node"                                                # Javascript runtime
 brew "can1357/tap/omp", trusted: true                      # AI coding agent

@@ -1,0 +1,5 @@
+# `ssh host command` runs a non-login, non-interactive shell that reads only this file,
+# so commands such as mosh-server need Homebrew's PATH here. Login shells get it from
+# .zprofile instead: /etc/zprofile runs path_helper after this file, which moves the
+# system directories back in front of Homebrew's.
+[[ -o login || :$PATH: == *:/opt/homebrew/bin:* ]] || eval "$(/opt/homebrew/bin/brew shellenv)"

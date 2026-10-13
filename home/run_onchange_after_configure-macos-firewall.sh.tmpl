@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eu
+
+# Let mosh's UDP traffic through the application firewall. Homebrew binaries are not
+# Developer ID signed, so the firewall would ask on this Mac's screen, which nobody sees
+# during a remote login. The rule is tied to the binary, and this comment changes with
+# its Cellar path, so the next apply after a mosh upgrade reruns the script.
+# mosh-server: {{ if stat "/opt/homebrew/bin/mosh-server" }}{{ output "realpath" "/opt/homebrew/bin/mosh-server" | trim }}{{ end }}
+
+firewall=/usr/libexec/ApplicationFirewall/socketfilterfw
+server=$(realpath /opt/homebrew/bin/mosh-server)
+
+sudo "$firewall" --add "$server"
+sudo "$firewall" --unblockapp "$server"

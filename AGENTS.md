@@ -13,13 +13,13 @@ Homebrew and chezmoi, then runs `chezmoi init --apply jmfontaine`.
 ```text
 home/                  # chezmoi source state (.chezmoiroot), deployed to ~
 ├── dot_Brewfile       # Formulae, casks, Mac App Store apps, VS Code extensions, uv tools
-├── dot_zshrc, dot_zprofile, dot_zsh_plugins.txt, dot_p10k.zsh
+├── dot_zshrc, dot_zprofile, dot_zshenv, dot_zsh_plugins.txt, dot_p10k.zsh
 ├── dot_gitconfig      # Plus dot_config/git/{personal,moxieforge}.gitconfig
 ├── dot_config/        # ghostty, git, zsh functions, zsh-abbr, 1Password SSH agent
 ├── dot_omp/           # omp coding agent configuration
 ├── private_dot_aws/, private_dot_ssh/
 ├── private_Library/   # VS Code symlinks into vscode/
-└── run_onchange_*     # Package install, antidote bundle, macOS defaults, Dock
+└── run_onchange_*     # Package install, antidote bundle, macOS defaults, Dock, firewall
 vscode/                # VS Code user settings and keybindings (symlink targets)
 .vscode/               # Workspace settings for editing this repository, cSpell words
 install.sh             # Bootstrap script, fetched with curl from main
