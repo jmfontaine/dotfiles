@@ -1,11 +1,17 @@
 # Advisor roster for every session started with the advisor on (`--advisor`, `/advisor`).
-# A roster replaces omp's default advisor, so the turn reviewer below keeps the default
-# behavior and the final reviewer adds one review of each finished run. With
-# `agent-end` + `strict`, a concern from the final review can start one continuation
-# instead of waiting as a card for "Review the advisor's feedback."
+# A roster replaces omp's default advisor. The final reviewer adds one review of each
+# finished run. With `agent-end` + `strict`, a concern from the final review can start
+# one continuation instead of waiting as a card for "Review the advisor's feedback."
 # Both use modelRoles.advisor from config.yml.
+#
+# The turn reviewer is paused. omp loads this roster for parallel-issues workers too,
+# and no config overlay can change it, so it cannot be dropped for workers alone. There
+# it reviewed every tool round, which used most of the ChatGPT quota, while each change
+# already gets a pre-commit reviewer and this final reviewer. Setting `enabled: true`
+# brings it back for every session, workers included.
 advisors:
   - name: Turn reviewer
+    enabled: false
     reviewMode: turn
     syncBacklog: "off"
   - name: Final reviewer
