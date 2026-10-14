@@ -13,3 +13,6 @@
   it.
 - Only touch repositories under ~/Projects/Personal, ~/Projects/MoxieForge,
   ~/Projects/Third Parties, and the chezmoi source.
+- When a skill asks for a reviewer subagent, spawn the `reviewer` agent: set
+  `"agent": "reviewer"` inside each `tasks[]` item. A top-level `agent` is silently
+  ignored, and the review then runs as the default `task` agent on another model.
