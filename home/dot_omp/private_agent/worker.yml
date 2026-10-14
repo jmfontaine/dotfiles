@@ -18,3 +18,8 @@ ask:
   notify: "off"
 error:
   notify: "off"
+# Switch models only when a quota runs out. With the default (`any`), one connection
+# error moved a worker's main loop to GPT-6.1 Sol for the rest of its session, so its
+# code was then reviewed by the same model family. Other errors retry the same model.
+retry:
+  fallbackOn: usage-limit
