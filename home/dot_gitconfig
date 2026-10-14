@@ -30,6 +30,13 @@
 [core]
   pager = "diff-so-fancy"
 
+# GitHub fetches and pushes go over HTTPS with gh's token (see [url] below), so they
+# work while the 1Password SSH agent is locked. The empty value drops inherited helpers
+# (Homebrew's osxkeychain) for github.com. Commit signing still goes through 1Password.
+[credential "https://github.com"]
+  helper =
+  helper = !gh auth git-credential
+
 [filter "lfs"]
   clean    = git-lfs clean -- %f
   process  = git-lfs filter-process
@@ -54,6 +61,10 @@
 
 [tag]
   gpgsign = true
+
+[url "https://github.com/"]
+  insteadOf = git@github.com:
+  insteadOf = ssh://git@github.com/
 
 # No default email or key: each location below sets its own, and useConfigOnly makes
 # a commit anywhere else fail instead of guessing an identity.
