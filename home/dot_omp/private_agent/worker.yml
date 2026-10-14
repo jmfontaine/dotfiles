@@ -23,3 +23,9 @@ error:
 # code was then reviewed by the same model family. Other errors retry the same model.
 retry:
   fallbackOn: usage-limit
+# Opus has a 1M window, so the default trigger (window less a 15% reserve) never fired:
+# workers ran at 250-590K tokens of context, and re-reading that cache was about two
+# thirds of their main-loop cost. Compact at a fixed 300K instead.
+compaction:
+  modelThresholds:
+    "anthropic/claude-opus-5-5": "f300000"
