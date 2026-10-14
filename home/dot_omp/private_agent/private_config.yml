@@ -39,6 +39,14 @@ providers:
   anthropic:
     serverSideFallback: true
 
+# Spend a saved rate-limit reset automatically once an account has been blocked for an
+# hour (`minBlockedMinutes`, default 60), so unattended overnight runs don't stall, and
+# saved resets don't expire unused. Quoted: bare `yes` is a YAML 1.1 boolean.
+codexResets:
+  autoRedeem: "yes"
+claudeResets:
+  autoRedeem: "yes"
+
 modelRoles:
   # Opus 5.5: newer and cheaper than Opus 5 ($4/$20 vs $5/$25 per MTok).
   # High effort so hard turns get depth without `ultrathink`; adaptive
