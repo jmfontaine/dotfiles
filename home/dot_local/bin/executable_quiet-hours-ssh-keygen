@@ -1,0 +1,8 @@
+#!/bin/sh
+# Signing program for coding agents (git config agent.sshProgram): ssh-keygen,
+# refused during quiet hours and for a commit or tag dated in them (see
+# quiet-hours). Verifying signatures is never refused.
+case " $* " in
+*" -Y sign "*) "$HOME/.local/bin/quiet-hours" sign-check "$@" || exit 1 ;;
+esac
+exec /usr/bin/ssh-keygen "$@"

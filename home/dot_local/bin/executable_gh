@@ -1,0 +1,4 @@
+#!/bin/sh
+# gh, refusing GitHub writes during quiet hours (see quiet-hours). It also guards
+# pushes: git authenticates to GitHub through `gh auth git-credential`.
+exec "$HOME/.local/bin/quiet-hours" gh "$@"

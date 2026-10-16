@@ -19,10 +19,12 @@
   wta = "!f() { git worktree add $1 -b $1; }; f"
 
 [agent]
-  # parallel-issues: omp overlay for unattended workers, and the command that
-  # `status --wait` runs to notify me (title as argument, report on stdin).
+  # parallel-issues: omp overlay for unattended workers, the command that
+  # `status --wait` runs to notify me (title as argument, report on stdin), and the
+  # program agents sign with, which refuses during quiet hours (see quiet-hours).
   notifyCommand = ~/.local/bin/notify-pushover
   ompConfig     = ~/.omp/agent/worker.yml
+  sshProgram    = quiet-hours-ssh-keygen
 
 [commit]
   gpgsign = true
@@ -32,7 +34,8 @@
 
 # GitHub fetches and pushes go over HTTPS with gh's token (see [url] below), so they
 # work while the 1Password SSH agent is locked. The empty value drops inherited helpers
-# (Homebrew's osxkeychain) for github.com. Commit signing still goes through 1Password.
+# (Homebrew's osxkeychain) for github.com. `gh` is ~/.local/bin/gh, which refuses
+# pushes during quiet hours. Commit signing still goes through 1Password.
 [credential "https://github.com"]
   helper =
   helper = !gh auth git-credential
@@ -46,9 +49,11 @@
 [gpg]
   format = ssh
 
+# The program is found on PATH: it wraps 1Password's op-ssh-sign and refuses to sign
+# during quiet hours (see quiet-hours).
 [gpg "ssh"]
   allowedSignersFile = ~/.ssh/allowed_signers
-  program            = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  program            = quiet-hours-op-ssh-sign
 
 [init]
   defaultBranch = main

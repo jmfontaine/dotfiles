@@ -16,3 +16,15 @@
 - When a skill asks for a reviewer subagent, spawn the `reviewer` agent: set
   `"agent": "reviewer"` inside each `tasks[]` item. A top-level `agent` is silently
   ignored, and the review then runs as the default `task` agent on another model.
+- Quiet hours: nothing on GitHub may show activity on weekdays from 8:30 to 17:30,
+  unless I allowed that day. During them: no commits, no GitHub writes (push, pull
+  request, issue, comment, review, merge, release, any `gh` write). Afterwards,
+  nothing pushed may carry a time from them: commit and tag dates, or clock times
+  in files, commit messages and pull request text (benchmark output, logs). Local
+  work that needs neither goes on. `quiet-hours` enforces the commits and writes,
+  and the refusal says "quiet hours": finish the other work, then run `quiet-hours
+  wait` with no timeout and retry once it returns. Never work around it: no
+  `--no-gpg-sign`, no backdating (`--date`, `GIT_*_DATE`), no other signing program,
+  no `gh` other than the one on PATH, and nothing scheduled to act on GitHub inside
+  quiet hours, such as auto-merge (`gh pr merge --auto`). Run `quiet-hours allow
+  <day>` only for a day I name in the conversation.

@@ -1,0 +1,345 @@
+#!/usr/bin/env python3
+"""Quiet hours: nothing on GitHub may show activity on weekdays from 8:30 to 17:30.
+
+    quiet-hours status            whether quiet hours apply now, and the allowed days
+    quiet-hours check             exit 1, saying until when, during quiet hours
+    quiet-hours wait              return once quiet hours are over
+    quiet-hours allow [DAY]       lift quiet hours for DAY (default: today)
+    quiet-hours revoke [DAY]      restore quiet hours for DAY (default: today)
+    quiet-hours gh ARGS...        run gh, refusing writes during quiet hours
+    quiet-hours sign-check ARGS   for signing wrappers: ARGS are ssh-keygen's
+
+DAY is ``today``, ``tomorrow`` or a date such as ``2026-11-27``. Days off are not
+known to this script: allow them one by one. Allowed days are kept, past ones too,
+since a commit made on one may be rebased or amended later.
+
+Every write goes through one of these:
+
+- Commits and tags. They are all signed, and ``gpg.ssh.program`` points at
+  ``quiet-hours-op-ssh-sign`` (mine) or ``quiet-hours-ssh-keygen`` (the agents',
+  through git config ``agent.sshProgram``), which run ``sign-check`` before signing.
+  It refuses during quiet hours, and at any time refuses an object whose author,
+  committer or tagger time falls in quiet hours, so a commit made unsigned or
+  backdated during quiet hours cannot be signed later with its time intact.
+- GitHub writes from ``gh``. ``~/.local/bin/gh`` runs ``quiet-hours gh``, which lets
+  read-only commands through and refuses the others.
+- Pushes. Git authenticates to GitHub through ``gh auth git-credential``, which
+  ``quiet-hours gh`` refuses when the git command that asks is not a read (fetch,
+  pull, clone, ls-remote).
+
+These are guards against mistakes, not against someone bypassing them.
+"""
+
+from __future__ import annotations
+
+import datetime as dt
+import os
+import re
+import shutil
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+START = dt.time(8, 30)
+END = dt.time(17, 30)
+WEEKDAYS = range(5)  # Monday to Friday
+ALLOWED_FILE = (
+    Path(os.environ.get("XDG_STATE_HOME") or Path.home() / ".local" / "state")
+    / "quiet-hours"
+    / "allowed-days"
+)
+WAIT_STEP = 60  # seconds between checks while waiting, so an `allow` is noticed
+# gh commands that only read, by command: the subcommands allowed, or None for all.
+# Anything not listed is refused during quiet hours.
+GH_READS: dict[str, frozenset[str] | None] = {
+    "alias": None,
+    "auth": None,  # local login state; `auth git-credential` is checked on its own
+    "browse": None,
+    "completion": None,
+    "config": None,
+    "extension": None,
+    "help": None,
+    "search": None,
+    "status": None,
+    "version": None,
+    "cache": frozenset({"list"}),
+    "gist": frozenset({"clone", "list", "view"}),
+    "issue": frozenset({"list", "status", "view"}),
+    "label": frozenset({"list"}),
+    "org": frozenset({"list"}),
+    "pr": frozenset({"checkout", "checks", "diff", "list", "status", "view"}),
+    "project": frozenset({"field-list", "item-list", "list", "view"}),
+    "release": frozenset({"download", "list", "view"}),
+    "repo": frozenset({"clone", "list", "view"}),
+    "ruleset": frozenset({"check", "list", "view"}),
+    "run": frozenset({"download", "list", "view", "watch"}),
+    "secret": frozenset({"list"}),
+    "stack": frozenset(
+        {"bottom", "checkout", "down", "switch", "top", "trunk", "up", "view"}
+    ),
+    "variable": frozenset({"get", "list"}),
+    "workflow": frozenset({"list", "view"}),
+}
+GH_FIELD_FLAGS = ("-f", "-F", "--field", "--raw-field")
+# `gh api` options that take their value as the next argument.
+GH_API_VALUE_OPTIONS = frozenset(
+    {"-X", "--method", "-H", "--header", "--input", "-q", "--jq", "-t", "--template"}
+    | {"--hostname", "--cache", "-p", "--preview", *GH_FIELD_FLAGS}
+)
+# Dated lines in a commit or tag header: "author Name <email> 1760600000 -0400".
+OBJECT_DATE = re.compile(r"^(author|committer|tagger) .* (\d+) [+-]\d{4}$", re.M)
+# Git commands that only read from GitHub when they ask gh for credentials.
+GIT_READS = frozenset({"clone", "fetch", "ls-remote", "pull", "remote", "submodule"})
+# Git's global options that take their value as the next argument.
+GIT_VALUE_OPTIONS = frozenset(
+    {"-C", "-c", "--config-env", "--git-dir", "--namespace", "--work-tree"}
+)
+
+
+def allowed_days() -> set[dt.date]:
+    try:
+        lines = ALLOWED_FILE.read_text().split()
+    except FileNotFoundError:
+        return set()
+    return {dt.date.fromisoformat(line) for line in lines}
+
+
+def save_allowed_days(days: set[dt.date]) -> None:
+    ALLOWED_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ALLOWED_FILE.write_text("".join(f"{day.isoformat()}\n" for day in sorted(days)))
+
+
+def quiet_until(now: dt.datetime) -> dt.datetime | None:
+    """When the quiet hours in force at ``now`` end; None outside quiet hours."""
+    if now.weekday() not in WEEKDAYS or not START <= now.time() < END:
+        return None
+    if now.date() in allowed_days():
+        return None
+    return dt.datetime.combine(now.date(), END)
+
+
+def refusal(until: dt.datetime) -> str:
+    return (
+        f"quiet hours: commits and GitHub writes are blocked until {until:%H:%M}."
+        " Do the work that needs neither, run `quiet-hours wait` with no timeout,"
+        " then retry."
+    )
+
+
+def parse_day(value: str) -> dt.date:
+    today = dt.date.today()
+    if value == "today":
+        return today
+    if value == "tomorrow":
+        return today + dt.timedelta(days=1)
+    try:
+        return dt.date.fromisoformat(value)
+    except ValueError:
+        sys.exit(f"quiet-hours: {value!r} is not today, tomorrow or a YYYY-MM-DD date")
+
+
+def status() -> int:
+    until = quiet_until(dt.datetime.now())
+    print(f"quiet hours until {until:%H:%M}" if until else "no quiet hours now")
+    days = sorted(day for day in allowed_days() if day >= dt.date.today())
+    print("allowed days:", ", ".join(f"{d:%a %Y-%m-%d}" for d in days) or "none")
+    return 0
+
+
+def check() -> int:
+    if until := quiet_until(dt.datetime.now()):
+        print(refusal(until), file=sys.stderr)
+        return 1
+    return 0
+
+
+def sign_check(args: list[str]) -> int:
+    """Refuse to sign during quiet hours, or to sign a commit or tag dated in them.
+
+    ``args`` are ssh-keygen's: git passes the object to sign as the last one.
+    """
+    if check():
+        return 1
+    header = Path(args[-1]).read_text(errors="replace").partition("\n\n")[0]
+    for role, stamp in OBJECT_DATE.findall(header):
+        when = dt.datetime.fromtimestamp(int(stamp))
+        if quiet_until(when):
+            fix = (
+                "create the tag again"
+                if role == "tagger"
+                else "`git commit --amend --no-edit --date=now`, or `git rebase"
+                " --reset-author-date` for several commits"
+            )
+            print(
+                f"quiet hours: its {role} time, {when:%a %Y-%m-%d %H:%M}, falls in"
+                " quiet hours and would show on GitHub. Give it the current time"
+                f" ({fix}) and sign again.",
+                file=sys.stderr,
+            )
+            return 1
+    return 0
+
+
+def wait() -> int:
+    announced = False
+    while until := quiet_until(now := dt.datetime.now()):
+        if not announced:
+            print(f"quiet hours: waiting until {until:%H:%M}", flush=True)
+            announced = True
+        time.sleep(min(WAIT_STEP, max(1.0, (until - now).total_seconds())))
+    return 0
+
+
+def set_day(day: dt.date, allowed: bool) -> int:
+    days = allowed_days()
+    if allowed:
+        days.add(day)
+    else:
+        days.discard(day)
+    save_allowed_days(days)
+    state = "lifted" if allowed else "in force"
+    print(f"quiet hours {state} on {day:%a %Y-%m-%d}")
+    return 0
+
+
+def first_word(args: list[str], value_options: frozenset[str]) -> str | None:
+    """The first argument that is not an option or an option's value."""
+    skip = False
+    for arg in args:
+        if skip:
+            skip = False
+        elif arg in value_options:
+            skip = True
+        elif not arg.startswith("-"):
+            return arg
+    return None
+
+
+def gh_api_writes(args: list[str]) -> bool:
+    """Whether ``gh api ARGS`` writes: any method but GET, or fields without one
+    (gh then sends a POST), except a GraphQL query that is not a mutation.
+    """
+    method, fields = None, []
+    for index, arg in enumerate(args):
+        value = args[index + 1] if index + 1 < len(args) else ""
+        if arg in ("-X", "--method"):
+            method = value
+        elif arg.startswith("--method="):
+            method = arg.partition("=")[2]
+        elif arg.startswith("-X") and len(arg) > 2:
+            method = arg[2:]
+        elif arg in GH_FIELD_FLAGS:
+            fields.append(value)
+        elif arg.startswith(tuple(f"{flag}=" for flag in GH_FIELD_FLAGS[2:])):
+            fields.append(arg.partition("=")[2])
+        elif arg == "--input":
+            fields.append("@" + value)
+    if method is not None:
+        return method.upper() != "GET"
+    if not fields:
+        return False
+    if first_word(args, GH_API_VALUE_OPTIONS) != "graphql":
+        return True
+    for field in fields:
+        text = field.partition("=")[2] if "=" in field else field
+        if text.startswith("@"):
+            try:
+                text = Path(text[1:]).read_text()
+            except OSError:
+                return True
+        if re.search(r"\bmutation\b", text):
+            return True
+    return False
+
+
+def gh_writes(args: list[str]) -> bool:
+    if not args or any(arg in ("-h", "--help", "--version") for arg in args):
+        return False
+    command, rest = args[0], args[1:]
+    if command == "api":
+        return gh_api_writes(rest)
+    if command not in GH_READS:
+        return True
+    subcommands = GH_READS[command]
+    if subcommands is None:
+        return False
+    return first_word(rest, frozenset({"-R", "--repo"})) not in subcommands
+
+
+def git_command_asking() -> str | None:
+    """The git command that started this credential request, from the process tree.
+
+    Git runs the helper under its transport, ``git-remote-https`` started by
+    ``git remote-https``, whose parent is the git command (``git push``,
+    ``git fetch``, ...). Transports are skipped on the way up.
+    """
+    pid = os.getppid()
+    for _ in range(12):
+        line = subprocess.run(
+            ["ps", "-o", "ppid=,args=", "-p", str(pid)],
+            capture_output=True,
+            text=True,
+            check=False,
+        ).stdout.strip()
+        if not line:
+            return None
+        parent, _, command = line.partition(" ")
+        words = command.split()
+        if (
+            words
+            and Path(words[0]).name == "git"
+            and (word := first_word(words[1:], GIT_VALUE_OPTIONS))
+            and not word.startswith("remote-")
+        ):
+            return word
+        pid = int(parent)
+        if pid <= 1:
+            return None
+    return None
+
+
+def real_gh() -> str:
+    """The gh this script stands in front of: the first on PATH outside its folder."""
+    here = Path(__file__).resolve().parent
+    for folder in os.environ.get("PATH", "").split(os.pathsep):
+        if not folder or Path(folder).resolve() == here:
+            continue
+        found = shutil.which("gh", path=folder)
+        if found:
+            return found
+    sys.exit("quiet-hours: no gh found on PATH besides ~/.local/bin/gh")
+
+
+def gh(args: list[str]) -> int:
+    until = quiet_until(dt.datetime.now())
+    if until and args[:2] == ["auth", "git-credential"]:
+        if args[2:3] == ["get"] and git_command_asking() not in GIT_READS:
+            sys.stdin.read()
+            print(refusal(until), file=sys.stderr)
+            print("quit=1")  # git stops here instead of prompting for a password
+            return 0
+    elif until and gh_writes(args):
+        print(refusal(until), file=sys.stderr)
+        return 1
+    gh_path = real_gh()
+    os.execv(gh_path, [gh_path, *args])
+
+
+def main() -> int:
+    args = sys.argv[1:]
+    command = args[0] if args else "status"
+    if command == "gh":
+        return gh(args[1:])
+    if command in ("allow", "revoke") and len(args) <= 2:
+        day = parse_day(args[1] if len(args) == 2 else "today")
+        return set_day(day, command == "allow")
+    if command == "sign-check" and len(args) > 1:
+        return sign_check(args[1:])
+    if command in ("status", "check", "wait") and len(args) <= 1:
+        return {"status": status, "check": check, "wait": wait}[command]()
+    sys.exit(__doc__.split("\n\n")[1])
+
+
+if __name__ == "__main__":
+    sys.exit(main())

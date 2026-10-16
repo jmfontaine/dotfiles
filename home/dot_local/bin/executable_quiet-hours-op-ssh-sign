@@ -1,0 +1,8 @@
+#!/bin/sh
+# gpg.ssh.program for my commits and tags: 1Password's signer, refused during quiet
+# hours and for a commit or tag dated in them (see quiet-hours). Verifying
+# signatures is never refused.
+case " $* " in
+*" -Y sign "*) "$HOME/.local/bin/quiet-hours" sign-check "$@" || exit 1 ;;
+esac
+exec /Applications/1Password.app/Contents/MacOS/op-ssh-sign "$@"
