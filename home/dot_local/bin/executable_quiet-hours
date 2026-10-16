@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Quiet hours: nothing on GitHub may show activity on weekdays from 8:30 to 17:30.
+"""Quiet hours: keep coding agents from acting in my name during my day job's hours.
+
+I don't work on personal projects during my day job's working hours. Coding agents
+commit, push and post on GitHub in my name, so their activity there cannot be told
+apart from mine. Quiet hours (weekdays from 8:30 to 17:30, working hours with a
+margin) make sure no agent creates the false impression that I worked on these
+projects then: no commits and no GitHub writes during them, and nothing pushed later
+that carries a time from them.
 
     quiet-hours status            whether quiet hours apply now, and the allowed days
     quiet-hours check             exit 1, saying until when, during quiet hours
@@ -338,7 +345,7 @@ def main() -> int:
         return sign_check(args[1:])
     if command in ("status", "check", "wait") and len(args) <= 1:
         return {"status": status, "check": check, "wait": wait}[command]()
-    sys.exit(__doc__.split("\n\n")[1])
+    sys.exit(__doc__.split("\n\n")[2])
 
 
 if __name__ == "__main__":
