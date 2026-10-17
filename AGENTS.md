@@ -45,6 +45,10 @@ Markdown, shellcheck). Recipes live in the `justfile`:
 - `just format`: Format Markdown. Run after editing any Markdown file.
 - `just qa`: Check Markdown formatting and lint.
 
+Commit straight to `main`, without branches or pull requests: this repository is a
+backup and history of changes, not a collaborative project. Open a pull request only
+when asked.
+
 ## Gotchas
 
 - The repository is public. Never commit secrets. Reference 1Password instead: `op://`
