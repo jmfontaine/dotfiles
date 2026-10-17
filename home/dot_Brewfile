@@ -5,6 +5,7 @@ tap "terror/tap"
 
 brew "act"                                                 # GitHub Actions local runner
 brew "agent-browser"                                       # Browser automation CLI for AI agents
+brew "jmfontaine/tap/agent-discogs", trusted: true          # Discogs CLI for AI agents
 brew "antidote"                                            # Plugin manager for zsh
 brew "awscli"                                              # AWS CLI
 brew "bat"                                                 # Modern replacement for cat

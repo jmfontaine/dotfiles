@@ -41,6 +41,8 @@
     "davidanson",
     "debugpy",
     "direnv",
+    "discogs",
+    "Discogs",
     "djstudio",
     "dockercompose",
     "dockutil",
