@@ -45,10 +45,6 @@ Markdown, shellcheck). Recipes live in the `justfile`:
 - `just format`: Format Markdown. Run after editing any Markdown file.
 - `just qa`: Check Markdown formatting and lint.
 
-Commit straight to `main`, without branches or pull requests: this repository is a
-backup and history of changes, not a collaborative project. Open a pull request only
-when asked.
-
 ## Gotchas
 
 - The repository is public. Never commit secrets. Reference 1Password instead: `op://`
@@ -76,6 +72,19 @@ when asked.
 - Add words cSpell flags to `cSpell.words` in `.vscode/settings.json`.
 - `CLAUDE.md` only imports this file for Claude Code versions that don't read
   `AGENTS.md`. Edit `AGENTS.md`.
+
+## Shared workflow
+
+This repository follows the shared workflow: the `github-workflow` skill's repository
+setup describes its GitHub settings, rulesets, labels and templates. Those settings are
+managed as code outside this repository; change them there, never with `gh api` or the
+GitHub web UI.
+
+### Deviations from the shared workflow
+
+- **Commits go straight to `main`,** without branches or pull requests: this repository
+  is a backup and history of changes, not a collaborative project. Open a pull request
+  only when asked.
 
 ## Key Files
 
