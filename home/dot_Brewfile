@@ -80,6 +80,7 @@ cask "rectangle-pro"                                       # Window Manager
 cask "responsively"                                        # Responsive web development helper
 cask "roon", args: { require_sha: false }                  # Music player
 # cask "screaming-frog-seo-spider"                         # SEO site audit tool
+cask "sdformatter", args: { require_sha: false }           # SD memory card formatter
 cask "send-to-kindle", args: { require_sha: false }        # Tool for sending personal documents to Kindles
 cask "slack"                                               # Team communication and collaboration software
 cask "visual-studio-code"                                  # Code editor
