@@ -6,11 +6,25 @@
 - Agent skills live in /Users/jmf/Projects/Personal/agent-skills/skills/<name>.
   ~/.agents/skills holds installed copies: edit the repo, run its `just qa`, then sync
   the installed copy. Never edit only the installed copy.
-- Scratch and planning files (REVIEW.md, IMPROVEMENTS.md, PLAN*.md, research exports) go
-  in `.scratch/` at the repository root, which git ignores globally. They stay
-  uncommitted unless I ask, and nothing filed on GitHub may refer to them. Delete them
-  once their content is filed; move one to `.scratch/archive/` only when I ask to keep
-  it.
+- Scratch files are working material for a task in progress that nobody needs once the
+  task is done. They go in `.scratch/` at the repository root, which git ignores
+  globally; unattended agents use their worktree's git directory instead.
+  - In: reviews (REVIEW.md), plans (PLAN*.md, wave plans), improvement lists, research
+    exports, draft issue and pull request bodies, handoff notes, and data the task
+    reads or produces (JSON, JSONL, CSV), such as issue exports or benchmark results.
+  - Code only as probes: throwaway reproductions and checks for the current task, in
+    `.scratch/probes/`. Project code, tests, CI and recipes never import, run or cite
+    them. A probe needed twice is a tool: move it into the project through a pull
+    request.
+  - Out: anything needed after the task (decisions go to an ADR or an issue, guidance
+    to AGENTS.md, specs to the brief or the issue), secrets, build outputs, copies of
+    data that has a home (name its path instead), and private context to keep
+    (Notion).
+  - Never commit them unless I ask, link them from GitHub, or cite them, their names
+    or their finding IDs in committed files.
+  - Delete each one as soon as its content is filed or its task is done, in the same
+    session. At the end of a session, list any left behind and why. Move one to
+    `.scratch/archive/` only when I ask to keep it.
 - Only touch repositories under ~/Projects/Personal, ~/Projects/MoxieForge,
   ~/Projects/Third Parties, and the chezmoi source.
 - When a skill asks for a reviewer subagent, spawn the `reviewer` agent: set
