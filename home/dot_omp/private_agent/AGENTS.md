@@ -1,7 +1,8 @@
 # Working with me
 
 - When I ask a question or for recommendations, answer and stop. Build only after I
-  approve.
+  approve. The agent review inside a pull request delivery is not such a request: fix
+  its findings as the `github-workflow` skill describes, without asking.
 - When you present options, say which one you recommend and why.
 - Agent skills live in /Users/jmf/Projects/Personal/agent-skills/skills/<name>.
   ~/.agents/skills holds installed copies: edit the repo, run its `just qa`, then sync
