@@ -53,6 +53,7 @@ brew "zsh-patina"                                          # Fast ZSH command sy
 
 cask "1password-cli"                                       # 1Password command-line interface
 cask "1password"                                           # Password manager
+cask "ableton-live-suite"                                  # Digital Audio Workstation (DAW)
 cask "ableton-live-suite@11"                               # Digital Audio Workstation (DAW)
 cask "akiflow"                                             # Time blocking and productivity platform
 cask "appcleaner"                                          # Application uninstaller
