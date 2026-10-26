@@ -4,6 +4,23 @@
   approve. The agent review inside a pull request delivery is not such a request: fix
   its findings as the `github-workflow` skill describes, without asking.
 - When you present options, say which one you recommend and why.
+- I often step away while you work, even in interactive sessions. Get what you need
+  from me in batches so I can do other things in between:
+  - At the start of a task, ask every decision you can foresee in one numbered batch,
+    each with your recommended answer.
+  - When the task will commit, load the agent signing key in that same batch, the only
+    1Password prompt:
+    `python3 ~/.agents/skills/parallel-issues/scripts/parallel_issues.py key --load`,
+    from inside the repository. Sign every commit and push with it, never through my SSH
+    agent: `( e=$(python3 …/parallel_issues.py env) && eval "$e" && git commit … )`, in
+    a subshell so nothing leaks into the session's shell.
+  - Don't stop for one question. Take the recommended option when it is reversible
+    and say so in the report; otherwise park the question and keep working on
+    everything that doesn't depend on it. Stop only when nothing else can move.
+  - When you stop, end with one "I need you for: …" list and send the same list to my
+    phone: `parallel_issues.py notify "<short title>"`, from inside the repository,
+    with the list on standard input. When you start long work, say "Nothing needs you
+    until …".
 - Agent skills live in /Users/jmf/Projects/Personal/agent-skills/skills/<name>.
   ~/.agents/skills holds installed copies: edit the repo, run its `just qa`, then sync
   the installed copy. Never edit only the installed copy.
@@ -44,6 +61,9 @@
   - `quiet-hours` enforces the first point, and its refusals start with "quiet
     hours". An agent already running when they begin may finish what it can do
     locally, then run `quiet-hours wait` with no timeout and retry once it returns.
+  - Never assume quiet hours: run `quiet-hours status` before citing them. Outside
+    them, work normally; don't hold back because they start later. Stop only at the
+    boundary itself.
   - Never work around it: no `--no-gpg-sign`, no backdating (`--date`,
     `GIT_*_DATE`), no other signing program, no `gh` other than the one on PATH, and
     nothing scheduled to act on GitHub during quiet hours, such as auto-merge
