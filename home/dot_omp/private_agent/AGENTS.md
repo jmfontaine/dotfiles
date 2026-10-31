@@ -19,8 +19,11 @@
     everything that doesn't depend on it. Stop only when nothing else can move.
   - When you stop, end with one "I need you for: …" list and send the same list to my
     phone: `parallel_issues.py notify "<short title>"`, from inside the repository,
-    with the list on standard input. When you start long work, say "Nothing needs you
-    until …".
+    with the list on standard input.
+  - When work keeps running after your turn ends, such as agents you launched, say
+    "Nothing needs you until …". When nothing is running and the next step is mine,
+    say "Nothing is running. Next step: …" instead. Never tell me to go AFK or that
+    nothing needs me while nothing is running.
 - Agent skills live in /Users/jmf/Projects/Personal/agent-skills/skills/<name>.
   ~/.agents/skills holds installed copies: edit the repo, run its `just qa`, then sync
   the installed copy. Never edit only the installed copy.
