@@ -3,3 +3,11 @@
 # .zprofile instead: /etc/zprofile runs path_helper after this file, which moves the
 # system directories back in front of Homebrew's.
 [[ -o login || :$PATH: == *:/opt/homebrew/bin:* ]] || eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# KLUDGE: on macOS 27.2 the system blocks op from reading the 1Password app's
+# settings.json in its Group Container, so op reports "No accounts configured"
+# even with Settings > Developer > Integrate with 1Password CLI on. This variable,
+# undocumented by 1Password, makes op use the app integration without that file.
+# Remove it once `env -u OP_BIOMETRIC_UNLOCK_ENABLED op account list` lists the
+# accounts again.
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
