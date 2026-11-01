@@ -5,7 +5,9 @@
 [[ssh-keys]]
 item = "Personal SSH Key"
 vault = "Private"
+account = "Fontaine"
 
 [[ssh-keys]]
 item = "MoxieForge SSH Key"
-vault = "MoxieForge"
+vault = "Personal"
+account = "MoxieForge"
