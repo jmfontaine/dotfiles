@@ -5,7 +5,8 @@ line-length = 88
 reflow = true
 
 # CLAUDE.md only imports AGENTS.md and has no heading. PERSONALITY.md is inserted
-# under omp's own "Personality" heading.
+# under omp's own "Personality" heading, and omp command files are prompts.
 [per-file-ignores]
 "CLAUDE.md" = ["MD041"]
 "home/dot_omp/private_agent/PERSONALITY.md" = ["MD041"]
+"home/dot_omp/private_agent/commands/*.md" = ["MD041"]
