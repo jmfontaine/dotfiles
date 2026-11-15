@@ -62,12 +62,14 @@ Markdown, shellcheck). Recipes live in the `justfile`:
 - `vscode/` is symlinked, so changes made in VS Code's settings UI edit this repository.
 - Paths assume Apple Silicon (`/opt/homebrew`). The shell is macOS's `/bin/zsh`, and
   `vscode/settings.json` pins the VS Code terminal profile to it.
-- Git commits must be signed (1Password `op-ssh-sign`). The identity comes from the
-  `includeIf` rules in `dot_gitconfig`, and `useConfigOnly` makes commits fail outside
-  those directories.
+- Git commits must be signed. The identity comes from the `includeIf` rules in
+  `dot_gitconfig`, and `useConfigOnly` makes commits fail outside those directories.
+  Agents sign with the agent signing key, as `~/.omp/agent/AGENTS.md` describes, never
+  through 1Password's `op-ssh-sign`.
 - Keep `dot_config/git/ignore` to macOS and editor files. Project artifacts belong in
   each repository's own `.gitignore`.
-- omp configuration changes apply to new sessions only. Check them with
+- omp reloads `config.yml` in running sessions; `AGENTS.md`, `RULES.md` and
+  `PERSONALITY.md` take effect in new sessions only. Check settings with
   `omp config list`.
 - Add words cSpell flags to `cSpell.words` in `.vscode/settings.json`.
 - `CLAUDE.md` only imports this file for Claude Code versions that don't read
