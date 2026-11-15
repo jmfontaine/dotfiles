@@ -1,9 +1,9 @@
-# Claude Max 20x + ChatGPT Pro Lite. Behavior notes: omp 18.x, Oct 2026.
+# Claude Max 20x + ChatGPT Pro Lite. Behavior notes: omp 18.x, Nov 2026.
 #
 # Profile: quality-first, no manual escalation. Opus 5.5 at high drives the
 # main loop; effort is set once per role and never needs a per-turn decision.
 
-setupVersion: 2
+setupVersion: 3
 
 symbolPreset: nerd
 
@@ -31,10 +31,11 @@ memory:
 dev:
   autoqaConsent: denied
 
-# `server-side-fallback-2026-06-01` beta. Only direct-Anthropic Fable/Mythos
-# requests are eligible: on a safety-classifier block Anthropic may retry
-# server-side with claude-opus-4-8 instead of the request hard-failing.
-# Relevant because `slow` is Fable 5.1; every other role is unaffected.
+# `server-side-fallback-2026-06-01` beta. omp sends it only for direct-Anthropic
+# Fable/Mythos requests: on a safety-classifier block Anthropic may retry
+# server-side with claude-opus-5 instead of the request hard-failing.
+# Relevant because `plan` and `slow` are Fable 5.2. Sonnet 5.5 supports the beta
+# too, but omp doesn't send it there, so `task` and `vision` are unaffected.
 providers:
   anthropic:
     serverSideFallback: true
@@ -55,16 +56,23 @@ modelRoles:
   # (`anthropic:7d:fable`).
   default: anthropic/claude-opus-5-5:high
 
-  # One step above default: planning is low-volume and front-loads decisions.
-  plan: anthropic/claude-opus-5-5:xhigh
+  # Fable 5.2 plans: Anthropic reports good results with it as planner and
+  # orchestrator. Low-volume, so it fits the separate weekly Fable cap and
+  # keeps planning off the general bucket. `high` is where Fable 5.2 gets most
+  # of its gain; above it, gains are uneven.
+  plan: anthropic/claude-fable-5-2:high
 
   # Escalation should differ in model, not just in effort: Opus 5.5 at :max
   # shares its blind spots — and its quota bucket — with the default role.
-  # Fable 5.1 is the higher-tier line (2.5x Opus 5.5 list price) and bills
+  # Fable 5.2 is the higher-tier line (2.5x Opus 5.5 list price) and bills
   # to the separate weekly Fable cap, so escalating never starves the main
   # loop. Also backs the bundled `reviewer` agent (`model: @slow`).
-  # Mythos 5.1 is trusted-access only, so not an option here.
-  slow: anthropic/claude-fable-5-1:max
+  # xhigh, not max: Anthropic positions max for open-ended science and math,
+  # at many more tokens than xhigh. At xhigh Fable 5.2 may start subagents to
+  # review its own work; drop to high if reviews drain the Fable cap.
+  # Mythos 5.2 is limited to organizations in Anthropic's verification
+  # programs, so not an option here.
+  slow: anthropic/claude-fable-5-2:xhigh
 
   # Subagent fan-out multiplies across parallel workers, so Sonnet rather
   # than Opus, at the same effort as the main loop that dispatches it.
@@ -72,15 +80,19 @@ modelRoles:
   # levels are recalibrated (Anthropic suggests medium for well-specified
   # agentic work); high kept to avoid per-task escalation decisions.
   # Note: Sonnet 5.5, Fable and Mythos reject forced tool choice (omp
-  # downgrades to `auto`), so schema-bound `completion(model="task"|"slow")`
-  # can answer in prose and fail structured-output validation.
+  # downgrades to `auto`), so schema-bound `completion(model=...)` on
+  # "task", "plan" or "slow" can answer in prose and fail structured-output
+  # validation.
   task: anthropic/claude-sonnet-5-5:high
 
   # Haiku 5.5: $0.10/$0.50 (vs Haiku 4.5's $1/$5), adaptive thinking with
   # effort low..max (no `minimal`). `smol` also backs the bundled `scout` and
-  # `sonic` agents, not only titles. 100K context in omp's catalog; no
-  # server-side refusal fallback.
-  smol: anthropic/claude-haiku-5-5:low
+  # `sonic` agents, memory consolidation and job widgets, not only titles.
+  # Medium for smol: under omp's long agent prompt, Haiku 5.5 at low stops
+  # early and skips searches and checks; medium roughly halves early stops.
+  # commit and tiny stay low: short single-shot requests. 100K context in
+  # omp's catalog; no server-side refusal fallback.
+  smol: anthropic/claude-haiku-5-5:medium
   commit: anthropic/claude-haiku-5-5:low
   tiny: anthropic/claude-haiku-5-5:low
 
@@ -104,12 +116,12 @@ retry:
     plan:
       - openai-codex/gpt-6.1-sol:xhigh
     slow:
-      - openai-codex/gpt-6-astra:max
+      - openai-codex/gpt-6-astra:xhigh
     task:
       - openai-codex/gpt-6.1-sol:high
       - anthropic/claude-haiku-5-5:high
     smol:
-      - openai-codex/gpt-6-luna:low
+      - openai-codex/gpt-6-luna:medium
     commit:
       - openai-codex/gpt-6-luna:low
     tiny:
@@ -120,3 +132,6 @@ retry:
     # models.yml disables Sol's native compaction (see note there).
     advisor:
       - anthropic/claude-sonnet-5-5:high
+
+update:
+  auto: false
