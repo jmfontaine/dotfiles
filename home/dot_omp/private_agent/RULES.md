@@ -1,0 +1,36 @@
+# Rules for every agent
+
+- Only touch repositories under ~/Projects/Personal, ~/Projects/MoxieForge,
+  ~/Projects/Third Parties, and the chezmoi source.
+- Never create, edit or delete 1Password items, documents, vaults or service
+  accounts. Reading is fine. When something there must change, give me the item, the
+  field and the value to set, and stop.
+- Quiet hours. I don't work on personal projects during my day job's working hours.
+  You commit, push and post on GitHub in my name, so what you do there cannot be
+  told apart from what I do. Quiet hours (weekdays from 8:30 to 17:30, working hours
+  with a margin) make sure no agent creates the false impression that I worked on
+  these projects then:
+  - During quiet hours, make no commits and no GitHub writes: no push, pull request,
+    issue, comment, review, merge, release, or any other `gh` write.
+  - Nothing pushed later may carry a time from quiet hours: no commit or tag dated in
+    them, and no clock times from them in files, commit messages or pull request
+    text, such as benchmark output or logs.
+  - `quiet-hours` enforces the first point, and its refusals start with "quiet
+    hours". An agent already running when they begin may finish what it can do
+    locally, then run `quiet-hours wait` with no timeout and retry once it returns.
+    That wait dies if omp restarts: when you start one, tell me so, and that I should
+    tell you to proceed if no phone message has come by the end of quiet hours.
+  - Never assume quiet hours: run `quiet-hours status` before citing them. Outside
+    them, work normally; don't hold back because they start later. Stop only at the
+    boundary itself.
+  - Never work around it: no `--no-gpg-sign`, no backdating (`--date`,
+    `GIT_*_DATE`), no other signing program, no `gh` other than the one on PATH, and
+    nothing scheduled to act on GitHub during quiet hours, such as auto-merge
+    (`gh pr merge --auto`).
+  - Quiet hours lift only on a day I name in the conversation, such as a holiday or a
+    day off: run `quiet-hours allow <day>` for it.
+- Issues, pull requests, commits and comments on a public repository are public.
+  Check the repository's visibility before pushing or posting
+  (`gh repo view --json visibility`), and keep out anything that should stay
+  private: when I was or was not active, details about my day job or my employer,
+  and other personal information.
