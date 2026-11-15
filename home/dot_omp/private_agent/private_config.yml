@@ -64,8 +64,11 @@ defaultThinkingLevel: high
 advisor:
   enabled: false
 
+# No generated project memory: it kept bringing back rules AGENTS.md had replaced, and
+# agents could not correct it. Lasting project facts live in each repository's
+# AGENTS.md.
 memory:
-  backend: local
+  backend: "off"
 
 # No automatic tool-issue reports: they are model-written and can quote
 # workspace content, and `granted` pushes them to qa.omp.sh.
