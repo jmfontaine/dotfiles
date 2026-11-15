@@ -1,12 +1,13 @@
 # omp config overlay for unattended parallel-issues workers only. The launcher passes it
 # with `--config` when `git config agent.ompConfig` points here. Interactive sessions do
-# not load it, so their reviewers stay on the `slow` role (Fable).
+# not load it.
 #
 # Workers write code with Opus, so their pre-commit reviewer comes from another model
 # family: GPT-6.1 Sol shares fewer of the author's blind spots, and it bills to the
 # ChatGPT quota instead of the Claude weekly limit that the workers' main loops already
 # drain. The comma list is a per-spawn fallback chain: once ChatGPT quota runs out,
-# reviews continue on Opus instead of failing.
+# reviews continue on Opus, which unlike the interactive fallback (Fable) doesn't draw
+# on the separate Fable cap overnight.
 task:
   agentModelOverrides:
     reviewer: "openai-codex/gpt-6.1-sol:xhigh, anthropic/claude-opus-5-5:high"
@@ -25,7 +26,7 @@ retry:
   fallbackOn: usage-limit
 # Opus has a 1M window, so the default trigger (window less a 15% reserve) never fired:
 # workers ran at 250-590K tokens of context, and re-reading that cache was about two
-# thirds of their main-loop cost. Compact at a fixed 300K instead.
+# thirds of their main-loop cost. Compact at a fixed 300K instead of config.yml's 400K.
 compaction:
   modelThresholds:
     "anthropic/claude-opus-5-5": "f300000"

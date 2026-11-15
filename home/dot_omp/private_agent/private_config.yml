@@ -16,6 +16,47 @@ theme:
 tools:
   approvalMode: yolo # auto-approve every tier, shell and out-of-workspace writes included
 
+# Agents never change 1Password: they say what to change and the user does it. A guard
+# against mistakes, not containment: it covers the bash tool only, not shells started
+# from eval.
+bash:
+  patterns:
+    - match: "op item create*"
+      approval: deny
+    - match: "op item edit*"
+      approval: deny
+    - match: "op item delete*"
+      approval: deny
+    - match: "op document create*"
+      approval: deny
+    - match: "op document edit*"
+      approval: deny
+    - match: "op document delete*"
+      approval: deny
+    - match: "op vault create*"
+      approval: deny
+    - match: "op vault edit*"
+      approval: deny
+    - match: "op vault delete*"
+      approval: deny
+    - match: "op service-account create*"
+      approval: deny
+
+# omp's `commit` helper signs through the user's SSH agent, not the agent signing key
+# AGENTS.md requires, and its prompt tells agents never to run `git commit`.
+commit:
+  enabled: false
+
+# Opus has a 1M window, so the default trigger (window less a 15% reserve) rarely
+# fires: interactive sessions ran past 500K tokens without compacting, re-reading that
+# cache on every turn. Compact at a fixed 400K, and compact an idle session above 150K
+# so a return after a break doesn't re-send it cold. worker.yml sets 300K for workers.
+compaction:
+  modelThresholds:
+    "anthropic/claude-opus-5-5": "f400000"
+  idleEnabled: true
+  idleThresholdTokens: 150000
+
 # Applies to roles with no explicit suffix, on models that support effort.
 # Every role below pins its effort explicitly; this is the catch-all.
 defaultThinkingLevel: high
@@ -42,11 +83,22 @@ providers:
 
 # Spend a saved rate-limit reset automatically once an account has been blocked for an
 # hour (`minBlockedMinutes`, default 60), so unattended overnight runs don't stall, and
-# saved resets don't expire unused. Quoted: bare `yes` is a YAML 1.1 boolean.
+# saved resets don't expire unused. Fable has its own key: `plan` and `slow` run on it.
+# Quoted: bare `yes` is a YAML 1.1 boolean.
 codexResets:
-  autoRedeem: "yes"
+  autoRedeem5h: "yes"
+  autoRedeemWeekly: "yes"
 claudeResets:
-  autoRedeem: "yes"
+  autoRedeem5h: "yes"
+  autoRedeemWeekly: "yes"
+  autoRedeemFable: "yes"
+
+# Reviews come from another model family than the Opus author: GPT-6.1 Sol shares fewer
+# of its blind spots and bills to the ChatGPT quota. Fable takes over once that quota
+# runs out. worker.yml keeps its own chain for unattended workers.
+task:
+  agentModelOverrides:
+    reviewer: "openai-codex/gpt-6.1-sol:xhigh, anthropic/claude-fable-5-2:xhigh"
 
 modelRoles:
   # Opus 5.5: newer and cheaper than Opus 5 ($4/$20 vs $5/$25 per MTok).
@@ -66,10 +118,10 @@ modelRoles:
   # shares its blind spots — and its quota bucket — with the default role.
   # Fable 5.2 is the higher-tier line (2.5x Opus 5.5 list price) and bills
   # to the separate weekly Fable cap, so escalating never starves the main
-  # loop. Also backs the bundled `reviewer` agent (`model: @slow`).
+  # loop. The bundled `reviewer` agent (`model: @slow`) is overridden above.
   # xhigh, not max: Anthropic positions max for open-ended science and math,
   # at many more tokens than xhigh. At xhigh Fable 5.2 may start subagents to
-  # review its own work; drop to high if reviews drain the Fable cap.
+  # review its own work; drop to high if that drains the Fable cap.
   # Mythos 5.2 is limited to organizations in Anthropic's verification
   # programs, so not an option here.
   slow: anthropic/claude-fable-5-2:xhigh
