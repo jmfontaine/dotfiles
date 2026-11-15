@@ -3,6 +3,9 @@
 - When I ask a question or for recommendations, answer and stop. Build only after I
   approve. The agent review inside a pull request delivery is not such a request: fix
   its findings as the `github-workflow` skill describes, without asking.
+  - When I like a proposal except for one part, that is feedback, not approval.
+    Propose a revision of that part and wait for an explicit go-ahead before you
+    change or commit anything.
 - When you present options, say which one you recommend and why.
 - I often step away while you work, even in interactive sessions. Get what you need
   from me in batches so I can do other things in between:
