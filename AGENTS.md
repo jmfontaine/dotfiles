@@ -98,14 +98,14 @@ Markdown, shellcheck). Recipes live in the `justfile`:
 - `prek` stashes unstaged changes while the hooks run. If a commit is interrupted,
   check `git stash list` and `git status` before retrying.
 
-## Shared workflow
+## Shared Workflow
 
 This repository follows the shared workflow: the `github-workflow` skill's repository
 setup describes its GitHub settings, rulesets, labels and templates. Those settings are
 managed as code outside this repository; change them there, never with `gh api` or the
 GitHub web UI.
 
-### Deviations from the shared workflow
+### Deviations From the Shared Workflow
 
 - **Commits go straight to `main`,** without branches or pull requests: this repository
   is a backup and history of changes, not a collaborative project. Open a pull request
